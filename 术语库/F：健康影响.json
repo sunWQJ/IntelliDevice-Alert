@@ -1,0 +1,704 @@
+[
+    {
+        "code": "F01",
+        "term": "治疗反应变化",
+        "definition": "对疾病或病症的治疗或治愈反应的变化。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F01"
+    },
+    {
+        "code": "F0101",
+        "term": "治疗反应降低",
+        "definition": "由于医疗治疗导致的有益效果减少。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F01|F0101"
+    },
+    {
+        "code": "F0102",
+        "term": "治疗反应增强",
+        "definition": "由于医疗治疗导致的有益效果增加。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F01|F0102"
+    },
+    {
+        "code": "F0103",
+        "term": "意外的治疗效果",
+        "definition": "由于医疗治疗导致的未预料到的有益效果。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F01|F0103"
+    },
+    {
+        "code": "F02",
+        "term": "死亡",
+        "definition": "生命的终止。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F02"
+    },
+    {
+        "code": "F0201",
+        "term": "宫内胎儿死亡",
+        "definition": "在子宫内死亡；妊娠产物未能显示呼吸、心跳或明确的自主肌肉运动迹象后从子宫排出，且无法复苏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F02|F0201"
+    },
+    {
+        "code": "F03",
+        "term": "脑死亡",
+        "definition": "由于永久性脑功能丧失和脑干功能缺失（对外界刺激无反应、反射消失、无呼吸）而导致的生命终止。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F03"
+    },
+    {
+        "code": "F04",
+        "term": "诊断延迟",
+        "definition": "由于设备性能导致患者诊断被临床显著延迟。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F04"
+    },
+    {
+        "code": "F05",
+        "term": "治疗/疗法延迟",
+        "definition": "由于设备性能导致患者治疗被延迟。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F05"
+    },
+    {
+        "code": "F06",
+        "term": "后续医疗程序受阻",
+        "definition": "使用设备阻碍或影响了后续的医疗程序或药物/设备的使用。设备是否损坏或发生故障并不重要，也不考虑使用设备与医疗程序之间的时间间隔。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F06"
+    },
+    {
+        "code": "F07",
+        "term": "现有病情恶化",
+        "definition": "设备的使用导致现有疾病或病症加重。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F07"
+    },
+    {
+        "code": "F08",
+        "term": "住院或延长住院",
+        "definition": "由于设备使用伴随的健康损害导致住院或延长住院。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F08"
+    },
+    {
+        "code": "F0801",
+        "term": "重症监护",
+        "definition": "患者需要入院或延长在重症监护病房的停留时间。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F08|F0801"
+    },
+    {
+        "code": "F0802",
+        "term": "紧急转院",
+        "definition": "由于需要更高水平的护理，患者需要紧急转移到不同设施。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "术语添加于2025年版本号。见变更请求日志第28条。",
+        "codehierarchy": "F08|F0802"
+    },
+    {
+        "code": "F09",
+        "term": "胎儿伤害",
+        "definition": "胎儿窘迫、先天性身体或精神损伤或出生缺陷，不包括胎儿死亡。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F09"
+    },
+    {
+        "code": "F10",
+        "term": "不适当/不恰当的治疗或诊断暴露",
+        "definition": "患者没有接受设备应有的治疗，或者由于设备性能导致接受了不适当的治疗。这包括在手术过程中不适当的电刺激或辐射剂量。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义修改于2025年版本号。见变更请求日志第19条。",
+        "codehierarchy": "F10"
+    },
+    {
+        "code": "F1001",
+        "term": "缺乏治疗",
+        "definition": "由于设备性能导致患者治疗缺失。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1001"
+    },
+    {
+        "code": "F1002",
+        "term": "不兼容的血液输注",
+        "definition": "接收错误或不相容的全血或血液成分。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1002"
+    },
+    {
+        "code": "F1003",
+        "term": "漏服剂量",
+        "definition": "药物未在规定的时间间隔内服用或递送。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1003"
+    },
+    {
+        "code": "F1004",
+        "term": "剂量不足",
+        "definition": "摄入或接触的物质剂量不足。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1004"
+    },
+    {
+        "code": "F100401",
+        "term": "辐射剂量不足",
+        "definition": "单次照射的辐射剂量低于预期。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1004|F100401"
+    },
+    {
+        "code": "F1005",
+        "term": "过量",
+        "definition": "摄入或接触的物质剂量过多。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1005"
+    },
+    {
+        "code": "F100501",
+        "term": "辐射过量",
+        "definition": "单次照射的辐射剂量高于预期。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F10|F1005|F100501"
+    },
+    {
+        "code": "F1006",
+        "term": "治疗不足/疾病进展",
+        "definition": "由于治疗不足导致疾病的恶化。",
+        "non-IMDRF code": "",
+        "status": "已退役",
+        "status description": "此术语于2022年1月27日添加。详情见变更日志第191条（2022年版）。此术语在2025年版本中退役。建议使用F1010“治疗不足”或F30“疾病进展”。见变更请求日志第63条。",
+        "codehierarchy": "F10|F1006"
+    },
+    {
+        "code": "F1007",
+        "term": "接触污染设备/感染风险",
+        "definition": "接触非无菌设备或感染可能性高的条件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "此术语于2022年1月27日添加。详情见变更日志第214条（2022年版）。",
+        "codehierarchy": "F10|F1007"
+    },
+    {
+        "code": "F1008",
+        "term": "意外暴露于物质",
+        "definition": "患者和/或医护人员无意中暴露于药物或其他物质。这可以包括皮肤、黏膜和呼吸道等所有暴露途径。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "此术语添加于2024年版本号。见变更日志第25条。2025年版本号格式调整。见变更请求日志第21条。",
+        "codehierarchy": "F10|F1008"
+    },
+    {
+        "code": "F1009",
+        "term": "不适当治疗",
+        "definition": "患者接受了不必要的或过度的治疗。这包括基于假阳性诊断后的治疗和过度的刺激或电击。对于药物或辐射过量，请使用F1005或子术语。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "此术语添加于2025年版本号。见变更请求日志第20条。",
+        "codehierarchy": "F10|F1009"
+    },
+    {
+        "code": "F1010",
+        "term": "治疗不足",
+        "definition": "患者接受了不足或不够充分的适当类型治疗。这包括刺激或电击不足。对于不适当治疗，请使用F1009。对于药物或辐射剂量不足，请使用F1004或子术语。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "此术语添加于2025年版本号。见变更请求日志第63条。",
+        "codehierarchy": "F10|F1010"
+    },
+    {
+        "code": "F11",
+        "term": "非严重伤害/疾病/损伤",
+        "definition": "一种可以通过轻微干预或无需干预即可治疗的非严重伤害、疾病或损伤，包括仅需监测的情况。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义于2023年1月31日修改（旧定义：一种轻度伤害、疾病或损伤，可以通过轻微干预或无需干预即可治疗）。详见变更日志第143条（2023年版）。术语和定义在2025年版本中修改。原术语为“轻微伤害/疾病/损伤”。见变更请求日志第79条。",
+        "codehierarchy": "F11"
+    },
+    {
+        "code": "F12",
+        "term": "严重伤害/疾病/损伤",
+        "definition": "需要住院或医疗干预的严重伤害、疾病或损伤。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12"
+    },
+    {
+        "code": "F1201",
+        "term": "慢性疾病",
+        "definition": "持续时间长，不能通过疫苗预防或药物治愈，也不会自行消失的疾病。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12|F1201"
+    },
+    {
+        "code": "F1202",
+        "term": "残疾",
+        "definition": "任何影响个体完成期望活动能力的物理或心理损伤。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12|F1202"
+    },
+    {
+        "code": "F1203",
+        "term": "危及生命的疾病或伤害",
+        "definition": "患者遭受了一种如果未得到治疗就会致命的疾病或伤害。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12|F1203"
+    },
+    {
+        "code": "F1204",
+        "term": "永久性损伤",
+        "definition": "不可逆的健康状态恶化。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12|F1204"
+    },
+    {
+        "code": "F1205",
+        "term": "暂时性损伤",
+        "definition": "可逆的健康状态恶化。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F12|F1205"
+    },
+    {
+        "code": "F13",
+        "term": "误诊/误分类",
+        "definition": "对疾病或其他问题的错误诊断或分类。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F13"
+    },
+    {
+        "code": "F14",
+        "term": "护理期延长",
+        "definition": "临床上重要的治疗时间或手术时间延长。不得用于延长住院或手术。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2021年2月16日编辑性更改定义。",
+        "codehierarchy": "F14"
+    },
+    {
+        "code": "F15",
+        "term": "已知设备或程序并发症",
+        "definition": "患者经历的并发症与该设备或程序密切相关且已充分记录。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F15"
+    },
+    {
+        "code": "F16",
+        "term": "预期寿命减少",
+        "definition": "个人寿命/预期寿命的减少。平均寿命的正常持续时间或平均寿命的下降。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F16"
+    },
+    {
+        "code": "F17",
+        "term": "镇静",
+        "definition": "患者需要镇静或额外的镇静。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F17"
+    },
+    {
+        "code": "F18",
+        "term": "康复",
+        "definition": "患者需要治疗以促进从受伤、疾病或病症中恢复的过程。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F18"
+    },
+    {
+        "code": "F19",
+        "term": "外科手术干预",
+        "definition": "需要一个或多个外科手术，包括经皮或微创手术，或者现有的手术计划发生了改变。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2023年1月31日定义修改（旧定义：需要一个或多个外科手术，或者现有的手术计划发生了改变）。详见变更日志第135/137/138/139/140/141条（2023年版）。",
+        "codehierarchy": "F19"
+    },
+    {
+        "code": "F1901",
+        "term": "额外手术",
+        "definition": "计划外且需要额外进行的外科手术干预。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1901"
+    },
+    {
+        "code": "F1902",
+        "term": "截肢",
+        "definition": "患者需要进行肢体、四肢或其他外部身体部位的外科切除。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1902"
+    },
+    {
+        "code": "F1903",
+        "term": "设备取出",
+        "definition": "患者需要进行矫正性侵入性手术以移除设备或设备的部件/碎片。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1903"
+    },
+    {
+        "code": "F1904",
+        "term": "设备重新定位",
+        "definition": "患者需要进行矫正性侵入性手术以重新定位设备。这包括植入式、外科侵入性（穿透体表）或侵入性（穿透自然体腔或永久人工开口，如造口）设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1904"
+    },
+    {
+        "code": "F1905",
+        "term": "设备修订或更换",
+        "definition": "患者需要进行矫正性侵入性手术以替换/修订设备。这包括植入式、外科侵入性（穿透体表）或侵入性（穿透自然体腔或永久人工开口，如造口）设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1905"
+    },
+    {
+        "code": "F1906",
+        "term": "修改的手术程序",
+        "definition": "手术程序从原计划中的变更。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1906"
+    },
+    {
+        "code": "F1907",
+        "term": "更复杂的手术",
+        "definition": "比计划更复杂、更全面或更广泛的手术（例如，经皮到开放式手术）。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2023年1月31日定义修改（旧定义：患者需要额外或意外的内镜手术）。详见变更日志第139条（2023年版）。",
+        "codehierarchy": "F19|F1907"
+    },
+    {
+        "code": "F1908",
+        "term": "延长手术",
+        "definition": "手术时间比预期的要长。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2025年版本号格式调整。见变更请求日志第21条。",
+        "codehierarchy": "F19|F1908"
+    },
+    {
+        "code": "F1909",
+        "term": "手术程序延迟",
+        "definition": "原计划安排的手术无法完成并推迟到未来某个时间进行。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F19|F1909"
+    },
+    {
+        "code": "F1910",
+        "term": "取消/终止的手术程序",
+        "definition": "手术程序中断或无法完成。\n适用于已知该程序不会继续进行，或者不知道是否会在以后进行的情况。如果知道程序将在以后进行，则使用F1909 - 手术程序延迟。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语添加于2024年发布编号2024，参见变更日志第110条。2025年发布编号2025对术语格式进行了修改，参见变更请求日志第21条。",
+        "codehierarchy": "F19|F1910"
+    },
+    {
+        "code": "F20",
+        "term": "严重的公共卫生威胁",
+        "definition": "任何可能导致多人死亡、严重伤害或严重疾病的事件类型，需要立即采取补救措施。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F20"
+    },
+    {
+        "code": "F21",
+        "term": "意外恶化",
+        "definition": "患者的临床状况意外恶化。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F21"
+    },
+    {
+        "code": "F22",
+        "term": "意外的诊断干预",
+        "definition": "需要完成的诊断程序未在原计划中。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F22"
+    },
+    {
+        "code": "F2201",
+        "term": "活检",
+        "definition": "患者需要移除组织或体液样本以建立诊断。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F22|F2201"
+    },
+    {
+        "code": "F2202",
+        "term": "内镜诊断程序",
+        "definition": "患者需要额外或意外的内镜诊断程序。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "定义于2023年1月31日进行了修改（旧定义：患者需要额外或意外的内镜程序）。详情参见变更日志（2023年发布编号2023）第137条。",
+        "codehierarchy": "F22|F2202"
+    },
+    {
+        "code": "F2203",
+        "term": "影像需求",
+        "definition": "需要的影像检查未在原计划中。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F22|F2203"
+    },
+    {
+        "code": "F2204",
+        "term": "IVD检测",
+        "definition": "患者需要额外或意外的IVD检测。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2021年2月16日对定义进行了编辑性修改。",
+        "codehierarchy": "F22|F2204"
+    },
+    {
+        "code": "F23",
+        "term": "意外的医疗干预",
+        "definition": "患者需要一个未在原始治疗计划中的意外医疗干预，不包括手术。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F23"
+    },
+    {
+        "code": "F2301",
+        "term": "额外设备需要",
+        "definition": "使用额外或替代设备以实现最佳结果。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F23|F2301"
+    },
+    {
+        "code": "F2302",
+        "term": "输血",
+        "definition": "患者需要全血或血液成分直接输注到血液中。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F23|F2302"
+    },
+    {
+        "code": "F2303",
+        "term": "药物需求",
+        "definition": "患者需要新药物或额外剂量的现有药物。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2025年发布编号2025对定义进行了修改，参见变更请求日志第99条。",
+        "codehierarchy": "F23|F2303"
+    },
+    {
+        "code": "F2304",
+        "term": "预防性治疗",
+        "definition": "用于防止可能发生的疾病或条件发生的一种药物或治疗方案。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F23|F2304"
+    },
+    {
+        "code": "F2305",
+        "term": "放射治疗",
+        "definition": "患者需要额外的放射治疗。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2021年2月16日对定义进行了编辑性修改。",
+        "codehierarchy": "F23|F2305"
+    },
+    {
+        "code": "F2306",
+        "term": "复苏",
+        "definition": "患者需要复苏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "F23|F2306"
+    },
+    {
+        "code": "F2307",
+        "term": "设备重新编程",
+        "definition": "患者需要对植入式或其他可编程设备进行编程更改。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2023年1月31日新增术语。详情参见变更日志（2023年发布编号2023）第133条。",
+        "codehierarchy": "F23|F2307"
+    },
+    {
+        "code": "F2308",
+        "term": "麻醉下的医疗治疗",
+        "definition": "患者需要非手术的麻醉下治疗。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2024年新增术语，参见变更日志第111条。",
+        "codehierarchy": "F23|F2308"
+    },
+    {
+        "code": "F2309",
+        "term": "通气",
+        "definition": "患者需要通气或现有的显著延长的通气。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "2025年新增术语，参见变更请求日志第27条。",
+        "codehierarchy": "F23|F2309"
+    },
+    {
+        "code": "F24",
+        "term": "健康影响信息不足",
+        "definition": "不清楚是否发生了任何健康影响，或者似乎发生了健康影响，但没有足够的信息来分类健康影响。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2023年1月31日定义进行了修改（旧定义：还没有足够的信息来分类健康影响）。详情参见变更日志（2023年发布编号2023）第102条。2025年术语和定义进行了修改。之前的术语为“信息不足”。参见变更请求日志第122条。",
+        "codehierarchy": "F24"
+    },
+    {
+        "code": "F25",
+        "term": "未预见的不良器械效应",
+        "definition": "由于器械性能导致患者出现之前未被识别或预期的并发症。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2021年2月16日对定义进行了编辑性修改。",
+        "codehierarchy": "F25"
+    },
+    {
+        "code": "F26",
+        "term": "无健康后果或影响",
+        "definition": "与不良事件相关的危害未显现。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2021年2月16日对定义进行了编辑性修改。",
+        "codehierarchy": "F26"
+    },
+    {
+        "code": "F2601",
+        "term": "在临床使用/暴露前发现问题",
+        "definition": "不良事件发生在临床程序期间或立即之前，但问题被识别并纠正，而未造成危害。\n例如：1. IVD给出了错误读数，但在做出治疗决定之前被识别为错误，并且没有对诊断造成临床上重要的延误；\n例如：2. 手术设备在预使用检查中发生故障，故障被纠正或有备用设备可用，并且没有对程序造成临床上重要的延误。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2024年新增术语，参见变更日志第120条。",
+        "codehierarchy": "F26|F2601"
+    },
+    {
+        "code": "F27",
+        "term": "在非临床程序期间发现问题",
+        "definition": "不良事件发生在设备在非临床环境或程序中使用时，不可能对患者产生影响。\n例如：1. IVD在测试外部质量评估（EQA）样本时给出错误读数；\n例如：2. 手术设备在清洁和/或维护过程中发生故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2024年术语和定义进行了修改。之前的术语为“无患者参与”。参见变更日志第121条。",
+        "codehierarchy": "F27"
+    },
+    {
+        "code": "F28",
+        "term": "适当的健康影响术语/代码不可用",
+        "definition": "健康影响不能通过其他术语充分描述。注意：除非没有其他可行代码，否则不得使用此代码。提交不良事件报告时应记录首选术语。此信息将用于确定是否应向代码表中添加新术语。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "2025年术语和定义进行了修改。之前的术语为“适当的术语/代码不可用”。参见变更请求日志第111条。",
+        "codehierarchy": "F28"
+    },
+    {
+        "code": "F29",
+        "term": "与报告的不良事件无关的死亡",
+        "definition": "已经发生死亡，但确认该事件并未导致死亡。如果可以将不良事件与其它可识别的健康影响联系起来，也可以选择其他术语。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2024年新增术语，参见变更日志第119条。",
+        "codehierarchy": "F29"
+    },
+    {
+        "code": "F30",
+        "term": "疾病进展",
+        "definition": "与器械性能相关的疾病随时间恶化。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "2025年新增术语，参见变更请求日志第63条。",
+        "codehierarchy": "F30"
+    },
+    {
+        "code": "F31",
+        "term": "取消/终止的治疗/疗法",
+        "definition": "患者治疗中断或无法完成。适用于不知道治疗是否会在以后进行，或知道治疗不会继续进行的情况。如果知道治疗已经或将要继续进行，则使用F05 - 治疗/疗法延迟。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "2025年新增术语，参见变更请求日志第84条。",
+        "codehierarchy": "F31"
+    }
+]

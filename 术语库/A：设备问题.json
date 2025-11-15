@@ -1,0 +1,4238 @@
+[
+    {
+        "code": "A01",
+        "term": "患者设备交互问题",
+        "definition": "与患者和设备之间的交互相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01"
+    },
+    {
+        "code": "A0101",
+        "term": "患者-设备不兼容",
+        "definition": "与患者生理或解剖学与设备之间的交互相关的故障问题，影响患者和/或设备。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A01|A0101"
+    },
+    {
+        "code": "A010101",
+        "term": "生物相容性问题",
+        "definition": "由于患者暴露于医疗器械材料或这些材料的浸出物而引起的不良局部或全身效应的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0101|A010101"
+    },
+    {
+        "code": "A010102",
+        "term": "设备似乎引发排斥反应",
+        "definition": "设备似乎在没有设备固有故障的情况下引发患者的不良反应，例如纤维包膜、周围组织发炎或设备脱出。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A01|A0101|A010102"
+    },
+    {
+        "code": "A010103",
+        "term": "设备形状和/或尺寸不足",
+        "definition": "设备的物理尺寸和/或形状对患者的解剖结构来说不合适。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0101|A010103"
+    },
+    {
+        "code": "A0102",
+        "term": "骨整合问题",
+        "definition": "与植入设备与骨组织之间相互连接相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0102"
+    },
+    {
+        "code": "A010201",
+        "term": "骨整合失败",
+        "definition": "问题与未能看到通过植入物周围的骨组织形成而形成的直接锚定有关，而不是纤维组织生长在骨-植入物界面。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0102|A010201"
+    },
+    {
+        "code": "A010202",
+        "term": "骨整合丧失",
+        "definition": "问题与骨-植入物界面处的纤维和/或骨组织减少导致设备锚定减弱有关，即松动/溶解。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0102|A010202"
+    },
+    {
+        "code": "A0103",
+        "term": "非骨生长相关植入物松动",
+        "definition": "问题与植入设备随着时间推移或因损伤而失去直接锚定有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A01|A0103"
+    },
+    {
+        "code": "A0104",
+        "term": "设备移位或排出体外",
+        "definition": "植入或侵入性设备在体内移动或完全从体内排出的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0104"
+    },
+    {
+        "code": "A010401",
+        "term": "排出",
+        "definition": "问题与全部或部分植入或侵入性设备从其预定位置完全排出体外有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0104|A010401"
+    },
+    {
+        "code": "A010402",
+        "term": "移位",
+        "definition": "问题与全部或部分植入或侵入性设备从其预定位置在体内移动有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A01|A0104|A010402"
+    },
+    {
+        "code": "A0105",
+        "term": "效果不佳",
+        "definition": "产品效果不如预期的问题。没有其他故障可以识别。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2022年1月27日添加。详情见变更记录（第2022版）中的第23条注释。",
+        "codehierarchy": "A01|A0105"
+    },
+    {
+        "code": "A0106",
+        "term": "设备狭窄",
+        "definition": "与设备（如人工心脏瓣膜、支架等）的狭窄或阻塞相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2022年1月27日添加。详情见变更记录（第2022版）中的第148、176条注释。",
+        "codehierarchy": "A01|A0106"
+    },
+    {
+        "code": "A0107",
+        "term": "植入物下沉",
+        "definition": "与相邻骨组织在加载力方向上的沉降或塌陷相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2024年版本中添加。详见变更记录第44条。",
+        "codehierarchy": "A01|A0107"
+    },
+    {
+        "code": "A02",
+        "term": "制造、包装或运输问题",
+        "definition": "与设备性能偏离预期相关的任何问题，这些问题似乎与制造、包装或运输过程有关。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义于2025年版本中修改。详见变更请求记录第42条。",
+        "codehierarchy": "A02"
+    },
+    {
+        "code": "A0201",
+        "term": "产品质量问题",
+        "definition": "与设备规格或交付不符的固有特性问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A02|A0201"
+    },
+    {
+        "code": "A020101",
+        "term": "钝化",
+        "definition": "问题与设备不够锋利有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A02|A0201|A020101"
+    },
+    {
+        "code": "A020102",
+        "term": "非标准设备",
+        "definition": "问题与不符合制造规格或要求的设备有关（例如材料、部件、制造工艺）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A02|A0201|A020102"
+    },
+    {
+        "code": "A0202",
+        "term": "缺陷组件",
+        "definition": "问题与超出可接受范围的尺寸偏差的设备组件有关。",
+        "non-IMDRF code": "",
+        "status": "已退役",
+        "status description": "该术语自2025年版本起退役。使用A020102 - 非标准设备或其他描述设备具体缺陷的代码。详见变更请求记录第1条。",
+        "codehierarchy": "A02|A0202"
+    },
+    {
+        "code": "A0203",
+        "term": "缺陷设备",
+        "definition": "问题与超出可接受范围的尺寸偏差的设备有关。",
+        "non-IMDRF code": "",
+        "status": "已退役",
+        "status description": "该术语自2025年版本起退役。使用A020102 - 非标准设备或其他描述设备具体缺陷的代码。详见变更请求记录第1条。",
+        "codehierarchy": "A02|A0203"
+    },
+    {
+        "code": "A0204",
+        "term": "设备在使用前受损",
+        "definition": "问题与包装或运输过程中设备在使用前受损有关。",
+        "non-IMDRF code": "",
+        "status": "已退役",
+        "status description": "该术语自2025年版本起退役。使用A0207 - 设备在用户收到前受损。详见变更请求记录第106条。",
+        "codehierarchy": "A02|A0204"
+    },
+    {
+        "code": "A0205",
+        "term": "包装问题",
+        "definition": "问题与用于构造设备外壳或外包装的材料有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A02|A0205"
+    },
+    {
+        "code": "A020501",
+        "term": "难以打开或移除包装材料",
+        "definition": "问题与用户操作设备时难以打开或移除外部包装有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0205|A020501"
+    },
+    {
+        "code": "A020502",
+        "term": "包装不完整或缺失",
+        "definition": "问题与设备规格不符，由于包装不完整或缺失可能影响设备按预期运行。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0205|A020502"
+    },
+    {
+        "code": "A020503",
+        "term": "设备包装未密封",
+        "definition": "问题与包装密封丢失有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A02|A0205|A020503"
+    },
+    {
+        "code": "A020504",
+        "term": "设备包装撕裂、破损或有孔",
+        "definition": "问题与设备使用前包装出现撕裂、破损或孔洞有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0205|A020504"
+    },
+    {
+        "code": "A020505",
+        "term": "设备包装外观相似",
+        "definition": "问题与医疗设备包装外观类似，导致混淆。另一种产品可能是另一种设备或不同的产品，如药品或清洁剂。使用A210107表示设备标签外观相似。",
+        "non-IMDRF code": "",
+        "status description": "该术语于2024年版本中添加。详见变更记录第116条。",
+        "codehierarchy": "A02|A0205|A020505"
+    },
+    {
+        "code": "A0206",
+        "term": "设备在制造/运输期间错误组装",
+        "definition": "在交付到用户设施时发现设备错误组装的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0206"
+    },
+    {
+        "code": "A020601",
+        "term": "组件错误组装",
+        "definition": "在交付到用户设施时发现设备的一个或多个组件错误组装的问题。包括组件被替换的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "定义于2022年1月27日修改（旧定义：组件错误组装：在交付到用户设施时发现设备的一个或多个组件错误组装。详见变更记录（第2022版）第1条注释。",
+        "codehierarchy": "A02|A0206|A020601"
+    },
+    {
+        "code": "A020602",
+        "term": "组件缺失",
+        "definition": "在交付到用户设施时发现设备缺少一个或多个组件的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0206|A020602"
+    },
+    {
+        "code": "A020603",
+        "term": "额外组件",
+        "definition": "超过通常数量的组件存在/来自这个或其它设备的额外组件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2022年1月27日添加。详见变更记录（第2022版）第222条注释。",
+        "codehierarchy": "A02|A0206|A020603"
+    },
+    {
+        "code": "A0207",
+        "term": "设备在用户收到前受损",
+        "definition": "问题与包装或运输过程中设备在用户收到前受损有关。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义于2025年版本中修改。之前术语为运输损坏或问题。详见变更请求记录第106条。",
+        "codehierarchy": "A02|A0207"
+    },
+    {
+        "code": "A020701",
+        "term": "以无菌产品形式交付",
+        "definition": "问题与设备以显示其无菌性已被破坏的形式交付有关（例如无菌包装破损、可见污染存在）。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A02|A0207|A020701"
+    },
+    {
+        "code": "A03",
+        "term": "化学问题",
+        "definition": "与设备文档规格中涉及的任何化学特性（元素、化合物或混合物）相关的任何偏离问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03"
+    },
+    {
+        "code": "A0301",
+        "term": "设备散发异味",
+        "definition": "问题与设备释放出的意外或不适当气味有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0301"
+    },
+    {
+        "code": "A0302",
+        "term": "设备成分或试剂问题",
+        "definition": "问题与设备文档规格中任何成分或试剂特性的偏离有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302"
+    },
+    {
+        "code": "A030201",
+        "term": "设备或设备成分结块",
+        "definition": "问题与颗粒聚集成不规则团块有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030201"
+    },
+    {
+        "code": "A030202",
+        "term": "设备或设备成分凝结",
+        "definition": "问题与不希望发生的凝固、硬化、增厚或凝乳有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030202"
+    },
+    {
+        "code": "A030203",
+        "term": "设备或设备成分沉淀",
+        "definition": "问题与液体中因化学或物理变化而分离出固体颗粒有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030203"
+    },
+    {
+        "code": "A030204",
+        "term": "交叉反应性",
+        "definition": "问题与抗体或抗原参与交叉反应的程度有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030204"
+    },
+    {
+        "code": "A030205",
+        "term": "微粒",
+        "definition": "在使用过程中由设备引入的由单独颗粒组成的物质。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030205"
+    },
+    {
+        "code": "A030206",
+        "term": "高pH值",
+        "definition": "高于预期和/或预期的pH值。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030206"
+    },
+    {
+        "code": "A030207",
+        "term": "低pH值",
+        "definition": "低于预期和/或预期的pH值。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A03|A0302|A030207"
+    },
+    {
+        "code": "A030208",
+        "term": "意外的颜色",
+        "definition": "产品的颜色与预期的不同。",
+        "non-IMDRF code": "",
+        "status description": "该术语于2020年3月18日作为设备成分或试剂问题下的附加三级术语添加。",
+        "codehierarchy": "A03|A0302|A030208"
+    },
+    {
+        "code": "A0303",
+        "term": "不当化学反应",
+        "definition": "问题与意外或不完整的化学反应或效应有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A03|A0303"
+    },
+    {
+        "code": "A04",
+        "term": "材料完整性问题",
+        "definition": "问题与文档中设备规格的任何偏离有关，涉及用于构建设备的所有材料的有限耐久性。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04"
+    },
+    {
+        "code": "A0401",
+        "term": "断裂",
+        "definition": "问题与设备构成材料的意外损坏或破裂有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0401"
+    },
+    {
+        "code": "A040101",
+        "term": "裂缝",
+        "definition": "问题与设备材料的部分或全厚度裂纹有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0401|A040101"
+    },
+    {
+        "code": "A040102",
+        "term": "粘合失效或未粘合",
+        "definition": "问题与意图结合在一起的材料（如粘合剂、热焊接等）缺乏或失去粘附力有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "定义于2024年版本中修改。详见变更记录第26条。",
+        "codehierarchy": "A04|A0401|A040102"
+    },
+    {
+        "code": "A040103",
+        "term": "材料碎片化",
+        "definition": "问题与设备材料的小块意外脱落有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0401|A040103"
+    },
+    {
+        "code": "A040104",
+        "term": "焊点断裂",
+        "definition": "问题与设备构成材料的焊点的意外损坏或破裂有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0401|A040104"
+    },
+    {
+        "code": "A0402",
+        "term": "容器或容器爆裂",
+        "definition": "问题与容器或容器内的压力上升到足以使容器破裂的程度有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0402"
+    },
+    {
+        "code": "A0403",
+        "term": "爆炸",
+        "definition": "问题与空气、气体或流体的突然膨胀引起的剧烈爆裂有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0403"
+    },
+    {
+        "code": "A0404",
+        "term": "裂缝",
+        "definition": "问题与设备构成材料中沿长度或宽度的意外部分分离和/或可见开口有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0404"
+    },
+    {
+        "code": "A0405",
+        "term": "劣化",
+        "definition": "问题与设备构成材料的化学结构、物理性质或外观的意外变化有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405"
+    },
+    {
+        "code": "A040501",
+        "term": "钙化",
+        "definition": "问题与设备上钙盐堆积有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040501"
+    },
+    {
+        "code": "A040502",
+        "term": "腐蚀",
+        "definition": "问题与材料（通常是金属）与其环境之间的化学或电化学反应有关，这种反应导致材料及其性能的恶化。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040502"
+    },
+    {
+        "code": "A040503",
+        "term": "材料侵蚀",
+        "definition": "问题与固体表面的逐步损失有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040503"
+    },
+    {
+        "code": "A040504",
+        "term": "点蚀",
+        "definition": "问题与材料表面的局限性腐蚀有关，表现为小孔状凹坑。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040504"
+    },
+    {
+        "code": "A040505",
+        "term": "剥落",
+        "definition": "问题与材料涂层薄膜的分离有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040505"
+    },
+    {
+        "code": "A040506",
+        "term": "分层/剥离",
+        "definition": "复合材料（包括涂层）的分层/剥离，当层因应力或冲击而分离时发生，导致机械韧性丧失。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040506"
+    },
+    {
+        "code": "A040507",
+        "term": "自然磨损",
+        "definition": "问题与表面材料因相对运动而造成的意外损耗或位移有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040507"
+    },
+    {
+        "code": "A040508",
+        "term": "材料松散",
+        "definition": "问题与材料（例如解体、松开等）的意外松散有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0405|A040508"
+    },
+    {
+        "code": "A0406",
+        "term": "材料变形",
+        "definition": "问题与外部力量引起的材料形状或性质的意外变化有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406"
+    },
+    {
+        "code": "A040601",
+        "term": "压缩应力引起的变形",
+        "definition": "问题与观察到的设备材料的意外隆起、弯曲、弓形、扭曲或波浪状条件有关，这是由压缩应力引起的。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040601"
+    },
+    {
+        "code": "A040602",
+        "term": "材料凹陷",
+        "definition": "问题与设备表面的轻微凹陷有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040602"
+    },
+    {
+        "code": "A040603",
+        "term": "无法折叠",
+        "definition": "问题与材料的物理属性的意外变化有关，表现为无法折叠。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040603"
+    },
+    {
+        "code": "A040604",
+        "term": "无法展开或展开",
+        "definition": "问题与材料变形有关，设备无法按照某种方式展开其包裹或打开/展开（例如气球或透镜）。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040604"
+    },
+    {
+        "code": "A040605",
+        "term": "材料磨损",
+        "definition": "问题与材料边缘的损坏有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040605"
+    },
+    {
+        "code": "A040606",
+        "term": "材料内陷",
+        "definition": "问题与材料形状的意外变化有关，表现为一个部分向另一个部分内陷。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040606"
+    },
+    {
+        "code": "A040607",
+        "term": "材料过于坚硬或刚硬",
+        "definition": "问题与设备材料的意外坚硬性有关（抵抗在外力作用下变形）。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义于2025年版本中修改。详见变更请求记录第44条。",
+        "codehierarchy": "A04|A0406|A040607"
+    },
+    {
+        "code": "A040608",
+        "term": "材料过于柔软/柔韧",
+        "definition": "问题与任何导致设备材料无法维持所需形状或支持功能的特性有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040608"
+    },
+    {
+        "code": "A040609",
+        "term": "材料扭曲/弯曲",
+        "definition": "问题与导致设备扭曲或弯曲的变形有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040609"
+    },
+    {
+        "code": "A040610",
+        "term": "熔化",
+        "definition": "问题与固体设备转变为熔融或液态状态有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040610"
+    },
+    {
+        "code": "A040611",
+        "term": "拉伸",
+        "definition": "问题与材料维度的增加或延伸有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0406|A040611"
+    },
+    {
+        "code": "A040612",
+        "term": "材料增厚",
+        "definition": "由于变形设备变厚。注意：不能用于液体增厚。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2020年3月18日作为材料变形的附加三级术语添加。",
+        "codehierarchy": "A04|A0406|A040612"
+    },
+    {
+        "code": "A0407",
+        "term": "材料变色",
+        "definition": "问题与材料中不希望出现的条纹、图案和/或与其余材料显著不同的颜色变化有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0407"
+    },
+    {
+        "code": "A0408",
+        "term": "材料分解",
+        "definition": "问题与材料破碎成小颗粒有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0408"
+    },
+    {
+        "code": "A0409",
+        "term": "材料混浊",
+        "definition": "问题与不希望出现的浑浊或不透明有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0409"
+    },
+    {
+        "code": "A0410",
+        "term": "材料穿孔",
+        "definition": "构成设备的材料被穿孔，可能损害设备的预期用途。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0410"
+    },
+    {
+        "code": "A041001",
+        "term": "材料刺穿/穿孔",
+        "definition": "设备材料被刺穿导致不希望出现的孔洞。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0410|A041001"
+    },
+    {
+        "code": "A0411",
+        "term": "材料突出/外翻",
+        "definition": "问题与设备材料不希望出现的物理表现有关，特别是当材料超出或高于设备表面时。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0411"
+    },
+    {
+        "code": "A0412",
+        "term": "材料破裂",
+        "definition": "问题与导致设备破裂的穿孔有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0412"
+    },
+    {
+        "code": "A0413",
+        "term": "材料分离",
+        "definition": "问题与设备的不希望出现的分离或断裂有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0413"
+    },
+    {
+        "code": "A0414",
+        "term": "材料分裂、切割或撕裂",
+        "definition": "问题与构成设备的材料因外部力量（如扭伤或割伤）或内部力量（如超过设备所用材料的抗张强度极限）而分裂、切割或撕裂有关。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A04|A0414"
+    },
+    {
+        "code": "A0415",
+        "term": "刮擦的材料",
+        "definition": "问题与设备材料表面上的浅划痕或窄沟槽有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A04|A0415"
+    },
+    {
+        "code": "A0416",
+        "term": "降解失败",
+        "definition": "材料未能以适当的方式降解、吸收、溶解等，当材料预期应该如此时发生的故障。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "该术语于2025年版本中添加。详见变更请求记录第87条。",
+        "codehierarchy": "A04|A0416"
+    },
+    {
+        "code": "A05",
+        "term": "机械问题",
+        "definition": "与机械动作或缺陷相关的故障问题，包括运动部件或子装配件等。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A05"
+    },
+    {
+        "code": "A0501",
+        "term": "设备或设备组件脱离",
+        "definition": "问题与设备从其物理构造、完整性或底盘分离有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0501"
+    },
+    {
+        "code": "A0502",
+        "term": "设备被其他设备损坏",
+        "definition": "与一个设备对另一个设备造成损害相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0502"
+    },
+    {
+        "code": "A0503",
+        "term": "弹射问题",
+        "definition": "与设备无法或意外弹射或从其物理位置排出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日编辑了定义。",
+        "codehierarchy": "A05|A0503"
+    },
+    {
+        "code": "A050301",
+        "term": "未能弹射",
+        "definition": "与设备无法从其物理位置弹射或排出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日编辑了定义。",
+        "codehierarchy": "A05|A0503|A050301"
+    },
+    {
+        "code": "A050302",
+        "term": "意外弹射",
+        "definition": "与设备意外从其物理位置弹射相关的问题。包括但不限于夹子施加器、胶片盒和钉书钉等装置。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日编辑了定义。",
+        "codehierarchy": "A05|A0503|A050302"
+    },
+    {
+        "code": "A0504",
+        "term": "泄漏/溅出",
+        "definition": "与液体（包括血液和体液）、气体或辐射从容器或容器中逸出或进入相关的问题。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "2022年1月27日定义进行了修改（旧定义：泄漏/溅出：与液体、气体或辐射从其容器中逸出相关的问题）。详情见变更日志（发布编号2022）第14条评论。2025年发布的版本定义也进行了修改。详见变更请求日志第2条。",
+        "codehierarchy": "A05|A0504"
+    },
+    {
+        "code": "A050401",
+        "term": "流体/血液泄漏",
+        "definition": "液体（包括血液或体液）通过非预期位置逸出；通常伴随压力和/或输出损失。这包括外部和内部流体泄漏。不包括粉剂泄漏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语/定义在2022年1月27日进行了修改（旧术语/定义：流体泄漏：液体通过非预期位置逸出，通常伴随压力和/或输出损失）。详情见变更日志（发布编号2022）第15、16、17、18条评论。",
+        "codehierarchy": "A05|A0504|A050401"
+    },
+    {
+        "code": "A050402",
+        "term": "气体/空气泄漏",
+        "definition": "与气体/空气意外从其容器中逸出相关的问题。这也包括外部和内部气体/空气泄漏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语/定义在2022年1月27日进行了修改（旧术语/定义：气体泄漏：与气体意外从其容器中逸出相关的问题）。详情见变更日志（发布编号2022）第19、20条评论。",
+        "codehierarchy": "A05|A0504|A050402"
+    },
+    {
+        "code": "A050403",
+        "term": "凝胶泄漏",
+        "definition": "凝胶通过非预期位置逸出——例如超声波凝胶泄漏。从容器结构中逸出或释放的凝胶，例如填充凝胶的植入物泄漏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0504|A050403"
+    },
+    {
+        "code": "A050404",
+        "term": "辐射泄漏",
+        "definition": "辐射（以波或次原子粒子形式的能量，特别是那些导致电离的辐射）通过容器结构逸出，导致意外暴露。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0504|A050404"
+    },
+    {
+        "code": "A050405",
+        "term": "瓣周漏",
+        "definition": "与血液绕过心脏瓣膜逸出相关的问题，特别是在瓣叶周围。也称为瓣旁漏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2023年1月31日定义进行了修改（旧定义：与血液绕过心脏瓣膜逸出相关的问题，特别是在其瓣叶周围）。详情见变更日志（发布编号2023）第7条评论。",
+        "codehierarchy": "A05|A0504|A050405"
+    },
+    {
+        "code": "A050406",
+        "term": "中央反流",
+        "definition": "与血液通过或跨瓣反流或逆流相关的问题。也称为跨瓣反流。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2022年1月27日添加了术语。详情见变更日志（发布编号2022）第147、175条评论。",
+        "codehierarchy": "A05|A0504|A050406"
+    },
+    {
+        "code": "A050407",
+        "term": "粉末泄漏",
+        "definition": "粉末（包括颗粒）通过非预期位置逸出，通常伴随压力和/或输出损失。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2022年1月27日添加了术语。详情见变更日志（发布编号2022）第21条评论。",
+        "codehierarchy": "A05|A0504|A050407"
+    },
+    {
+        "code": "A050408",
+        "term": "装置内漏",
+        "definition": "在血管内支架植入术（EVAR）后观察到的装置问题，表现为动脉瘤囊持续存在血流/压力。如果其他装置问题导致内漏，则应选择E2121作为E项并进行编码。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "2023年1月31日添加了术语。详情见变更日志（发布编号2023）第33条评论。2025年发布的版本中术语和定义进行了修改。之前的术语是内漏。详见变更请求日志第116条。",
+        "codehierarchy": "A05|A0504|A050408"
+    },
+    {
+        "code": "A050409",
+        "term": "未指定的瓣膜反流",
+        "definition": "与相对某一瓣膜的血液逸出或逆流相关的问题，但未具体说明或确认泄漏是跨瓣还是瓣旁。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2024年发布的版本中添加了术语。详见变更日志第46条。",
+        "codehierarchy": "A05|A0504|A050409"
+    },
+    {
+        "code": "A0505",
+        "term": "发射问题",
+        "definition": "与装置未能按预期发射相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0505"
+    },
+    {
+        "code": "A050501",
+        "term": "未能发射",
+        "definition": "与装置未能部分或完全部署其负载（如外科订书机未能完全或部分部署其订书钉）相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0505|A050501"
+    },
+    {
+        "code": "A050502",
+        "term": "误发射",
+        "definition": "与治疗或算法未能在预期时间交付或执行相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0505|A050502"
+    },
+    {
+        "code": "A0506",
+        "term": "机械卡住",
+        "definition": "装置的运动受到阻碍或限制。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0506"
+    },
+    {
+        "code": "A0507",
+        "term": "机械改变",
+        "definition": "与装置机械功能的改变或修改有关的问题，包括机器、移动部件或工具。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0507"
+    },
+    {
+        "code": "A050701",
+        "term": "未能对齐",
+        "definition": "与电路、设备或系统功能未能正确同步或相对位置未能正确导向有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0507|A050701"
+    },
+    {
+        "code": "A050702",
+        "term": "未能切割",
+        "definition": "装置不能像预期那样切割、刺穿或打开的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0507|A050702"
+    },
+    {
+        "code": "A050703",
+        "term": "未能循环",
+        "definition": "与装置未能完成一系列过程或事件有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0507|A050703"
+    },
+    {
+        "code": "A050704",
+        "term": "未能形成订书钉",
+        "definition": "由于订书钉未能正确成型，装置无法用订书设备连接组织的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0507|A050704"
+    },
+    {
+        "code": "A050705",
+        "term": "未能密封",
+        "definition": "与装置未能用旨在提供密封的装置密封目标血管有关的问题（例如电外科止血）。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "2022年1月27日添加了术语。详见变更日志（发布编号2022）第198条评论。",
+        "codehierarchy": "A05|A0507|A050705"
+    },
+    {
+        "code": "A0508",
+        "term": "噪音，可听",
+        "definition": "与装置发出的任何非预期声音相关的问题（例如，两部分摩擦产生的吱吱声或电气组件发出的嗡嗡声）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0508"
+    },
+    {
+        "code": "A0509",
+        "term": "物理阻力/粘连",
+        "definition": "由于零件粘连或卡住而导致装置缺乏运动的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0509"
+    },
+    {
+        "code": "A050901",
+        "term": "粘合剂太强",
+        "definition": "粘合剂的强度过大；通常用于粘合剂原本是临时固定，但实际作用更持久的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2022年1月27日添加了术语。详见变更日志（发布编号2022）第215条评论。",
+        "codehierarchy": "A05|A0509|A050901"
+    },
+    {
+        "code": "A0510",
+        "term": "回缩问题",
+        "definition": "与装置无法抽回到预期位置有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0510"
+    },
+    {
+        "code": "A0511",
+        "term": "结构问题",
+        "definition": "与装置的基本物理构造或物理组成有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0511"
+    },
+    {
+        "code": "A051101",
+        "term": "坍塌",
+        "definition": "与材料因外力而发生屈曲或压碎有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0511|A051101"
+    },
+    {
+        "code": "A051102",
+        "term": "锋利边缘",
+        "definition": "装置具有不必要的锋利边缘，可能导致伤害或损坏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0511|A051102"
+    },
+    {
+        "code": "A051103",
+        "term": "折叠、展开或坍塌困难",
+        "definition": "与装置的使用有关的问题，用户在按照标签说明书操作时遇到闭合或展开/延长长度的困难。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语修改为包括折叠困难。",
+        "codehierarchy": "A05|A0511|A051103"
+    },
+    {
+        "code": "A051104",
+        "term": "难以打开或关闭",
+        "definition": "与装置的使用有关的问题，用户在按照标签说明书操作时遇到打开和关闭装置的困难。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0511|A051104"
+    },
+    {
+        "code": "A051105",
+        "term": "不完全闭合",
+        "definition": "与心瓣膜叶无法正确闭合有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0511|A051105"
+    },
+    {
+        "code": "A0512",
+        "term": "非预期移动",
+        "definition": "与装置的非预期移动有关的问题，可能与装置故障、误诊或误治相关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512"
+    },
+    {
+        "code": "A051201",
+        "term": "装置移位或脱位",
+        "definition": "与装置未能保持在预期位置有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051201"
+    },
+    {
+        "code": "A051202",
+        "term": "装置倾倒",
+        "definition": "与装置无法保持直立位置有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051202"
+    },
+    {
+        "code": "A051203",
+        "term": "装置掉落",
+        "definition": "与装置或其部件意外掉落或从预期位置移动有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051203"
+    },
+    {
+        "code": "A051204",
+        "term": "装置滑动",
+        "definition": "与装置从预期位置移动或滑动有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051204"
+    },
+    {
+        "code": "A051205",
+        "term": "非预期碰撞",
+        "definition": "与装置撞击其他物体有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051205"
+    },
+    {
+        "code": "A051206",
+        "term": "非预期系统运动",
+        "definition": "与系统或其部件的非预期运动有关的问题，这种运动不是由用户发起的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051206"
+    },
+    {
+        "code": "A051207",
+        "term": "不稳定",
+        "definition": "与装置的机械稳定性有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051207"
+    },
+    {
+        "code": "A051208",
+        "term": "振动",
+        "definition": "与非期望的机械振荡有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A05|A0512|A051208"
+    },
+    {
+        "code": "A0513",
+        "term": "润滑不足",
+        "definition": "装置显示出润滑不足。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日作为机械问题下的附加二级术语添加。",
+        "codehierarchy": "A05|A0513"
+    },
+    {
+        "code": "A0514",
+        "term": "螺纹损坏",
+        "definition": "与螺纹在使用前因不良螺纹或重复使用（可能与其他损坏部件一起）而受损，或者在使用过程中螺纹被剥离或损坏有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2023年1月31日添加了术语。详见变更日志（发布编号2023）第5条评论。",
+        "codehierarchy": "A05|A0514"
+    },
+    {
+        "code": "A06",
+        "term": "光学问题",
+        "definition": "与可见光的传输有关的问题，影响图像传输的质量或影响可见光路径的预期应用。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06"
+    },
+    {
+        "code": "A0601",
+        "term": "聚焦错误",
+        "definition": "问题与对象聚焦不佳或聚焦在错误的对象或区域有关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06|A0601"
+    },
+    {
+        "code": "A0602",
+        "term": "光学偏心",
+        "definition": "与光学透镜偏离中心有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06|A0602"
+    },
+    {
+        "code": "A0603",
+        "term": "光学变色",
+        "definition": "与非预期的颜色变化有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06|A0603"
+    },
+    {
+        "code": "A0604",
+        "term": "光学畸变",
+        "definition": "与图像形成系统中的光学缺陷有关的问题，即图像并非理想图像的形状。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06|A0604"
+    },
+    {
+        "code": "A0605",
+        "term": "光学阻塞",
+        "definition": "与光学设备（如视觉通路）的阻塞有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A06|A0605"
+    },
+    {
+        "code": "A07",
+        "term": "电气/电子特性问题",
+        "definition": "与装置电路的功能有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2023年1月31日定义进行了修改，将失败替换为功能。详见变更日志（发布编号2023）第8条评论。",
+        "codehierarchy": "A07"
+    },
+    {
+        "code": "A0701",
+        "term": "捕捉问题",
+        "definition": "与装置无法成功实现心脏腔室的有效去极化和收缩有关的问题，这是由起搏器输出脉冲引起的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0701"
+    },
+    {
+        "code": "A070101",
+        "term": "未能捕捉",
+        "definition": "与未能实现有效且一致的心脏去极化有关的问题，这是起搏器电刺激的结果。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0701|A070101"
+    },
+    {
+        "code": "A070102",
+        "term": "高捕捉阈值",
+        "definition": "装置引起心脏去极化的输出能量需求高于预期/所需的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0701|A070102"
+    },
+    {
+        "code": "A070103",
+        "term": "间歇性捕捉",
+        "definition": "与无效和不一致的心脏去极化有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0701|A070103"
+    },
+    {
+        "code": "A070104",
+        "term": "不稳定捕捉阈值",
+        "definition": "装置引起心脏去极化的输出能量需求不稳定的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0701|A070104"
+    },
+    {
+        "code": "A0702",
+        "term": "连续放电",
+        "definition": "与一段时间内的过度电脉冲产生有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0702"
+    },
+    {
+        "code": "A0703",
+        "term": "电弧",
+        "definition": "与电流通过两个导电表面之间的间隙流动有关的问题，通常伴随着可见的闪光。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0703"
+    },
+    {
+        "code": "A070301",
+        "term": "电弧在电极板上",
+        "definition": "与电流通过电极板（导电表面）之间的间隙流动有关的问题，通常伴随着可见的闪光。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0703|A070301"
+    },
+    {
+        "code": "A070302",
+        "term": "电极弧光",
+        "definition": "与电流通过电极（导电表面）之间的间隙流动有关的问题，通常伴随着可见的闪光。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0703|A070302"
+    },
+    {
+        "code": "A0704",
+        "term": "火花",
+        "definition": "与电荷进入正常非导电介质（如空气）时产生的光闪有关的问题。不涉及两个导电表面之间的放电。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0704"
+    },
+    {
+        "code": "A0705",
+        "term": "电池问题",
+        "definition": "与装置的内部电源（如电池、变压器、燃料电池或其他电源）有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0705"
+    },
+    {
+        "code": "A070501",
+        "term": "电池问题：高阻抗",
+        "definition": "与电池内阻增加有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0705|A070501"
+    },
+    {
+        "code": "A070502",
+        "term": "电池问题：低阻抗",
+        "definition": "与电池内阻减少有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0705|A070502"
+    },
+    {
+        "code": "A070503",
+        "term": "未能使用电池运行",
+        "definition": "与装置未能在未连接固定电源的情况下运行有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0705|A070503"
+    },
+    {
+        "code": "A070504",
+        "term": "电池提前放电",
+        "definition": "电池比预期更早放电。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0705|A070504"
+    },
+    {
+        "code": "A0706",
+        "term": "充电问题",
+        "definition": "与装置无法成功给电气源充电有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0706"
+    },
+    {
+        "code": "A070601",
+        "term": "充电中断",
+        "definition": "与充电过程（如电池或其他储能设备）的过早结束有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0706|A070601"
+    },
+    {
+        "code": "A070602",
+        "term": "延迟充电时间",
+        "definition": "与装置充电时间意外延长有关的问题（如开始充电时间延迟或充电时间过长）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0706|A070602"
+    },
+    {
+        "code": "A070603",
+        "term": "无法充电",
+        "definition": "与无法启动适当的充电过程（如电池或其他储能设备）有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0706|A070603"
+    },
+    {
+        "code": "A0707",
+        "term": "无法放电",
+        "definition": "与电池或其他储能设备未能按预期放电有关的问题。不适用于除颤器。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0707"
+    },
+    {
+        "code": "A0708",
+        "term": "电源问题",
+        "definition": "与装置运行所需的能源有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0708"
+    },
+    {
+        "code": "A070801",
+        "term": "完全断电",
+        "definition": "与装置运行缺乏电力有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0708|A070801"
+    },
+    {
+        "code": "A070802",
+        "term": "间歇性断电",
+        "definition": "与装置运行的电力间歇性中断有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0708|A070802"
+    },
+    {
+        "code": "A070803",
+        "term": "无法开机",
+        "definition": "与装置因能源供应问题无法开启有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0708|A070803"
+    },
+    {
+        "code": "A070804",
+        "term": "非预期开机",
+        "definition": "与装置在非预期情况下开机有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0708|A070804"
+    },
+    {
+        "code": "A0709",
+        "term": "装置感应问题",
+        "definition": "与装置设计用于响应物理刺激（温度、光照、运动、心律）的特征有关的问题，这些特征未传输结果信号供解释或测量。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709"
+    },
+    {
+        "code": "A070901",
+        "term": "灵敏度降低",
+        "definition": "与装置对输入的敏感度低于预期或预期有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709|A070901"
+    },
+    {
+        "code": "A070902",
+        "term": "灵敏度增加",
+        "definition": "与装置对输入的敏感度高于预期或预期有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709|A070902"
+    },
+    {
+        "code": "A070903",
+        "term": "未能分析信号",
+        "definition": "与装置未能分析信号有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709|A070903"
+    },
+    {
+        "code": "A070904",
+        "term": "未能选择信号",
+        "definition": "与装置未能选择适当输入信号有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709|A070904"
+    },
+    {
+        "code": "A070905",
+        "term": "高灵敏度阈值",
+        "definition": "与装置检测信号所需的输入量高于预期/所需有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0709|A070905"
+    },
+    {
+        "code": "A0710",
+        "term": "无法导电",
+        "definition": "设备无法允许电流通过或无法连续地沿电路径传导电能的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0710"
+    },
+    {
+        "code": "A0711",
+        "term": "查询问题",
+        "definition": "与设备响应系统信号以查询其状态的能力相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0711"
+    },
+    {
+        "code": "A071101",
+        "term": "难以查询",
+        "definition": "与难以触发应答的转接系统相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0711|A071101"
+    },
+    {
+        "code": "A071102",
+        "term": "未能查询",
+        "definition": "与设备未能适当响应设计用于查询其状态的系统发出的信号相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0711|A071102"
+    },
+    {
+        "code": "A0712",
+        "term": "起搏问题",
+        "definition": "与设备无法通过电信号生成治疗性心脏模拟跳动相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712"
+    },
+    {
+        "code": "A071201",
+        "term": "未能转换节律",
+        "definition": "设备疗法或一系列疗法未能终止该疗法旨在终止的有害心律。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071201"
+    },
+    {
+        "code": "A071202",
+        "term": "不准确的同步",
+        "definition": "由于两个操作之间的错误时间导致的问题，例如信号传输时间。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071202"
+    },
+    {
+        "code": "A071203",
+        "term": "不适当的波形",
+        "definition": "设备未能生成正确形状的起搏输出，例如波形过宽。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071203"
+    },
+    {
+        "code": "A071204",
+        "term": "没有起搏",
+        "definition": "与设备停止输送脉冲相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071204"
+    },
+    {
+        "code": "A071205",
+        "term": "起搏器处于备份模式",
+        "definition": "发现具有起搏功能的设备处于备份模式。这可能是适当的故障保护措施（例如电池寿命结束），也可能是由设备故障或操作员错误引起的。",
+        "non-IMDRF code": "",
+        "status": "已退休",
+        "status description": "该术语于2023年1月31日被废止，添加了术语A0723设备处于备份模式。详情见变更记录（发布编号2023）中的第8条评论。",
+        "codehierarchy": "A07|A0712|A071205"
+    },
+    {
+        "code": "A071206",
+        "term": "异步起搏",
+        "definition": "与起搏传输过程相关的问题，即在相同组内的两个重要瞬间之间总是有一个整数倍的时间间隔。在不同组的两个重要瞬间之间，则不一定有一个整数倍的时间间隔。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071206"
+    },
+    {
+        "code": "A071207",
+        "term": "起搏不足",
+        "definition": "起搏电压或脉宽低于所需水平。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071207"
+    },
+    {
+        "code": "A071208",
+        "term": "间歇性起搏",
+        "definition": "与起搏设备在有限时间内无法正常工作，之后无需外部纠正即可恢复其功能的问题相关。注意：此类失败通常是反复发生的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0712|A071208"
+    },
+    {
+        "code": "A071209",
+        "term": "心外刺激",
+        "definition": "与设备引发的非心脏组织（如膈肌、胸大肌或肋间肌肉）的无意刺激相关的问题。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义于2025年修订。之前术语为口袋刺激。详见变更请求记录第5条。",
+        "codehierarchy": "A07|A0712|A071209"
+    },
+    {
+        "code": "A0713",
+        "term": "除颤/刺激问题",
+        "definition": "与设备意图提供电击/刺激的功能相关的交付问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语和定义更改为包括刺激，并与意外电击（A0714）进行区分。",
+        "codehierarchy": "A07|A0713"
+    },
+    {
+        "code": "A071301",
+        "term": "未能交付电击/刺激",
+        "definition": "与设备未能交付电能相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语更改为包括刺激。",
+        "codehierarchy": "A07|A0713|A071301"
+    },
+    {
+        "code": "A071302",
+        "term": "不适当/不充分的电击/刺激",
+        "definition": "电击以不正确的能量水平或不正确的时机交付。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语和定义更改为包括不充分的刺激。",
+        "codehierarchy": "A07|A0713|A071302"
+    },
+    {
+        "code": "A071303",
+        "term": "间歇性电击/刺激",
+        "definition": "与设备在有限时间内未能交付电能相关的问题，之后无需外部纠正即可恢复其功能。注意：这种故障通常是反复发生的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语和定义更改为包括刺激。",
+        "codehierarchy": "A07|A0713|A071303"
+    },
+    {
+        "code": "A0714",
+        "term": "意外电击",
+        "definition": "设备意外交付电击。适用于那些并非有意交付电击/刺激的设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将定义更改为与A0713除颤/刺激问题及其下级术语区分开来。",
+        "codehierarchy": "A07|A0714"
+    },
+    {
+        "code": "A0715",
+        "term": "接地故障",
+        "definition": "与无法连接电子系统中的导体以控制或抑制接地电流和电压相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0715"
+    },
+    {
+        "code": "A0716",
+        "term": "电应力过大",
+        "definition": "与超过内部集成电路规定阈值的电气活动相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0716"
+    },
+    {
+        "code": "A0717",
+        "term": "静电放电",
+        "definition": "与先前带电的两个物体之间放电相关的问题。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语于2025年修订。之前的术语是静电放电。详见变更请求记录第139条。",
+        "codehierarchy": "A07|A0717"
+    },
+    {
+        "code": "A0718",
+        "term": "未能关闭",
+        "definition": "与设备在请求关闭时未能断电相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0718"
+    },
+    {
+        "code": "A071801",
+        "term": "设备仍处于激活状态",
+        "definition": "与设备在请求停用后仍保持活跃状态相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0718|A071801"
+    },
+    {
+        "code": "A0719",
+        "term": "意外关机",
+        "definition": "与设备意外断电相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0719"
+    },
+    {
+        "code": "A0720",
+        "term": "电磁兼容性问题",
+        "definition": "与系统在其电磁环境中运行而不会对其环境引入不可容忍的干扰的能力相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0720"
+    },
+    {
+        "code": "A072001",
+        "term": "电磁干扰",
+        "definition": "与设备产生的电磁辐射量有关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0720|A072001"
+    },
+    {
+        "code": "A072002",
+        "term": "射频干扰（RFI）",
+        "definition": "与因射频干扰导致接收希望信号的降级相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0720|A072002"
+    },
+    {
+        "code": "A0721",
+        "term": "电路故障",
+        "definition": "与内部网络路径或电路（即电气元件、电路板、布线）的失效相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0721"
+    },
+    {
+        "code": "A072101",
+        "term": "电容耦合",
+        "definition": "通过电路节点间的电容转移能量的问题。当能量从一个电路耦合到另一个电路时发生。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0721|A072101"
+    },
+    {
+        "code": "A072102",
+        "term": "短路",
+        "definition": "与电路中意外路径（非预期路径）中电流流动相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0721|A072102"
+    },
+    {
+        "code": "A072103",
+        "term": "间歇性连续性",
+        "definition": "与电气/电子互连的间歇性故障相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0721|A072103"
+    },
+    {
+        "code": "A0722",
+        "term": "阻抗问题",
+        "definition": "与设备与患者连接之间的电学阻抗水平相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0722"
+    },
+    {
+        "code": "A072201",
+        "term": "高阻抗",
+        "definition": "与设备与患者连接之间的电学阻抗水平高于预期相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0722|A072201"
+    },
+    {
+        "code": "A072202",
+        "term": "低阻抗",
+        "definition": "与设备与患者连接之间的电学阻抗水平低于预期相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A07|A0722|A072202"
+    },
+    {
+        "code": "A072203",
+        "term": "不稳定阻抗",
+        "definition": "阻抗变化，但不是始终过高或过低。",
+        "non-IMDRF code": "",
+        "status": "新",
+        "status description": "术语于2025年新增。详见变更请求记录第7条。",
+        "codehierarchy": "A07|A0722|A072203"
+    },
+    {
+        "code": "A0723",
+        "term": "意外模式切换",
+        "definition": "设备意外切换模式，例如备用模式或电外科模式。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语于2023年1月31日添加。详情见变更记录（发布编号2023）第8条评论。术语和定义于2025年修改。之前的术语是设备处于备用模式。详见变更请求记录第4条。",
+        "codehierarchy": "A07|A0723"
+    },
+    {
+        "code": "A08",
+        "term": "校准问题",
+        "definition": "与设备操作相关的准确性问题，以及与设备校准相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A08"
+    },
+    {
+        "code": "A0801",
+        "term": "未能校准",
+        "definition": "与设备未能执行旨在确保设备准确性和性能的自校准程序或过程相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A08|A0801"
+    },
+    {
+        "code": "A0802",
+        "term": "未能重新校准",
+        "definition": "与设备在执行旨在确保设备准确性和性能的校准程序或过程中未能恢复标准水平精度相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A08|A0802"
+    },
+    {
+        "code": "A0803",
+        "term": "不精确",
+        "definition": "与设备提供的测量结果相比参考标准不精确相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A08|A0803"
+    },
+    {
+        "code": "A0804",
+        "term": "过度校正",
+        "definition": "与超过设定标准的调整相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A08|A0804"
+    },
+    {
+        "code": "A0805",
+        "term": "校正不足",
+        "definition": "与未达到设定标准的调整相关的问题。",
+        "non-IMDRF code": "",
+        "status": "添加（术语）",
+        "status description": "术语于2020年3月18日作为校准问题的附加第二级术语添加。",
+        "codehierarchy": "A08|A0805"
+    },
+    {
+        "code": "A09",
+        "term": "输出问题",
+        "definition": "与设备的文档规格偏离相关的任何问题，这些问题涉及设备提供的最终结果、数据或测试结果。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09"
+    },
+    {
+        "code": "A0901",
+        "term": "可听提示/反馈问题",
+        "definition": "与设备的可听反馈偏离文档规格相关的问题。例如语音提示或哔声，但安全相关警报不属于此范围，而是涵盖在保护措施问题下。",
+        "non-IMDRF code": "",
+        "status": "编辑更改术语",
+        "status description": "2020年3月18日对术语进行了编辑更改。",
+        "codehierarchy": "A09|A0901"
+    },
+    {
+        "code": "A090101",
+        "term": "不适当的可听提示/反馈",
+        "definition": "与引导设备用户采取正确行动的可听消息不符的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0901|A090101"
+    },
+    {
+        "code": "A090102",
+        "term": "不可听见或不清楚的可听提示/反馈",
+        "definition": "与可听见的提示不清楚相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0901|A090102"
+    },
+    {
+        "code": "A090103",
+        "term": "没有可听提示/反馈",
+        "definition": "与设备停止提供可听提示相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0901|A090103"
+    },
+    {
+        "code": "A0902",
+        "term": "显示或视觉反馈问题",
+        "definition": "与设备的文档规格偏离相关的任何视觉反馈问题。例如信息显示、屏幕上的图像或设备输出。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902"
+    },
+    {
+        "code": "A090201",
+        "term": "设备显示错误信息",
+        "definition": "与提供错误显示信息相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090201"
+    },
+    {
+        "code": "A090202",
+        "term": "显示屏难以阅读",
+        "definition": "与显示屏的可读性问题相关，可能影响患者参数或测试结果的阅读/解释。可读性问题可能由于颜色、字体大小、显示屏对比度或其他因素引起。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090202"
+    },
+    {
+        "code": "A090203",
+        "term": "显示不稳定或间歇性",
+        "definition": "设备不一致地显示相同的消息、结果、读数或图像。例如，显示屏可能会闪烁、在读数或消息之间切换，或者在短时间内完全空白。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090203"
+    },
+    {
+        "code": "A090204",
+        "term": "图像显示错误/伪影",
+        "definition": "与图像显示相关的问题，导致图像或读数/测量指示受损。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090204"
+    },
+    {
+        "code": "A090205",
+        "term": "图像方向错误",
+        "definition": "与设备显示屏上图像方向错误相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090205"
+    },
+    {
+        "code": "A090206",
+        "term": "无显示/图像",
+        "definition": "与缺少显示或图像相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090206"
+    },
+    {
+        "code": "A090207",
+        "term": "无视觉提示/反馈",
+        "definition": "与设备停止提供视觉反馈相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090207"
+    },
+    {
+        "code": "A090208",
+        "term": "图像质量差",
+        "definition": "设备显示或输出的图像或其他视觉表示的质量不佳。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090208"
+    },
+    {
+        "code": "A090209",
+        "term": "视觉提示不会清除",
+        "definition": "与视觉消息在采取适当行动后仍继续显示在设备上相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0902|A090209"
+    },
+    {
+        "code": "A0903",
+        "term": "触觉提示/反馈",
+        "definition": "与设备的文档规格偏离相关的触觉反馈问题。例如设备振动提示。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0903"
+    },
+    {
+        "code": "A090301",
+        "term": "不适当的触觉提示/反馈",
+        "definition": "与触觉反馈无法引导设备用户采取正确行动相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0903|A090301"
+    },
+    {
+        "code": "A090302",
+        "term": "无触觉提示/反馈",
+        "definition": "与设备停止提供触觉反馈相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0903|A090302"
+    },
+    {
+        "code": "A0904",
+        "term": "能量输出问题",
+        "definition": "与设备预期的能量输出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904"
+    },
+    {
+        "code": "A090401",
+        "term": "能量光谱错误",
+        "definition": "与设备的能量输出不在预期部分的光谱范围内相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090401"
+    },
+    {
+        "code": "A090402",
+        "term": "未能输送能量",
+        "definition": "与设备未能输送任何能量相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090402"
+    },
+    {
+        "code": "A090403",
+        "term": "间歇性能量输出",
+        "definition": "与设备的能量输出随时间不一致相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090403"
+    },
+    {
+        "code": "A090404",
+        "term": "超出规格输出",
+        "definition": "设备输出超过文档规格的要求。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090404"
+    },
+    {
+        "code": "A090405",
+        "term": "低于规格输出",
+        "definition": "设备输出低于文档规格的要求。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090405"
+    },
+    {
+        "code": "A090406",
+        "term": "治疗或诊断输出失败",
+        "definition": "与设备未能提供所需的治疗或疾病识别输出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090406"
+    },
+    {
+        "code": "A090407",
+        "term": "治疗作用于错误的身体部位",
+        "definition": "与设备导致无意的治疗作用于身体的其他部位而非预期部位相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0904|A090407"
+    },
+    {
+        "code": "A0905",
+        "term": "辐射输出问题",
+        "definition": "与设备预期的辐射输出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0905"
+    },
+    {
+        "code": "A090501",
+        "term": "辐射输出失败",
+        "definition": "与放射或诊断设备未能辐射输出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0905|A090501"
+    },
+    {
+        "code": "A090502",
+        "term": "辐射过量",
+        "definition": "与放射或诊断设备辐射过量相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0905|A090502"
+    },
+    {
+        "code": "A090503",
+        "term": "辐射不足",
+        "definition": "与放射或诊断设备辐射不足相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0905|A090503"
+    },
+    {
+        "code": "A090504",
+        "term": "意外/非预期辐射输出",
+        "definition": "设备在不应该时发射辐射。适用于预期发射辐射的设备，并且辐射从设备的正确部位发射，但时机不正确。如果设备发射了不应发射的辐射，或从不应发射的部位发射，请使用辐射泄漏一词。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0905|A090504"
+    },
+    {
+        "code": "A0906",
+        "term": "气体输出问题",
+        "definition": "与气体输出相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0906"
+    },
+    {
+        "code": "A0907",
+        "term": "无设备输出",
+        "definition": "与从设备获得的测量结果、数值或数据无关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0907"
+    },
+    {
+        "code": "A0908",
+        "term": "不正确、不充分或不精确的结果或读数",
+        "definition": "与设备提供的最终结果、数据或测试结果与其性能规格不一致相关的问题。",
+        "non-IMDRF code": "",
+        "status": "编辑更改术语",
+        "status description": "2021年2月16日对术语进行了编辑更改。",
+        "codehierarchy": "A09|A0908"
+    },
+    {
+        "code": "A090801",
+        "term": "信号伪影/噪声",
+        "definition": "与信号中的杂质或干扰相关的问题（例如ECG伪影）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改将术语更改为包括信号噪声。",
+        "codehierarchy": "A09|A0908|A090801"
+    },
+    {
+        "code": "A090802",
+        "term": "未能获取样本",
+        "definition": "设备未能收集或转移样本。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090802"
+    },
+    {
+        "code": "A090803",
+        "term": "假阴性结果",
+        "definition": "与设备错误报告未检测到某物相关的问题，可能导致操作员/用户/HCP误以为无需采取某些行动，但实际上应该采取行动。",
+        "non-IMDRF code": "",
+        "status": "定义于2024年修订。详见变更记录第122条。",
+        "codehierarchy": "A09|A0908|A090803"
+    },
+    {
+        "code": "A090804",
+        "term": "假阳性结果",
+        "definition": "与设备错误报告检测到某物相关的问题，可能导致操作员/用户/HCP采取不必要的行动。",
+        "non-IMDRF code": "",
+        "status": "定义于2024年修订。详见变更记录第123条。",
+        "codehierarchy": "A09|A0908|A090804"
+    },
+    {
+        "code": "A090805",
+        "term": "不正确的测量",
+        "definition": "设备提供的测量结果明显不正确。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090805"
+    },
+    {
+        "code": "A090806",
+        "term": "结果不可重现",
+        "definition": "设备结果无法可靠再现。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090806"
+    },
+    {
+        "code": "A090807",
+        "term": "读数偏高",
+        "definition": "设备提供的读数过高或高于预期。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090807"
+    },
+    {
+        "code": "A090808",
+        "term": "读数偏低",
+        "definition": "设备提供的读数过低或低于预期。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090808"
+    },
+    {
+        "code": "A090809",
+        "term": "测试结果偏高",
+        "definition": "设备提供的测试结果过高或高于预期。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0908|A090809"
+    },
+    {
+        "code": "A090814",
+        "term": "能见度差",
+        "definition": "植入设备在影像学检查中难以检测到，例如可见性不足。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2022年1月27日添加。有关详细信息，请参阅变更日志（发布编号2022）中的评论编号146。",
+        "codehierarchy": "A09|A0908|A090814"
+    },
+    {
+        "code": "A0909",
+        "term": "意外治疗结果",
+        "definition": "与设备用于治疗目的相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A09|A0909"
+    },
+    {
+        "code": "A10",
+        "term": "温度问题",
+        "definition": "与设备产生非预期温度相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10"
+    },
+    {
+        "code": "A1001",
+        "term": "过度冷却",
+        "definition": "与设备产生的温度低于规定值相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1001"
+    },
+    {
+        "code": "A1002",
+        "term": "过热",
+        "definition": "与具有加热功能的设备产生的过多热量相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1002"
+    },
+    {
+        "code": "A1003",
+        "term": "冷却不足",
+        "definition": "与设备在工作或非工作状态下冷却不足相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1003"
+    },
+    {
+        "code": "A1004",
+        "term": "加热不足",
+        "definition": "与设备或其组件产生的温度低于规定的温度相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1004"
+    },
+    {
+        "code": "A1005",
+        "term": "设备过热",
+        "definition": "与设备产生高温相关的故障问题，可能导致操作受损或造成伤害（例如过热导致组件熔化或自动关机）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1005"
+    },
+    {
+        "code": "A1006",
+        "term": "设备热分解",
+        "definition": "由于热分解导致设备变色或破坏的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1006"
+    },
+    {
+        "code": "A1007",
+        "term": "火灾",
+        "definition": "与设备燃烧并产生稳定火焰相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1007"
+    },
+    {
+        "code": "A1008",
+        "term": "闪光或爆燃",
+        "definition": "与设备相关联的无规则火焰引起的烧伤问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A10|A1008"
+    },
+    {
+        "code": "A1009",
+        "term": "冒烟",
+        "definition": "与设备生成的气溶胶或气体云相关的故障问题，通常发生在火灾或烧伤之后。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A10|A1009"
+    },
+    {
+        "code": "A11",
+        "term": "计算机软件问题",
+        "definition": "与影响设备性能或与其他设备通信的书面程序、代码和/或软件系统相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11"
+    },
+    {
+        "code": "A1101",
+        "term": "应用网络问题",
+        "definition": "影响整个系统性能和/或连接到该系统的单个设备性能的系统规格偏差问题。",
+        "non-IMDRF code": "",
+        "status": "技术修改",
+        "status description": "定义于2022年1月27日修改以加入/或。有关详细信息，请参阅变更日志（发布编号2022）中的评论编号27。术语和定义为2025年发布编号修改。之前的术语是 应用程序冻结或非功能性 。参见变更请求日志编号6。",
+        "codehierarchy": "A11|A1101"
+    },
+    {
+        "code": "A1102",
+        "term": "应用程序问题",
+        "definition": "与软件要求在其预期用途或应用中履行其功能相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102"
+    },
+    {
+        "code": "A110201",
+        "term": "应用程序冻结或无法启动",
+        "definition": "与应用程序冻结且/或无法启动相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "技术修改",
+        "status description": "定义于2022年1月27日修改以加入/或。有关详细信息，请参阅变更日志（发布编号2022）中的评论编号27。术语和定义为2025年发布编号修改。之前的术语是 应用程序冻结或非功能性 。参见变更请求日志编号6。",
+        "codehierarchy": "A11|A1102|A110201"
+    },
+    {
+        "code": "A110202",
+        "term": "应用程序问题：剂量计算错误",
+        "definition": "与设备使用的书面程序代码或应用软件进行特定测量或量值计算相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110202"
+    },
+    {
+        "code": "A110203",
+        "term": "应用程序问题：用药错误",
+        "definition": "设备软件导致药物准备或给药错误的事件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110203"
+    },
+    {
+        "code": "A110204",
+        "term": "应用程序问题：参数计算错误",
+        "definition": "与设备使用的书面程序代码或应用软件进行除剂量或功率外的其他参数计算相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110204"
+    },
+    {
+        "code": "A110205",
+        "term": "应用程序问题：功率计算错误",
+        "definition": "与设备用于功率计算的书面程序代码或应用软件相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110205"
+    },
+    {
+        "code": "A110206",
+        "term": "应用程序版本或升级问题",
+        "definition": "影响设备性能或与其他设备通信的软件系统更新安装问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110206"
+    },
+    {
+        "code": "A110207",
+        "term": "软件安装问题",
+        "definition": "影响设备软件安装以实现完全功能的故障问题。安装来源可以是制造商或用户。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110207"
+    },
+    {
+        "code": "A110208",
+        "term": "意外的应用程序关闭",
+        "definition": "与应用程序故障引起的意外关闭相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1102|A110208"
+    },
+    {
+        "code": "A1103",
+        "term": "程序或算法执行问题",
+        "definition": "与程序或算法执行相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1103"
+    },
+    {
+        "code": "A110301",
+        "term": "延迟的程序或算法执行",
+        "definition": "与程序或算法执行延迟相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1103|A110301"
+    },
+    {
+        "code": "A110302",
+        "term": "间歇性的程序或算法执行",
+        "definition": "与程序或算法间歇性执行相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1103|A110302"
+    },
+    {
+        "code": "A110303",
+        "term": "程序或算法执行失败",
+        "definition": "与程序或算法未能执行相关的故障问题。程序突然/意外中断。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1103|A110303"
+    },
+    {
+        "code": "A1104",
+        "term": "计算机操作系统问题",
+        "definition": "与控制计算机程序执行并提供诸如计算机资源分配、作业控制、输入/输出控制和文件管理等服务的软件、固件和/或硬件元素相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1104"
+    },
+    {
+        "code": "A110401",
+        "term": "操作系统失效",
+        "definition": "与应用软件问题相反的操作系统故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1104|A110401"
+    },
+    {
+        "code": "A110402",
+        "term": "操作系统版本或升级问题",
+        "definition": "替换旧版操作系统为更新版本的操作系统相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1104|A110402"
+    },
+    {
+        "code": "A1105",
+        "term": "计算机系统安全问题",
+        "definition": "未经授权访问或修改软件系统而导致的机密性、完整性或可用性损失的问题，包括程序代码、应用软件或数据甚至整个设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1105"
+    },
+    {
+        "code": "A110501",
+        "term": "应用安全问题",
+        "definition": "与获取能够自我复制并在计算机系统之间传播的计算机编程代码相关的故障问题，从而导致软件、硬件和数据损坏。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A11|A1105|A110501"
+    },
+    {
+        "code": "A110502",
+        "term": "未经授权访问计算机系统",
+        "definition": "未获许可的计算机系统访问问题，可能导致程序修改、数据腐败或网络安全漏洞。此概念与计算机完整性密切相关，即系统或组件防止未经授权访问或修改计算机程序或数据的程度。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1105|A110502"
+    },
+    {
+        "code": "A1106",
+        "term": "数据备份问题",
+        "definition": "与系统、组件、文件、流程或人员相关的故障问题，这些内容可在主要项目发生故障或外部灾害时替代或帮助恢复主要项目。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1106"
+    },
+    {
+        "code": "A110601",
+        "term": "备份失败",
+        "definition": "无法备份或检索设备数据或系统文件（如损坏的文件）的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1106|A110601"
+    },
+    {
+        "code": "A110602",
+        "term": "转换到备份失败",
+        "definition": "主系统、组件、文件或流程在主项目发生故障时未能成功转换到备份的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1106|A110602"
+    },
+    {
+        "code": "A1107",
+        "term": "数据问题",
+        "definition": "数据（如图表、命令、结果）未正确存储、传输、更新或显示的事件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1107"
+    },
+    {
+        "code": "A110701",
+        "term": "数据丢失",
+        "definition": "数据无意中永久或临时丢失、删除、损坏或覆盖的事件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1107|A110701"
+    },
+    {
+        "code": "A110702",
+        "term": "患者数据问题",
+        "definition": "医护人员访问数据时，尽管遵循了正确的查询程序，但检索到的是错误的患者或错误的数据的事件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1107|A110702"
+    },
+    {
+        "code": "A1108",
+        "term": "日期/时间相关软件问题",
+        "definition": "与设备操作相关的日期和时间编程问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A11|A1108"
+    },
+    {
+        "code": "A12",
+        "term": "连接问题",
+        "definition": "与设备及其设置的功能单元连接相关的故障问题，这些功能单元旨在提供液体、气体、电力或数据传输的手段。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A12"
+    },
+    {
+        "code": "A1201",
+        "term": "阻塞连接",
+        "definition": "与设备的功能单元连接相关的故障问题，这些功能单元旨在提供液体、气体或数据传输的手段，但被阻止或阻碍。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A12|A1201"
+    },
+    {
+        "code": "A1202",
+        "term": "断开连接",
+        "definition": "与设备连接相关的故障问题，其中液体、气体、电力或信号信息可能无法从一个部件传递到另一个部件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A12|A1202"
+    },
+    {
+        "code": "A1203",
+        "term": "断开连接失败",
+        "definition": "与设备连接相关的故障问题，其中无法终止液体、气体、电力或信息的传输，或者连接部件在预期时刻未能分离或断开。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A12|A1203"
+    },
+    {
+        "code": "A1204",
+        "term": "松动或间歇性连接",
+        "definition": "与设备连接松动或间歇性相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A12|A1204"
+    },
+    {
+        "code": "A1205",
+        "term": "错误连接",
+        "definition": "与设备连接不正确或不符合设备规范、要求或预期用途相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A12|A1205"
+    },
+    {
+        "code": "A1206",
+        "term": "不完整或不充分的连接",
+        "definition": "与设备部分连接相关的故障问题，其中设备看似已连接，但仅能部分地、间歇性地或完全不能传输液体、气体、电力或信息。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A12|A1206"
+    },
+    {
+        "code": "A1207",
+        "term": "适配器问题",
+        "definition": "与设备连接相关的故障问题，其中设置的通道、切换系统和其他功能单元旨在提供液体、气体、电力或信息传输的手段，但不匹配或不适合。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A12|A1207"
+    },
+    {
+        "code": "A13",
+        "term": "通信或传输问题",
+        "definition": "与设备发送或接收信号或数据相关的故障问题。这包括设备内部组件之间的通信。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A13"
+    },
+    {
+        "code": "A1301",
+        "term": "无法读取输入信号",
+        "definition": "设备无法读取用于解释或测量的信号的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A13|A1301"
+    },
+    {
+        "code": "A1302",
+        "term": "无法传输记录",
+        "definition": "设备无法传输用于解释或测量的记录的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A13|A1302"
+    },
+    {
+        "code": "A1303",
+        "term": "间歇性通信故障",
+        "definition": "内部组件之间或与其他外部设备之间不一致或缺乏预期的通信。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A13|A1303"
+    },
+    {
+        "code": "A1304",
+        "term": "遥测差异",
+        "definition": "与遥测信号传输变化相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A13|A1304"
+    },
+    {
+        "code": "A1305",
+        "term": "无线通信问题",
+        "definition": "与射频无线技术特性及性能（如频率、输出功率、范围、接收）、无线服务质量、无线共存、无线信号和数据安全性以及电磁兼容性相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A13|A1305"
+    },
+    {
+        "code": "A14",
+        "term": "输注或流量问题",
+        "definition": "与设备未能按预期输送或抽取液体或气体相关的故障问题（例如，以错误速率输送药物、系统抽液问题）。这包括真空收集设备和手动或机械泵。",
+        "non-IMDRF code": "",
+        "status": "定义于2023年1月31日修改（旧定义：与设备未能按预期输送或抽取液体或气体相关的故障问题（例如，以错误速率输送药物、系统抽液问题）。这包括真空收集设备）。有关详细信息，请参阅变更日志（发布编号2023）中的评论编号35。",
+        "codehierarchy": "A14"
+    },
+    {
+        "code": "A1401",
+        "term": "放气问题",
+        "definition": "与设备放气相关的故障问题，包括意外放气或放气不足。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日对定义的技术修改以适应额外的三级术语。",
+        "codehierarchy": "A14|A1401"
+    },
+    {
+        "code": "A140101",
+        "term": "无法放气",
+        "definition": "无法放气的设备的故障问题，该设备本应放气。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日添加了术语以区分无法放气和意外放气。",
+        "codehierarchy": "A14|A1401|A140101"
+    },
+    {
+        "code": "A140102",
+        "term": "意外放气",
+        "definition": "设备本不应放气、不应在此时放气或不应放这么多气的意外放气故障问题。",
+        "non-IMDRF code": "",
+        "status description": "2020年3月18日添加了术语以区分无法放气和意外放气。",
+        "codehierarchy": "A14|A1401|A140102"
+    },
+    {
+        "code": "A1402",
+        "term": "过量流或过量输注",
+        "definition": "与治疗剂（如药物或液体）过量输送到设备或患者的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1402"
+    },
+    {
+        "code": "A1403",
+        "term": "填充问题",
+        "definition": "与输送流体的方法或所用时间相关的故障问题。交付时间或交付实体的数量可能会受到影响。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1403"
+    },
+    {
+        "code": "A140301",
+        "term": "无法自动填充",
+        "definition": "自动化过程中完全无法填充。对于填充不足使用短充；对于过度填充使用过充；对于不准确填充使用体积精度问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1403|A140301"
+    },
+    {
+        "code": "A140302",
+        "term": "过充",
+        "definition": "设备的过度填充问题。对于完全无法填充使用无法自动填充；对于填充不足使用短充；对于不准确填充使用体积精度问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1403|A140302"
+    },
+    {
+        "code": "A140303",
+        "term": "短充",
+        "definition": "设备的填充不足问题。对于完全无法填充使用无法自动填充；对于填充不足使用短充；对于不准确填充使用体积精度问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1403|A140303"
+    },
+    {
+        "code": "A140304",
+        "term": "体积精度问题",
+        "definition": "设备的不准确填充问题。这种问题表现为过充和欠充交替出现，可能是间歇性的。如果问题是持续的，则使用过充或短充。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1403|A140304"
+    },
+    {
+        "code": "A1404",
+        "term": "过滤问题",
+        "definition": "与通过多孔介质（如血液过滤器用于去除悬浮物）的过程相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1404"
+    },
+    {
+        "code": "A140401",
+        "term": "过滤过程不足",
+        "definition": "过滤器未能移除应该移除的物品或物质的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1404|A140401"
+    },
+    {
+        "code": "A140402",
+        "term": "超滤不足",
+        "definition": "与血液和透析液通过透析膜因存在压力梯度（跨膜压力）而转移流体相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1404|A140402"
+    },
+    {
+        "code": "A1405",
+        "term": "不当流速或输注",
+        "definition": "与调节和输送治疗剂（如空气、气体、药物或液体）相关的故障问题（如在正压下向设备或患者输送）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405"
+    },
+    {
+        "code": "A140501",
+        "term": "回流",
+        "definition": "液体（如液体、气体）逆着预期流向连续流动的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140501"
+    },
+    {
+        "code": "A140502",
+        "term": "自由或不受限流动",
+        "definition": "与无控制的输液（空气、气体或液体）流动相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140502"
+    },
+    {
+        "code": "A140503",
+        "term": "梯度增加",
+        "definition": "与变量（如温度、压力）作为距离、时间等函数的增加率变化相关的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140503"
+    },
+    {
+        "code": "A140504",
+        "term": "不准确的输送",
+        "definition": "终点处的输送不符合预期；要么太低，要么太高。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140504"
+    },
+    {
+        "code": "A140505",
+        "term": "不准确的流速",
+        "definition": "即使最终体积正确并且总时间也正确，但每单位时间内输送的体积波动的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140505"
+    },
+    {
+        "code": "A140506",
+        "term": "间歇性输注",
+        "definition": "输注不平稳，特征为流动间歇性停止的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140506"
+    },
+    {
+        "code": "A140507",
+        "term": "设备内回流",
+        "definition": "部分回流问题，损害设备的流量输出。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140507"
+    },
+    {
+        "code": "A140508",
+        "term": "受限流速",
+        "definition": "与流速相关的故障问题。每单位时间内输送的体积未达到预期流速。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140508"
+    },
+    {
+        "code": "A140509",
+        "term": "潮气量波动",
+        "definition": "与一次呼吸循环中吸入和呼出的气体量相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1405|A140509"
+    },
+    {
+        "code": "A1406",
+        "term": "膨胀问题",
+        "definition": "与设备无法按预期使用膨胀剂（如盐水或空气）扩展或增大的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1406"
+    },
+    {
+        "code": "A1407",
+        "term": "流速不足或欠输注",
+        "definition": "与正压下向患者输送治疗剂（如药物或液体）剂量不足相关的故障问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1407"
+    },
+    {
+        "code": "A1408",
+        "term": "无流",
+        "definition": "设备未能输送指定液体或气体引起的故障问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1408"
+    },
+    {
+        "code": "A140801",
+        "term": "无法输送",
+        "definition": "未能履行预期功能的故障问题（完全不执行）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1408|A140801"
+    },
+    {
+        "code": "A140802",
+        "term": "无法输注",
+        "definition": "未能履行预期功能的故障问题（完全不执行）。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1408|A140802"
+    },
+    {
+        "code": "A140803",
+        "term": "无法冲洗",
+        "definition": "未能履行预期功能的故障问题（完全不执行）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1408|A140803"
+    },
+    {
+        "code": "A1409",
+        "term": "流道阻塞",
+        "definition": "与设备组件（如管子、开口、管道）内的阻塞或堵塞相关的故障问题，导致流速受到限制（包括血栓形成）。",
+        "non-IMDRF code": "",
+        "status": "2020年3月18日对定义的技术修改以澄清术语包括与血栓形成相关的故障问题。",
+        "codehierarchy": "A14|A1409"
+    },
+    {
+        "code": "A140901",
+        "term": "完全阻塞",
+        "definition": "与设备组件（如管子、开口、管道）内的阻塞或堵塞相关的故障问题，导致无流速。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1409|A140901"
+    },
+    {
+        "code": "A140902",
+        "term": "部分阻塞",
+        "definition": "与设备组件（如管子、开口、管道）内的阻塞或堵塞相关的故障问题，导致流速降低。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1409|A140902"
+    },
+    {
+        "code": "A1410",
+        "term": "冲洗困难",
+        "definition": "设备冲洗困难，可能表明设备内部有阻塞。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1410"
+    },
+    {
+        "code": "A1411",
+        "term": "压力问题",
+        "definition": "与设备内部或外部施加的压力相关的故障问题，这会影响液体或气体的流动。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1411"
+    },
+    {
+        "code": "A141101",
+        "term": "压力下降",
+        "definition": "意外的压力下降，影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1411|A141101"
+    },
+    {
+        "code": "A141102",
+        "term": "增加压力",
+        "definition": "意外的压力增加，影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1411|A141102"
+    },
+    {
+        "code": "A141103",
+        "term": "无压力",
+        "definition": "完全意外的失压，影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1411|A141103"
+    },
+    {
+        "code": "A1412",
+        "term": "泵浦问题",
+        "definition": "与泵性能偏离规格相关的问题，可能影响流量或输注或分配。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义于2023年1月31日进行了修改（旧定义：与泵性能偏离规格相关的问题，可能影响流量或输注）。详情见变更记录第2023号第35条评论。",
+        "codehierarchy": "A14|A1412"
+    },
+    {
+        "code": "A141201",
+        "term": "泵速降低",
+        "definition": "泵速意外降低，可能影响流量，影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1412|A141201"
+    },
+    {
+        "code": "A141202",
+        "term": "泵速升高",
+        "definition": "泵速意外升高，可能影响流量，影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1412|A141202"
+    },
+    {
+        "code": "A141203",
+        "term": "无法启动泵浦",
+        "definition": "设备未能开始泵送的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1412|A141203"
+    },
+    {
+        "code": "A141204",
+        "term": "泵浦停止",
+        "definition": "意外或无意中止泵送。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A14|A1412|A141204"
+    },
+    {
+        "code": "A1413",
+        "term": "抽吸问题",
+        "definition": "与抽吸设备相关的问题，可能是手动、电力、真空或压力源操作，用于从体腔或设备中排出不需要的物质（空气、气体、液体或颗粒物）通过导管和收集袋。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1413"
+    },
+    {
+        "code": "A141301",
+        "term": "抽吸减少",
+        "definition": "由于抽吸减少导致从体腔或设备中去除液体或气体的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改，定义中加入了从设备中去除液体或气体的内容。",
+        "codehierarchy": "A14|A1413|A141301"
+    },
+    {
+        "code": "A141302",
+        "term": "抽吸增加",
+        "definition": "由于抽吸增加导致从体腔或设备中去除液体或气体的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改，定义中加入了从设备中去除液体或气体的内容。",
+        "codehierarchy": "A14|A1413|A141302"
+    },
+    {
+        "code": "A141303",
+        "term": "抽吸失效",
+        "definition": "完全无法提供抽吸的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1413|A141303"
+    },
+    {
+        "code": "A1414",
+        "term": "准备问题",
+        "definition": "与设备准备开始泵送相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1414"
+    },
+    {
+        "code": "A141401",
+        "term": "无法准备",
+        "definition": "设备未能开始准备过程（即为输送液体做准备）的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1414|A141401"
+    },
+    {
+        "code": "A141402",
+        "term": "准备不充分或不足",
+        "definition": "设备没有充分准备的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A14|A1414|A141402"
+    },
+    {
+        "code": "A1415",
+        "term": "空气/气体在设备内",
+        "definition": "与设备内的空气相关的问题（例如，管道中有空气）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日作为输注或流动问题的附加第二级术语添加。",
+        "codehierarchy": "A14|A1415"
+    },
+    {
+        "code": "A15",
+        "term": "激活、定位或分离问题",
+        "definition": "与设备激活、定位或分离的预期性能偏差相关的任何问题。注意：展开与激活同义。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "2021年2月16日对术语进行了编辑更改。定义修改为2025年发布。详见变更请求记录编号43。",
+        "codehierarchy": "A15"
+    },
+    {
+        "code": "A1501",
+        "term": "激活问题",
+        "definition": "与设备激活相关的问题。注意：激活包括扩展。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改，定义中明确指出激活包括扩展。",
+        "codehierarchy": "A15|A1501"
+    },
+    {
+        "code": "A150101",
+        "term": "激活失败",
+        "definition": "与设备未能激活（包括部分激活）相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的编辑更改。",
+        "codehierarchy": "A15|A1501|A150101"
+    },
+    {
+        "code": "A150102",
+        "term": "激活困难或延迟",
+        "definition": "与设备激活延迟或困难相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1501|A150102"
+    },
+    {
+        "code": "A150103",
+        "term": "过早激活",
+        "definition": "与设备过早和意外激活相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A15|A1501|A150103"
+    },
+    {
+        "code": "A150104",
+        "term": "意外激活或键入",
+        "definition": "与设备或设备功能意外激活相关的问题。对于意外通电，请使用A070804。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "2025年发布的版本2025中定义进行了修改。详见变更请求记录第3条。",
+        "codehierarchy": "A15|A1501|A150104"
+    },
+    {
+        "code": "A150105",
+        "term": "按键或按钮无响应/不起作用",
+        "definition": "与设备对按键或按钮输入无反应相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日作为激活问题的附加第三级术语添加。",
+        "codehierarchy": "A15|A1501|A150105"
+    },
+    {
+        "code": "A150106",
+        "term": "意外停用",
+        "definition": "与设备在使用过程中意外停用相关的问题。",
+        "non-IMDRF code": "",
+        "status": "新增",
+        "status description": "2025年发布的版本2025中添加。详见变更请求记录第8条。",
+        "codehierarchy": "A15|A1501|A150106"
+    },
+    {
+        "code": "A1502",
+        "term": "定位问题",
+        "definition": "与设备移动到指定位置相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502"
+    },
+    {
+        "code": "A150201",
+        "term": "定位失败",
+        "definition": "与设备无法定位到指定位置相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150201"
+    },
+    {
+        "code": "A150202",
+        "term": "设备错位",
+        "definition": "与设备被定位到非预期或指定位置相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150202"
+    },
+    {
+        "code": "A150203",
+        "term": "定位困难或延迟",
+        "definition": "与用户在定位设备到指定位置时遇到困难或延迟相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150203"
+    },
+    {
+        "code": "A150204",
+        "term": "无法前进",
+        "definition": "与设备无法移动到预期位置相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150204"
+    },
+    {
+        "code": "A150205",
+        "term": "推进困难",
+        "definition": "与设备难以移动到预期位置相关的问题（例如，导丝推进困难）。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150205"
+    },
+    {
+        "code": "A150206",
+        "term": "插入困难",
+        "definition": "与用户即使按照说明书或标签操作仍遇到困难引入或插入设备相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150206"
+    },
+    {
+        "code": "A150207",
+        "term": "取出困难",
+        "definition": "与用户即使按照说明书或标签操作仍遇到困难取出设备相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的编辑更改。",
+        "codehierarchy": "A15|A1502|A150207"
+    },
+    {
+        "code": "A150208",
+        "term": "设备卡住",
+        "definition": "与设备卡在患者血管、组织或其他设备中相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1502|A150208"
+    },
+    {
+        "code": "A1503",
+        "term": "分离问题",
+        "definition": "与设备的脱离或分离相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1503"
+    },
+    {
+        "code": "A150301",
+        "term": "分离失败",
+        "definition": "与设备或其组件未能按预期分离相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1503|A150301"
+    },
+    {
+        "code": "A150302",
+        "term": "分离困难或延迟",
+        "definition": "与用户在分离设备时遇到困难或延迟相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1503|A150302"
+    },
+    {
+        "code": "A150303",
+        "term": "过早分离",
+        "definition": "与设备过早且意外从系统中分离相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A15|A1503|A150303"
+    },
+    {
+        "code": "A16",
+        "term": "保护措施问题",
+        "definition": "与设备偏离文档规格的任何偏差相关的问题，这些偏差涉及特定于用于降低患者或护理人员风险或维持风险在规定水平的设备的设计特征和继承特性。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16"
+    },
+    {
+        "code": "A1601",
+        "term": "设备报警系统",
+        "definition": "与设备报警系统相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601"
+    },
+    {
+        "code": "A160101",
+        "term": "报警未显示",
+        "definition": "设备在需要时未显示报警信息。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160101"
+    },
+    {
+        "code": "A160102",
+        "term": "无声报警",
+        "definition": "设备未能发出可听见的报警声。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160102"
+    },
+    {
+        "code": "A160103",
+        "term": "报警声音低",
+        "definition": "设备的可听见报警声无法清晰听到。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160103"
+    },
+    {
+        "code": "A160104",
+        "term": "延迟报警",
+        "definition": "设备报警系统运行延迟。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160104"
+    },
+    {
+        "code": "A160105",
+        "term": "误报",
+        "definition": "与设备向用户发出错误报警警告或提示相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160105"
+    },
+    {
+        "code": "A160106",
+        "term": "报警故障",
+        "definition": "设备报警未按预期工作和/或不符合设备规格。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1601|A160106"
+    },
+    {
+        "code": "A1602",
+        "term": "安全机制问题",
+        "definition": "与防止设备不安全使用的功能相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1602"
+    },
+    {
+        "code": "A160201",
+        "term": "安全机制未起作用",
+        "definition": "与设备安全机制未能起作用或无效起作用相关的问题，影响设备的安全使用。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1602|A160201"
+    },
+    {
+        "code": "A160202",
+        "term": "缺乏安全机制",
+        "definition": "设备缺乏必要的安全机制，以确保其适当和/或安全运行。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1602|A160202"
+    },
+    {
+        "code": "A1603",
+        "term": "设备无法自检",
+        "definition": "与设备未能执行内部自我诊断程序以确保在使用前或使用期间正常运行相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1603"
+    },
+    {
+        "code": "A1604",
+        "term": "无法自动关闭",
+        "definition": "与设备在设备不可操作状态下无法自动关闭相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1604"
+    },
+    {
+        "code": "A1605",
+        "term": "重置问题",
+        "definition": "与将变量、寄存器或其他存储位置恢复到指定状态相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1605"
+    },
+    {
+        "code": "A160501",
+        "term": "无法重置",
+        "definition": "与设备未能将变量、寄存器或其他存储位置恢复到指定状态相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1605|A160501"
+    },
+    {
+        "code": "A160502",
+        "term": "无法归零",
+        "definition": "与设备未能将变量、寄存器或其他存储位置恢复到零相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1605|A160502"
+    },
+    {
+        "code": "A160503",
+        "term": "不适当的或意外的重置",
+        "definition": "与设备将变量、寄存器或其他存储位置设置为不适当或意外的状态相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1605|A160503"
+    },
+    {
+        "code": "A1606",
+        "term": "过早指示器激活",
+        "definition": "与保护措施指示器过早激活相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1606"
+    },
+    {
+        "code": "A160601",
+        "term": "过早计划性更换指示器",
+        "definition": "与计划性更换指示器过早或意外激活相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A16|A1606|A160601"
+    },
+    {
+        "code": "A160602",
+        "term": "过早寿命终止指示器",
+        "definition": "与寿命终止指示器过早或意外激活相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1606|A160602"
+    },
+    {
+        "code": "A1607",
+        "term": "屏蔽失效",
+        "definition": "与设备无法作为X射线、伽马射线等辐射能量吸收屏障相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A16|A1607"
+    },
+    {
+        "code": "A17",
+        "term": "兼容性问题",
+        "definition": "与设备、患者或物质（药物、体液等）之间的兼容性相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17"
+    },
+    {
+        "code": "A1701",
+        "term": "组件或附件不兼容",
+        "definition": "与设备在同一使用环境中操作时的不兼容性相关的问题，从而导致设备之间功能失调。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A17|A1701"
+    },
+    {
+        "code": "A170101",
+        "term": "附件不兼容",
+        "definition": "为设备预期用途所需的附件与设备不兼容，从而影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17|A1701|A170101"
+    },
+    {
+        "code": "A170102",
+        "term": "组件不兼容",
+        "definition": "为设备正常运行所需的组件与其他组件或子装配件不兼容，从而影响设备的预期功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17|A1701|A170102"
+    },
+    {
+        "code": "A1702",
+        "term": "设备间不兼容",
+        "definition": "与两个或多个设备在同一使用环境中操作时的不兼容性相关的问题，从而导致一个或多个设备的功能失调。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17|A1702"
+    },
+    {
+        "code": "A1703",
+        "term": "测量系统不兼容",
+        "definition": "与设备系统内或设备系统间的测量系统不兼容性相关的问题，这些系统是设备固有的，从而导致来自这些设备的计算或匹配测量出现错误，例如国际公制系统与美国测量系统。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17|A1703"
+    },
+    {
+        "code": "A1704",
+        "term": "意外兼容性",
+        "definition": "与两个或多个设备能够工作或配合在一起但本应不兼容的问题相关。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A17|A1704"
+    },
+    {
+        "code": "A18",
+        "term": "污染/去污问题",
+        "definition": "与设备上、表面或包装材料中发现的任何意外外来物质相关的问题，这些物质可能影响设备的性能或预期用途，或影响设备的有效去污。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18"
+    },
+    {
+        "code": "A1801",
+        "term": "污染",
+        "definition": "与设备上或其成分中意外引入化学或微生物杂质或外来物质相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改，术语的技术更改为分离何时/何地发生污染与污染类型（使用期间被移除）。注意：此更改影响所有下层术语（A180101-A180105），这些术语也不再限于使用期间的污染。",
+        "codehierarchy": "A18|A1801"
+    },
+    {
+        "code": "A180101",
+        "term": "设备上的生物膜涂层",
+        "definition": "与设备上意外引入生物膜涂层相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1801|A180101"
+    },
+    {
+        "code": "A180102",
+        "term": "设备成分或试剂污染",
+        "definition": "与设备成分或试剂中意外引入化学或微生物杂质或外来物质相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1801|A180102"
+    },
+    {
+        "code": "A180103",
+        "term": "设备被体液污染",
+        "definition": "与设备上或体内存在不属于文档设备规格和要求的体液相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1801|A180103"
+    },
+    {
+        "code": "A180104",
+        "term": "设备被化学物质或其他物质污染",
+        "definition": "与设备被化学物质或其他非生物物质污染相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1801|A180104"
+    },
+    {
+        "code": "A180105",
+        "term": "设备微生物污染",
+        "definition": "与设备意外微生物污染相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A18|A1801|A180105"
+    },
+    {
+        "code": "A1802",
+        "term": "设备制造或运输期间污染",
+        "definition": "与设备表面上或包装材料中发现的任何意外外来物质相关的问题，这些物质可能影响其预期用途的最佳性能，且发生在制造或运输期间。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日的技术更改，定义中澄清了污染发生在制造或运输期间。",
+        "codehierarchy": "A18|A1802"
+    },
+    {
+        "code": "A1803",
+        "term": "设备重新处理问题",
+        "definition": "与已使用或从原包装打开但未使用的设备重新处理过程中的任一步骤失败相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803"
+    },
+    {
+        "code": "A180301",
+        "term": "清洁不充分",
+        "definition": "与设备或操作员未能清除外部表面、裂缝和接头上的任何可见污垢、外来物质或有机物沉积相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180301"
+    },
+    {
+        "code": "A180302",
+        "term": "消毒失败",
+        "definition": "设备重新处理时未能正确消毒。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180302"
+    },
+    {
+        "code": "A180303",
+        "term": "冲洗问题",
+        "definition": "冲洗过程未正确执行。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180303"
+    },
+    {
+        "code": "A180304",
+        "term": "酶清洁剂去除问题",
+        "definition": "酶清洁剂未正确去除。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180304"
+    },
+    {
+        "code": "A180305",
+        "term": "灭菌问题",
+        "definition": "设备在重新处理过程中未能正确灭菌。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180305"
+    },
+    {
+        "code": "A180306",
+        "term": "去污后残留物",
+        "definition": "与去污过程未能充分去除不需要的可见污垢、外来物质或有机物沉积相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A18|A1803|A180306"
+    },
+    {
+        "code": "A1804",
+        "term": "设备在用户设施中污染",
+        "definition": "与设备表面上或包装材料中发现的任何意外外来物质相关的问题，这些物质可能影响其预期用途的最佳性能，并且发生在用户设施中。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "2020年3月18日添加的术语，用于编码用户设施中的污染，该污染原本包括在使用期间污染（A1801）中。",
+        "codehierarchy": "A18|A1804"
+    },
+    {
+        "code": "A19",
+        "term": "环境兼容性问题",
+        "definition": "与设备使用的周围条件相关的任何问题，如温度、噪音、照明、通风或其他外部因素，如电源供应。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19"
+    },
+    {
+        "code": "A1901",
+        "term": "背景噪声问题",
+        "definition": "与任何干扰设备操作的不必要的声能或振动相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A19|A1901"
+    },
+    {
+        "code": "A1902",
+        "term": "环境温度问题",
+        "definition": "与设备在环境温度下的性能受损或在不适当环境温度下储存相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A19|A1902"
+    },
+    {
+        "code": "A1903",
+        "term": "烟雾或蒸气",
+        "definition": "与环境中有毒、可见或气味的蒸汽或气体相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1903"
+    },
+    {
+        "code": "A1904",
+        "term": "设备环境中的真菌",
+        "definition": "与设备使用环境中霉菌、酵母和/或蘑菇可见相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1904"
+    },
+    {
+        "code": "A1905",
+        "term": "湿度或湿气问题",
+        "definition": "与存储或使用环境中令人不满意湿度水平相关的问题，这会影响设备性能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1905"
+    },
+    {
+        "code": "A190501",
+        "term": "湿气损坏",
+        "definition": "与设备因环境中水蒸气或水分而受到损害相关的问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A19|A1905|A190501"
+    },
+    {
+        "code": "A1906",
+        "term": "设备环境中的通风问题",
+        "definition": "与设备使用环境中新鲜空气的流通相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1906"
+    },
+    {
+        "code": "A190601",
+        "term": "雾化",
+        "definition": "与设备使用环境中水蒸气可见相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1906|A190601"
+    },
+    {
+        "code": "A1907",
+        "term": "设备在环境中不安全使用",
+        "definition": "与导致设备在环境中不安全使用的环境条件相关的问题（例如电磁场、噪音、振动、微生物污染等）。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "A19|A1907"
+    },
+    {
+        "code": "A1908",
+        "term": "环境微粒问题",
+        "definition": "与设备使用环境中悬浮的细小固体或液体颗粒（如灰尘、烟雾、烟尘和/或雾）相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1908"
+    },
+    {
+        "code": "A1909",
+        "term": "医用气体供应问题",
+        "definition": "与设施提供的医用气体（如医用空气、氧气、笑气和氮气）相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1909"
+    },
+    {
+        "code": "A1910",
+        "term": "电力问题",
+        "definition": "与设施提供的电源质量相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1910"
+    },
+    {
+        "code": "A191001",
+        "term": "紧急电源故障",
+        "definition": "与设施的紧急备用电源系统（包括发电机和/或不间断电源系统）失效相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1910|A191001"
+    },
+    {
+        "code": "A191002",
+        "term": "停电",
+        "definition": "与设施提供的主电源失效相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1910|A191002"
+    },
+    {
+        "code": "A191003",
+        "term": "电源调节问题",
+        "definition": "与用户设施的公用电源和电气系统出现瞬间过压相关的问题；- 与电源调节不足相关的问题，例如存在波动、浪涌、尖峰、中断、噪声和其他此类不期望的瞬变。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A19|A1910|A191003"
+    },
+    {
+        "code": "A20",
+        "term": "安装相关问题",
+        "definition": "与特定设备的安装、配置和/或设置不理想相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A20"
+    },
+    {
+        "code": "A2001",
+        "term": "安装时错误组装",
+        "definition": "与设备组件、部件或组成部分的错误组装相关的使用问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A20|A2001"
+    },
+    {
+        "code": "A21",
+        "term": "标签、使用说明或培训问题",
+        "definition": "与设备标记/标签、使用说明、培训和维护文档或指南相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21"
+    },
+    {
+        "code": "A2101",
+        "term": "设备标记/标签问题",
+        "definition": "与伴随设备或其包装的书面、印刷或图形材料相关的问题。这包括由设备制造商提供的关于识别、技术描述和使用的口头指示。问题可能包括但不限于这些材料不清楚、缺失、磨损、错误或不准确。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101"
+    },
+    {
+        "code": "A210101",
+        "term": "过期日期错误",
+        "definition": "与过期日期识别错误相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210101"
+    },
+    {
+        "code": "A210102",
+        "term": "信息无法辨认",
+        "definition": "与无法阅读或辨认的信息相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210102"
+    },
+    {
+        "code": "A210103",
+        "term": "信息不准确",
+        "definition": "与不精确、不准确的信息相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210103"
+    },
+    {
+        "code": "A210104",
+        "term": "信息含糊不清",
+        "definition": "与模糊、混淆的信息相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210104"
+    },
+    {
+        "code": "A210105",
+        "term": "信息缺失",
+        "definition": "信息的缺失，例如标签、使用说明。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210105"
+    },
+    {
+        "code": "A210106",
+        "term": "错误标签",
+        "definition": "与错误标签被附着到设备或包装上相关的问题。",
+        "non-IMDRF code": "",
+        "status": "添加于 2022 年 1 月 27 日。详情见变更日志（版本号 2022）中的注释 2。",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210106"
+    },
+    {
+        "code": "A210107",
+        "term": "设备标签相似性问题",
+        "definition": "与医疗设备标签看起来与其他产品相似导致混淆的问题。其他产品可能是另一种设备或不同的产品，如药物或清洁剂。对于设备包装相似性问题，请使用 A020505。",
+        "non-IMDRF code": "",
+        "status": "新增于 2024 年版本。详见变更日志编号 117。",
+        "status description": "",
+        "codehierarchy": "A21|A2101|A210107"
+    },
+    {
+        "code": "A2102",
+        "term": "缺乏维护文档或指南",
+        "definition": "与用户设施未收到足够的服务文档、指南或建议以进行预防性和纠正性维护以及性能保证检查相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2102"
+    },
+    {
+        "code": "A2103",
+        "term": "对医务人员的说明不充分",
+        "definition": "与任何附加在设备或其包装上的书面、印刷或图形内容，或随设备一起提供的任何内容，包括由设备制造商提供的关于设备识别、技术描述和使用的口头指示不准确相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2103"
+    },
+    {
+        "code": "A2104",
+        "term": "对非医务人员的说明不充分",
+        "definition": "与用户不清楚且无法遵循任何附加在设备或其包装上的书面、印刷或图形内容，或随设备一起提供的任何内容，包括由设备制造商提供的关于设备识别、技术描述和使用的口头指示相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2104"
+    },
+    {
+        "code": "A2105",
+        "term": "培训不足或不够",
+        "definition": "与设施未提供令人满意的设备操作初始和/或定期用户培训相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A21|A2105"
+    },
+    {
+        "code": "A22",
+        "term": "人机界面问题",
+        "definition": "与用户即使按照设备标示的使用说明操作也难以操作或与设备交互相关的问题。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义修改于 2025 年版本。详见变更请求日志编号 45。",
+        "codehierarchy": "A22"
+    },
+    {
+        "code": "A2201",
+        "term": "设备准备困难",
+        "definition": "与用户即使按照标示的使用说明操作也难以准备设备用于使用相关的问题。这包括连接或组合部件的困难。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "定义修改于 2025 年版本。详见变更请求日志编号 45。",
+        "codehierarchy": "A22|A2201"
+    },
+    {
+        "code": "A2202",
+        "term": "设备编程或校准困难",
+        "definition": "设备难以编程、校准或设置为所需状态，即使由适当训练的用户/操作员操作。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A22|A2202"
+    },
+    {
+        "code": "A2203",
+        "term": "设备维护困难",
+        "definition": "与用户根据制造商规范对设备进行例行维护的能力相关的问题，即定期检查、故障检测、修理和设备护理以维持或恢复可接受的操作条件。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A22|A2203"
+    },
+    {
+        "code": "A2204",
+        "term": "用户界面不足",
+        "definition": "与操作员和设备之间的通信或交互方式相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A22|A2204"
+    },
+    {
+        "code": "A2205",
+        "term": "设备提供无用消息",
+        "definition": "设备提供无帮助或无信息的消息，例如没有进一步意义或采取适当行动信息的错误代码。如果消息无法理解则使用 A2206 - 设备提供不可理解消息。",
+        "non-IMDRF code": "",
+        "status": "新增于 2024 年版本。详见变更日志编号 42。",
+        "status description": "",
+        "codehierarchy": "A22|A2205"
+    },
+    {
+        "code": "A2206",
+        "term": "设备提供不可理解消息",
+        "definition": "设备提供不可理解或难以理解的消息，例如一串随机字符。如果消息有意义但无帮助则使用 A2205 - 设备提供无用消息。",
+        "non-IMDRF code": "",
+        "status": "新增于 2024 年版本。详见变更日志编号 42。",
+        "status description": "",
+        "codehierarchy": "A22|A2206"
+    },
+    {
+        "code": "A23",
+        "term": "设备使用问题",
+        "definition": "与未能按照制造商推荐或公认的最佳实践来处理、服务或操作设备相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23"
+    },
+    {
+        "code": "A2301",
+        "term": "设备处理问题",
+        "definition": "在设备使用前，未按规格要求处理设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2301"
+    },
+    {
+        "code": "A2302",
+        "term": "使用错误控制/治疗设置",
+        "definition": "与设备使用有关的问题，即使用了不适当或错误的控制设置或设备指定操作和/或预期用途的错误治疗参数。",
+        "non-IMDRF code": "",
+        "status": "术语/定义于 2022 年 1 月 27 日进行了修改（旧术语/定义：使用错误控制设置：与设备使用有关的问题，即使用了不适当或虚假的控制设置以符合设备的指定操作和/或预期用途）。详情见变更日志（版本号 2022）中的注释 26。",
+        "status description": "",
+        "codehierarchy": "A23|A2302"
+    },
+    {
+        "code": "A2303",
+        "term": "不当或错误的程序或方法",
+        "definition": "与设备使用有关的问题，即未能遵守该设备的预期用途、规格、程序和过程或服务说明和信息，由设备制造商提供。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2303"
+    },
+    {
+        "code": "A2304",
+        "term": "超适应症使用",
+        "definition": "与设备的超适应症使用或未批准的预期用途相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2304"
+    },
+    {
+        "code": "A2305",
+        "term": "误组装",
+        "definition": "与设备或其组成部分在使用后错误组装相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2305"
+    },
+    {
+        "code": "A230501",
+        "term": "用户误组装",
+        "definition": "与用户错误组装设备或其组成部分相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2305|A230501"
+    },
+    {
+        "code": "A230502",
+        "term": "维修期间误组装",
+        "definition": "与设备或其组成部分在维护或修理过程中错误组装相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A23|A2305|A230502"
+    },
+    {
+        "code": "A24",
+        "term": "没有明确设备或使用问题的不良事件",
+        "definition": "似乎发生了不良事件（如患者伤害），但似乎没有设备本身或使用方式的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A24"
+    },
+    {
+        "code": "A25",
+        "term": "没有明显不良事件",
+        "definition": "收到报告，但描述的内容似乎不涉及不良事件。此代码允许记录报告以供行政目的，即使它不符合不良事件报告的要求。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "A25"
+    },
+    {
+        "code": "A2501",
+        "term": "因纠正措施而进行的预防性移除",
+        "definition": "由于纠正措施而进行的设备预防性移除，但并未发生特定设备的故障或问题。",
+        "non-IMDRF code": "",
+        "status": "新增于 2023 年 1 月 31 日。详情见变更日志（版本号 2023）中的注释 30。",
+        "status description": "",
+        "codehierarchy": "A25|A2501"
+    },
+    {
+        "code": "A26",
+        "term": "设备问题信息不足",
+        "definition": "似乎发生了不良事件，但尚未获得足够的信息来分类设备问题。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改于 2025 年版本。之前的术语是信息不足。详见变更请求日志编号 120。",
+        "codehierarchy": "A26"
+    },
+    {
+        "code": "A27",
+        "term": "没有适当的设备问题术语/代码可用",
+        "definition": "设备问题无法通过其他术语充分描述。注意：除非没有其他可行代码，否则不得使用此代码。提交不良事件报告时应记录首选术语。此信息将用于确定是否需要向代码表中添加新术语。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改于 2025 年版本。之前的术语是没有适当的术语/代码可用。详见变更请求日志编号 107。",
+        "codehierarchy": "A27"
+    }
+]

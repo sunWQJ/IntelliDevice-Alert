@@ -1,0 +1,1421 @@
+[
+    {
+        "code": "C01",
+        "term": "生物学问题已识别",
+        "definition": "与生物过程或生物体有关的问题、由其引起或对其造成影响的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01"
+    },
+    {
+        "code": "C0101",
+        "term": "生物相容性问题已识别",
+        "definition": "设备导致细胞或组织反应，引发受体或受益者的局部或全身不良反应。（参见ISO 10993）",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0101"
+    },
+    {
+        "code": "C0102",
+        "term": "生物污染",
+        "definition": "存在如细菌、真菌或病毒等活体微生物或其产物（如酶或毒素）的不希望出现的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0102"
+    },
+    {
+        "code": "C010201",
+        "term": "内毒素污染",
+        "definition": "与某些细菌（例如革兰氏阴性菌）相关的毒素不希望出现的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0102|C010201"
+    },
+    {
+        "code": "C010202",
+        "term": "微生物污染",
+        "definition": "存在细菌和真菌（酵母和霉菌）等微生物的不希望出现的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0102|C010202"
+    },
+    {
+        "code": "C0103",
+        "term": "材料或材料浸出物热原问题",
+        "definition": "由于材料渗透通过设备而引起的热原（如发热源）不希望出现的情况。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0103"
+    },
+    {
+        "code": "C0104",
+        "term": "细胞毒性问题已识别",
+        "definition": "设备被发现具有对活细胞产生不希望出现的毒性水平。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0104"
+    },
+    {
+        "code": "C0105",
+        "term": "基因毒性问题已识别",
+        "definition": "设备能够导致遗传物质（例如DNA）损伤的能力（如导致恶性肿瘤）。（参见ISO 10993）",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0105"
+    },
+    {
+        "code": "C010501",
+        "term": "致癌问题",
+        "definition": "设备能够触发癌症发展的能力。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0105|C010501"
+    },
+    {
+        "code": "C010502",
+        "term": "致突变问题",
+        "definition": "设备能够改变生物体的遗传信息（通常为DNA），从而增加突变频率的能力。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0105|C010502"
+    },
+    {
+        "code": "C0106",
+        "term": "血液学问题已识别",
+        "definition": "设备影响或干扰血液及其成分。（参见ISO 10993所有部分）",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0106"
+    },
+    {
+        "code": "C010601",
+        "term": "凝血问题",
+        "definition": "设备影响血液凝固的能力，可能由设备的化学、机械或热性质诱导。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0106|C010601"
+    },
+    {
+        "code": "C010602",
+        "term": "补体激活问题",
+        "definition": "设备影响免疫系统激活补体系统的功能，从而干扰清除病原体的能力。这可能是由于设备与化学物质或材料相互作用引起的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0106|C010602"
+    },
+    {
+        "code": "C010603",
+        "term": "血小板激活问题",
+        "definition": "设备影响血小板形成的能力。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0106|C010603"
+    },
+    {
+        "code": "C010604",
+        "term": "血栓激活相关问题",
+        "definition": "设备导致血块在血管内或沿血管形成，从而扰乱或破坏血液流动。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0106|C010604"
+    },
+    {
+        "code": "C0107",
+        "term": "意外存在的过敏原",
+        "definition": "设备中意外或不期望存在的过敏原。如果过敏原的存在是预期的但未充分标注，则使用“标签问题”。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0107"
+    },
+    {
+        "code": "C0108",
+        "term": "生殖毒性问题已识别",
+        "definition": "设备影响生殖功能、胚胎发育（致畸性）、以及围产期和早期出生后发育。（ISO 10993 第3部分）",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C01|C0108"
+    },
+    {
+        "code": "C0109",
+        "term": "内源性物质不希望出现",
+        "definition": "内源性物质、体液、细胞组织等的不希望出现的存在。",
+        "non-IMDRF code": "",
+        "status": "新增于2023年1月31日。详情见变更记录（发布编号2023）中的第61条和第64条评论。",
+        "codehierarchy": "C01|C0109"
+    },
+    {
+        "code": "C02",
+        "term": "电气问题已识别",
+        "definition": "与电驱动设备相关的事件，其中电气故障导致设备问题（例如电路、接触或组件失效），即使问题是间歇性的。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02"
+    },
+    {
+        "code": "C0201",
+        "term": "电气/电子元件问题已识别",
+        "definition": "电气或电子元件的性能被发现不足。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0201"
+    },
+    {
+        "code": "C0202",
+        "term": "硬件定时问题已识别",
+        "definition": "由于组件的不当顺序激活而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0202"
+    },
+    {
+        "code": "C0203",
+        "term": "阻抗问题已识别",
+        "definition": "由于设备或电路的电阻不足或过大而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0203"
+    },
+    {
+        "code": "C0204",
+        "term": "绝缘问题已识别",
+        "definition": "由于绝缘材料不足或不正确而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0204"
+    },
+    {
+        "code": "C0205",
+        "term": "断路",
+        "definition": "由于开关打开或电线断裂等原因导致电路不通的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0205"
+    },
+    {
+        "code": "C0206",
+        "term": "漏电流问题",
+        "definition": "与漏电流相关的问题，可能导致触电。这些电流通常流过保护接地导线。在没有保护接地导线的情况下，这些电流可能会从设备经人体流向地面。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0206"
+    },
+    {
+        "code": "C0207",
+        "term": "电源问题已识别",
+        "definition": "与为设备提供电力的电源相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0207"
+    },
+    {
+        "code": "C020701",
+        "term": "能量存储系统问题",
+        "definition": "与能量存储系统（如可充电电池、充电系统或电容器）相关的问题，包括提前耗尽电源和电池爆炸等问题。",
+        "non-IMDRF code": "",
+        "status": "编辑修改",
+        "status description": "术语修改用于发布号2025。之前的术语是“能源存储系统问题”。见变更请求日志第126条。",
+        "codehierarchy": "C02|C0207|C020701"
+    },
+    {
+        "code": "C020702",
+        "term": "电源丢失已确认",
+        "definition": "由于电源问题导致设备出现问题。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改用于发布号2025。之前的术语是“电源丢失”。见变更请求日志第126条。",
+        "codehierarchy": "C02|C0207|C020702"
+    },
+    {
+        "code": "C020703",
+        "term": "电源波动",
+        "definition": "由于电源波动（如瞬时电源、电源尖峰、电源下降或电源序列）导致设备故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0207|C020703"
+    },
+    {
+        "code": "C0208",
+        "term": "短路",
+        "definition": "由于电路上无意的低阻抗连接导致的问题，结果是电流过度流动，可能导致损坏，或者形成新的较短的电路，从而从原始路径和组件中抽走电流。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0208"
+    },
+    {
+        "code": "C0209",
+        "term": "信号损失",
+        "definition": "由于信号或信号的丢失或减弱导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C02|C0209"
+    },
+    {
+        "code": "C0210",
+        "term": "内存损坏",
+        "definition": "由于设备内存损坏（包括位翻转或单事件错误）导致的故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语新增于2023年1月31日。详情见变更记录（发布编号2023）中的第60条。",
+        "codehierarchy": "C02|C0210"
+    },
+    {
+        "code": "C03",
+        "term": "电磁兼容性问题已识别",
+        "definition": "设备间或设备与环境间由于电磁干扰导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C03"
+    },
+    {
+        "code": "C0301",
+        "term": "传导干扰",
+        "definition": "与通过导体（如电线、电阻器、终端）物理接触引起的电磁干扰（EMI）相关的问题，而不是由感应（无导体物理接触）引起的辐射EMI。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C03|C0301"
+    },
+    {
+        "code": "C0302",
+        "term": "静电放电已确认",
+        "definition": "由于不同电势的两个物体之间突然且短暂的电流爆发引起的设备问题。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改用于发布号2025。之前的术语是“静电放电”。见变更请求日志第140条。",
+        "codehierarchy": "C03|C0302"
+    },
+    {
+        "code": "C0303",
+        "term": "不充分的抗干扰能力",
+        "definition": "与抗电磁干扰（EMI）能力或抵抗电磁干扰的能力相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C03|C0303"
+    },
+    {
+        "code": "C0304",
+        "term": "无意发射",
+        "definition": "由于设备无意发射电磁能导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C03|C0304"
+    },
+    {
+        "code": "C0305",
+        "term": "射频干扰（RFI）已确认",
+        "definition": "由于射频干扰导致的问题。RFI是由外部来源通过电磁传导或电磁辐射影响电路的一种干扰。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改用于发布号2025。之前的术语是“射频干扰（RFI）”。见变更请求日志第132条。",
+        "codehierarchy": "C03|C0305"
+    },
+    {
+        "code": "C04",
+        "term": "互操作性问题已识别",
+        "definition": "两台或多台独立设备之间的机械、电气或通信接口问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04"
+    },
+    {
+        "code": "C0401",
+        "term": "通信问题已识别",
+        "definition": "未能发送或接收足够信号的设备（涉及设备间的互操作性）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04|C0401"
+    },
+    {
+        "code": "C040101",
+        "term": "有线通信问题",
+        "definition": "有线系统内设备之间的通信问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04|C0401|C040101"
+    },
+    {
+        "code": "C040102",
+        "term": "无线通信问题已识别",
+        "definition": "无线系统内设备之间的通信问题。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改用于发布号2025。之前的术语是“无线通信问题”。见变更请求日志第138条。",
+        "codehierarchy": "C04|C0401|C040102"
+    },
+    {
+        "code": "C040103",
+        "term": "网络通信问题",
+        "definition": "网络系统内设备之间的通信问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04|C0401|C040103"
+    },
+    {
+        "code": "C0402",
+        "term": "不兼容组件/附件",
+        "definition": "由于组件/附件不能正确运行并符合设备规格而导致设备故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04|C0402"
+    },
+    {
+        "code": "C0403",
+        "term": "设备与其他设备不兼容",
+        "definition": "由于与另一台设备一起使用或在另一台设备附近使用而导致设备故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C04|C0403"
+    },
+    {
+        "code": "C0404",
+        "term": "意外兼容性已确认",
+        "definition": "设备被确认与本应与其不兼容的另一台设备兼容。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语修改用于发布号2025。之前的术语是“意外兼容性”。见变更请求日志第136条。",
+        "codehierarchy": "C04|C0404"
+    },
+    {
+        "code": "C05",
+        "term": "标签和使用/维护说明",
+        "definition": "设备标签或文档中提供的关于设备的预期用途、使用步骤和特性（包括维护）的信息不足、不充分或不正确。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C05"
+    },
+    {
+        "code": "C0501",
+        "term": "标签和/或使用说明书不充分",
+        "definition": "标签或使用说明书中信息不足，例如难以遵循或缺失的步骤。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C05|C0501"
+    },
+    {
+        "code": "C0502",
+        "term": "标签和/或使用说明书不正确",
+        "definition": "标签上缺少、错误或不适当的信息，例如内容误标或设备标签特征或包装内容误标。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C05|C0502"
+    },
+    {
+        "code": "C0503",
+        "term": "维护说明不充分或不正确",
+        "definition": "维护说明中的信息不充分或不正确。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C05|C0503"
+    },
+    {
+        "code": "C06",
+        "term": "材料和/或化学问题已识别",
+        "definition": "设备材料的问题或其材料与其他元素（设备内部或环境中的元素）之间的反应问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06"
+    },
+    {
+        "code": "C0601",
+        "term": "退化问题已识别",
+        "definition": "由于老化、渗透或腐蚀等过程导致设备磨损、变弱、腐蚀或破裂的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0601"
+    },
+    {
+        "code": "C0602",
+        "term": "不适当材料",
+        "definition": "由于设备中存在不应存在的材料或部分而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0602"
+    },
+    {
+        "code": "C060201",
+        "term": "不当组合/浓度",
+        "definition": "与设备中存在的材料或元素的不当组合相关的各种问题（例如电容器材料的不当组合）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0602|C060201"
+    },
+    {
+        "code": "C060202",
+        "term": "不当物理结构",
+        "definition": "与部件、组件、元素或材料的不正确或不充分排列相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0602|C060202"
+    },
+    {
+        "code": "C060203",
+        "term": "分子结构问题",
+        "definition": "与设备中某个地方存在不适当的分子几何形状有关的问题（即原子在分子中的空间排列以及将原子结合在一起的化学键）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0602|C060203"
+    },
+    {
+        "code": "C0603",
+        "term": "不充分的物理化学性质",
+        "definition": "由于物理化学性质而产生的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0603"
+    },
+    {
+        "code": "C0604",
+        "term": "不相容材料",
+        "definition": "由于设备中同时存在的材料之间不兼容而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0604"
+    },
+    {
+        "code": "C0605",
+        "term": "反应性问题已识别",
+        "definition": "由于材料的反应性（例如过度反应或反应不足）而产生的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0605"
+    },
+    {
+        "code": "C0606",
+        "term": "公差堆叠问题",
+        "definition": "由组件规格偏差的组合引起的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C06|C0606"
+    },
+    {
+        "code": "C07",
+        "term": "机械问题已识别",
+        "definition": "由内部或外部力量引起的，包括流体、其他物体或环境或生理影响的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07"
+    },
+    {
+        "code": "C0701",
+        "term": "设备迁移",
+        "definition": "由于外部力量导致设备从原位置移动（例如支架或导线移动）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0701"
+    },
+    {
+        "code": "C0702",
+        "term": "摩擦问题已识别",
+        "definition": "由于表面接触另一个表面或流体而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0702"
+    },
+    {
+        "code": "C0703",
+        "term": "泄漏/密封",
+        "definition": "由于设备内的密封不足或破损而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0703"
+    },
+    {
+        "code": "C0704",
+        "term": "润滑问题已识别",
+        "definition": "由于需要的地方润滑剂过多或过少而导致的问题（例如连接器，导致诸如腐蚀之类的故障机制）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0704"
+    },
+    {
+        "code": "C0705",
+        "term": "刚度问题已识别",
+        "definition": "当材料在受到外力时过于柔韧或过于僵硬而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0705"
+    },
+    {
+        "code": "C0706",
+        "term": "应力问题已识别",
+        "definition": "由于施加在其上的物理力过大或不足而导致的问题，例如磨损、弯曲、变形、断裂或疲劳。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0706"
+    },
+    {
+        "code": "C070601",
+        "term": "变形/扭曲问题",
+        "definition": "由于施加的力量导致设备形状或尺寸的变化。这可能是拉伸力、压缩力、剪切力、弯曲力、打结或扭转的结果。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义在2025年发布版本中进行了修改。之前的术语是“变形问题”。见变更请求日志第13条。",
+        "codehierarchy": "C07|C0706|C070601"
+    },
+    {
+        "code": "C070602",
+        "term": "疲劳问题",
+        "definition": "由于材料在承受应力或一系列重复应力时变弱或损坏而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0706|C070602"
+    },
+    {
+        "code": "C070603",
+        "term": "分离问题",
+        "definition": "由于部件、物体或材料的切割、撕裂或断裂成两块或多块（包括剪切）而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义在2025年发布版本中进行了修改。之前的术语是“断裂问题”。见变更请求日志第15条。",
+        "codehierarchy": "C07|C0706|C070603"
+    },
+    {
+        "code": "C070604",
+        "term": "机械冲击问题",
+        "definition": "由于对整个设备的突然剧烈撞击（例如掉落）而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0706|C070604"
+    },
+    {
+        "code": "C070605",
+        "term": "振动问题",
+        "definition": "由于设备本身的恒定节奏运动或设备所处环境中某些东西的恒定节奏运动而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0706|C070605"
+    },
+    {
+        "code": "C070606",
+        "term": "磨损问题",
+        "definition": "由于使用、劣化或变化导致设备材料的过早或预期磨损的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0706|C070606"
+    },
+    {
+        "code": "C0707",
+        "term": "不正确的尺寸",
+        "definition": "由于设备或其部分的物理尺寸不正确而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C07|C0707"
+    },
+    {
+        "code": "C0708",
+        "term": "堵塞已识别",
+        "definition": "由于阻塞或堵塞而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语在2023年1月31日添加。详情见变更日志第45条（2023年发布版本）。",
+        "codehierarchy": "C07|C0708"
+    },
+    {
+        "code": "C08",
+        "term": "光学问题已识别",
+        "definition": "与设备光学特性相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C08"
+    },
+    {
+        "code": "C0801",
+        "term": "光学传输问题已识别",
+        "definition": "设备传递光能的能力问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C08|C0801"
+    },
+    {
+        "code": "C0802",
+        "term": "光源问题已识别",
+        "definition": "与设备光学特性相关的问题，如屈光度、眩光和辐射强度或闪光。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C08|C0802"
+    },
+    {
+        "code": "C09",
+        "term": "临床成像问题已识别",
+        "definition": "在用于放射或成像程序的设备中发生的各种问题，例如CT扫描仪、磁共振成像设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C09"
+    },
+    {
+        "code": "C0901",
+        "term": "梯度感应场问题",
+        "definition": "在放射学程序过程中（例如磁共振成像）产生的梯度感应场导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C09|C0901"
+    },
+    {
+        "code": "C0902",
+        "term": "图像伪影",
+        "definition": "在放射学程序（例如磁共振成像）期间因信号丢失而导致的图像不可接受失真。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C09|C0902"
+    },
+    {
+        "code": "C0903",
+        "term": "磁感应移动",
+        "definition": "由于应用磁场而造成的意外或过度移动的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C09|C0903"
+    },
+    {
+        "code": "C0904",
+        "term": "射频感应过热",
+        "definition": "由于射频感应导致设备附近温度意外升高而引起的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C09|C0904"
+    },
+    {
+        "code": "C10",
+        "term": "软件问题已识别",
+        "definition": "与设备软件相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10"
+    },
+    {
+        "code": "C1001",
+        "term": "配置问题",
+        "definition": "由于变更控制或版本错误，包括区域要求而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1001"
+    },
+    {
+        "code": "C1002",
+        "term": "设计错误",
+        "definition": "设备的软件设计存在缺陷（不完整或错误）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002"
+    },
+    {
+        "code": "C100201",
+        "term": "数据压缩错误",
+        "definition": "在存储空间或通信带宽减少操作过程中数据丢失或损坏。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100201"
+    },
+    {
+        "code": "C100202",
+        "term": "不正确的算法",
+        "definition": "发现设备软件实施了特定计算的错误步骤序列。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100202"
+    },
+    {
+        "code": "C100203",
+        "term": "不正确的数据定义",
+        "definition": "发现设备软件在指定或操作数据项时存在错误。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100203"
+    },
+    {
+        "code": "C100204",
+        "term": "界面设计错误",
+        "definition": "发现设备软件在用户界面（包括可用性问题）或与其他系统的接口方面存在错误。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100204"
+    },
+    {
+        "code": "C100205",
+        "term": "非功能性缺陷",
+        "definition": "设备软件包含不影响其运行的软件错误。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100205"
+    },
+    {
+        "code": "C100206",
+        "term": "软件定时问题",
+        "definition": "由于软件模块的错误顺序或激活而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1002|C100206"
+    },
+    {
+        "code": "C1003",
+        "term": "软件维护问题已识别",
+        "definition": "设备软件未得到适当维护/更新。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1003"
+    },
+    {
+        "code": "C1004",
+        "term": "软件安装问题已识别",
+        "definition": "设备软件未按规格安装或未能正确安装。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1004"
+    },
+    {
+        "code": "C1005",
+        "term": "软件需求错误",
+        "definition": "设备的软件需求不完整、不充分或存在冲突。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1005"
+    },
+    {
+        "code": "C1006",
+        "term": "软件运行时错误",
+        "definition": "由于编码错误，设备软件在运行时失败。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1006"
+    },
+    {
+        "code": "C1007",
+        "term": "软件安全漏洞",
+        "definition": "设备软件未能提供足够的授权、访问控制、保护和问责功能。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1007"
+    },
+    {
+        "code": "C1008",
+        "term": "错误的数据传输",
+        "definition": "设备软件未能在系统内或与其他设备之间传输预期数据。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1008"
+    },
+    {
+        "code": "C1009",
+        "term": "数据存储或数据丢失",
+        "definition": "数据存储完全或部分失败。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C10|C1009"
+    },
+    {
+        "code": "C1010",
+        "term": "人工智能培训/验证问题已识别",
+        "definition": "与人工智能（包括机器学习算法）的训练和/或验证相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语在2022年1月27日添加。详情见变更日志第11条（2022年发布版本）。",
+        "codehierarchy": "C10|C1010"
+    },
+    {
+        "code": "C1011",
+        "term": "软件损坏",
+        "definition": "设备软件损坏导致设备故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2022年1月27日添加。详情见变更记录（发布编号2022）中的注释30。",
+        "codehierarchy": "C10|C1011"
+    },
+    {
+        "code": "C11",
+        "term": "热问题",
+        "definition": "与设备温度相关的问题。注意：对于与环境温度相关的问题，请使用“环境问题识别”。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C11"
+    },
+    {
+        "code": "C1101",
+        "term": "过热问题识别",
+        "definition": "设备在操作过程中比预期更热。适用于不打算产生热量的设备。对于在操作过程中打算产生热量的设备，请使用“过热问题识别”。如果过热问题是由于冷却系统的问题引起的，请使用“冷却不足识别”。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C11|C1101"
+    },
+    {
+        "code": "C1102",
+        "term": "过度加热识别",
+        "definition": "设备在操作过程中产生的热量超过预期或意图。适用于打算产生热量的设备。对于不打算产生热量的设备，请使用“过热问题识别”。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C11|C1102"
+    },
+    {
+        "code": "C1103",
+        "term": "过度冷却识别",
+        "definition": "设备在操作过程中对患者或其他设备冷却过多。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C11|C1103"
+    },
+    {
+        "code": "C1104",
+        "term": "冷却不足识别",
+        "definition": "设备在操作过程中未能充分冷却患者或其他设备。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C11|C1104"
+    },
+    {
+        "code": "C12",
+        "term": "保护系统问题识别",
+        "definition": "与设计用于防止或警告设备不安全操作的系统相关的故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12"
+    },
+    {
+        "code": "C1201",
+        "term": "自动停止功能问题识别",
+        "definition": "旨在防止设备不安全操作的系统未正常运行。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12|C1201"
+    },
+    {
+        "code": "C1202",
+        "term": "报警系统问题识别",
+        "definition": "旨在警告潜在不安全状况的系统未正常运行。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12|C1202"
+    },
+    {
+        "code": "C1203",
+        "term": "设备自检问题",
+        "definition": "设备自检系统的故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12|C1203"
+    },
+    {
+        "code": "C1204",
+        "term": "自动停止功能问题识别",
+        "definition": "设备的自动停止功能未正常运行。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12|C1204"
+    },
+    {
+        "code": "C1205",
+        "term": "过早指示器激活识别",
+        "definition": "旨在指示设备状态的系统被提前触发。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语于2025年版本修订。原术语为“过早指示器激活”。详见变更请求日志第130条。",
+        "codehierarchy": "C12|C1205"
+    },
+    {
+        "code": "C1206",
+        "term": "复位问题识别",
+        "definition": "设备无法正确复位。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语于2025年版本修订。原术语为“复位问题”。详见变更请求日志第134条。",
+        "codehierarchy": "C12|C1206"
+    },
+    {
+        "code": "C1207",
+        "term": "屏蔽问题",
+        "definition": "设备屏蔽不足或屏蔽不当。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C12|C1207"
+    },
+    {
+        "code": "C1208",
+        "term": "缺失或不充分的安全措施识别",
+        "definition": "安全措施应用不足或缺失。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语于2025年版本修订。原术语为“缺失或不充分的安全措施”。详见变更请求日志第127条。",
+        "codehierarchy": "C12|C1208"
+    },
+    {
+        "code": "C13",
+        "term": "操作问题识别",
+        "definition": "设备在性能、使用或操作期间出现的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13"
+    },
+    {
+        "code": "C1301",
+        "term": "设备重新处理错误",
+        "definition": "与未能正确和充分重新处理设备相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13|C1301"
+    },
+    {
+        "code": "C130101",
+        "term": "设备在重新处理中清洁不当",
+        "definition": "清洁程序未正确执行或使用了不适当的清洁材料。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13|C1301|C130101"
+    },
+    {
+        "code": "C130102",
+        "term": "设备在重新处理中消毒/灭菌不当",
+        "definition": "消毒/灭菌过程不正确和/或使用了不正确的消毒/灭菌产品。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13|C1301|C130102"
+    },
+    {
+        "code": "C130103",
+        "term": "设备在重新处理中组装错误",
+        "definition": "设备重新处理后组装不正确。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13|C1301|C130103"
+    },
+    {
+        "code": "C1302",
+        "term": "校准失败或超出校准范围使用",
+        "definition": "设备无法校准（建立测量设备与计量单位之间的关系）或超出校准范围使用以确保准确读数。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语/定义于2023年1月31日修改（旧术语/定义：校准失败：设备无法校准（建立测量设备与计量单位之间的关系）以确保准确读数）。详见变更记录（发布编号2023）中的第58条注释。",
+        "codehierarchy": "C13|C1302"
+    },
+    {
+        "code": "C1303",
+        "term": "设备操作困难",
+        "definition": "包括设备设置、操作和拆卸的问题。不包括重新处理。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "C13|C1303"
+    },
+    {
+        "code": "C1304",
+        "term": "结果/数据解释错误",
+        "definition": "用户对设备提供的结果或数据进行错误解释所导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C13|C1304"
+    },
+    {
+        "code": "C14",
+        "term": "患者样本问题",
+        "definition": "由于内源性或外源性干扰物或目标分析物/标记物的意外变化而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C14"
+    },
+    {
+        "code": "C1401",
+        "term": "新或未知干扰物",
+        "definition": "识别出的新或未知的内源性或外源性干扰物（样本）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C14|C1401"
+    },
+    {
+        "code": "C1402",
+        "term": "已知干扰物",
+        "definition": "识别出的样本中的已知干扰物。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C14|C1402"
+    },
+    {
+        "code": "C1403",
+        "term": "变异/突变相关问题",
+        "definition": "设备性能受到未在标签中标明的变异/突变的影响。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义在2025年版本修订。原术语为“目标标记/变异/突变变化”。详见变更请求日志第56条。",
+        "codehierarchy": "C14|C1403"
+    },
+    {
+        "code": "C1404",
+        "term": "前分析处理问题",
+        "definition": "用户对患者的样本进行了不正确的前分析处理。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C14|C1404"
+    },
+    {
+        "code": "C15",
+        "term": "环境问题识别",
+        "definition": "由于环境因素（如灰尘、污垢、湿度、温度）导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15"
+    },
+    {
+        "code": "C1501",
+        "term": "环境温度问题识别",
+        "definition": "设备性能受到使用环境中温度或温度变化的影响。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15|C1501"
+    },
+    {
+        "code": "C1502",
+        "term": "设备受外来物质污染",
+        "definition": "由于灰尘、污垢或其他外来物质的侵入或涂层而出现问题的设备。",
+        "non-IMDRF code": "",
+        "status": "修改（技术）",
+        "status description": "术语和定义在2025年版本修订。原术语为“灰尘或污垢问题识别”。详见变更请求日志第14条。",
+        "codehierarchy": "C15|C1502"
+    },
+    {
+        "code": "C1503",
+        "term": "环境受设备污染",
+        "definition": "设备运行导致附近环境受到污染（例如灰尘、污垢、烟雾、热量或生物材料）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15|C1503"
+    },
+    {
+        "code": "C1504",
+        "term": "环境压力问题识别",
+        "definition": "设备性能受到使用环境中压力或压力变化的影响。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15|C1504"
+    },
+    {
+        "code": "C1505",
+        "term": "环境光问题识别",
+        "definition": "设备性能受到环境光的影响。此术语适用于环境光对设备的直接影响以及用户操作设备的能力（例如读取设备输出）。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15|C1505"
+    },
+    {
+        "code": "C1506",
+        "term": "环境湿度问题识别",
+        "definition": "设备性能受到使用环境中湿度或湿度变化的影响。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C15|C1506"
+    },
+    {
+        "code": "C16",
+        "term": "制造工艺问题识别",
+        "definition": "可以追溯到制造和/或生产过程问题的设备问题。",
+        "non-IMDRF code": "",
+        "status description": "",
+        "codehierarchy": "C16"
+    },
+    {
+        "code": "C1601",
+        "term": "装配问题识别",
+        "definition": "设备因装配错误而出现问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1601"
+    },
+    {
+        "code": "C1602",
+        "term": "灭菌问题识别",
+        "definition": "制造商在终端灭菌过程中出现的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1602"
+    },
+    {
+        "code": "C1603",
+        "term": "安装问题识别",
+        "definition": "设备因安装、设置或配置错误（例如，“自动”除颤器误配置为“半自动”，从而导致故障）而发生故障。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1603"
+    },
+    {
+        "code": "C1604",
+        "term": "生产设备维护问题",
+        "definition": "由于未能维护用于生产设备的制造设备而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1604"
+    },
+    {
+        "code": "C1605",
+        "term": "包装问题识别",
+        "definition": "由于设备包装问题而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1605"
+    },
+    {
+        "code": "C160501",
+        "term": "包装受损",
+        "definition": "由于设备包装受损（例如密封破损或不完整）而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1605|C160501"
+    },
+    {
+        "code": "C160502",
+        "term": "包装材料问题",
+        "definition": "由于包装材料的组成或类型不适合设备而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1605|C160502"
+    },
+    {
+        "code": "C160503",
+        "term": "包装中含有非预期材料",
+        "definition": "由于包装中包含非预期材料而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C16|C1605|C160503"
+    },
+    {
+        "code": "C160504",
+        "term": "包装中含有不正确或不完整的设备",
+        "definition": "由于包装中包含不正确或不完整的设备（缺少部件）而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语/定义于2023年1月31日修改（旧术语/定义：包装中含有不正确设备：由于包装中包含不正确的设备而导致的问题）。详见变更记录（发布编号2023）中的第51条注释。",
+        "codehierarchy": "C16|C1605|C160504"
+    },
+    {
+        "code": "C17",
+        "term": "维护问题识别",
+        "definition": "设备在生产后因未按说明进行适当维护（例如，维护可能由用户设施、分销商或服务提供商执行）而发生的故障或问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C17"
+    },
+    {
+        "code": "C1701",
+        "term": "调整/对齐错误识别",
+        "definition": "由于设备组件调整不当导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "术语在2024年版本添加。详见变更记录。",
+        "codehierarchy": "C17|C1701"
+    },
+    {
+        "code": "C18",
+        "term": "运输/存储问题识别",
+        "definition": "由于运输或存储条件导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C18"
+    },
+    {
+        "code": "C1801",
+        "term": "运输问题识别",
+        "definition": "可追溯到设备运输方式的问题，例如运输舱的温度或运输方法。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C18|C1801"
+    },
+    {
+        "code": "C1802",
+        "term": "存储问题识别",
+        "definition": "由于设备存放在不受控制或不适当的环境中（例如，对湿气敏感的设备存放在潮湿环境中）而导致的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C18|C1802"
+    },
+    {
+        "code": "C19",
+        "term": "未发现设备问题",
+        "definition": "在调查期间无法重现报告的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "此术语的定义已于2021年1月21日澄清。详情请参阅变更记录中的第17和29条评论。（旧定义：“设备要么按预期工作，要么没有发现问题。”）",
+        "codehierarchy": "C19"
+    },
+    {
+        "code": "C20",
+        "term": "无可用结果",
+        "definition": "使用时无法进行调查且因此无法获得结果。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C20"
+    },
+    {
+        "code": "C21",
+        "term": "正在调查的结果待定",
+        "definition": "正在进行调查，结果尚未可用。请勿在调查完成时使用此代码。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "",
+        "codehierarchy": "C21"
+    },
+    {
+        "code": "C22",
+        "term": "适当调查结果术语/代码不可用",
+        "definition": "当前问题无法通过其他术语充分描述。注意：除非没有其他可行的代码，否则不得使用此代码。提交不良事件报告时应记录首选术语。此信息将用于确定是否需要向代码表中添加新术语。",
+        "non-IMDRF code": "",
+        "status": "修改（编辑）",
+        "status description": "术语于2025年修订版中修改。之前的术语为“适当术语/代码不可用”。详见变更请求记录中的第108条。",
+        "codehierarchy": "C22"
+    },
+    {
+        "code": "C23",
+        "term": "已识别的使用问题",
+        "definition": "与医疗专业人员、患者或其他设备使用者的行为相关的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2021年1月21日添加，用于编码设备使用问题。详情请参阅变更记录中的第32条评论。",
+        "codehierarchy": "C23"
+    },
+    {
+        "code": "C2301",
+        "term": "样本量不足",
+        "definition": "没有足够的样本量来执行测试。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2023年1月31日添加。详见变更记录（2023年发布）中的第53条评论。",
+        "codehierarchy": "C23|C2301"
+    },
+    {
+        "code": "C2302",
+        "term": "发现使用非验证控制问题",
+        "definition": "与使用未经验证的控制相关的发生的问题。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2023年1月31日添加。详见变更记录（2023年发布）中的第57条评论。",
+        "codehierarchy": "C23|C2302"
+    },
+    {
+        "code": "C24",
+        "term": "观察到的故障但无明确结论",
+        "definition": "故障已被确认但没有明确的结论。",
+        "non-IMDRF code": "",
+        "status": "",
+        "status description": "该术语于2023年1月31日添加。详见变更记录（2023年发布）中的第62条评论。",
+        "codehierarchy": "C24"
+    }
+]
