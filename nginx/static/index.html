@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>智械预警 · 接入演示</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto;max-width:980px;margin:20px auto;padding:0 16px}
+    h1{font-size:20px;margin:12px 0}
+    section{border:1px solid #e5e5e5;border-radius:8px;padding:12px;margin:10px 0}
+    label{display:block;margin:6px 0}
+    input,textarea,select,button{font-size:14px;padding:6px}
+    textarea{width:100%;min-height:90px}
+    pre{background:#f7f7f8;padding:10px;overflow:auto;border-radius:6px}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <h1>智械预警 · 接入演示</h1>
+
+  <section>
+    <h2>📋 医疗事件报告录入</h2>
+    
+    <!-- 基本信息部分 -->
+    <div style="background:#f8f9fa;padding:15px;border-radius:8px;margin-bottom:15px;">
+      <h3 style="margin:0 0 10px 0;color:#2c3e50;">🏥 基本信息</h3>
+      <div class="row">
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【医院编号】</label>
+          <input id="hospital_id" placeholder="例如：H001" value="H001" style="width:100%;">
+          <small style="color:#7f8c8d;">医疗机构唯一标识</small>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【设备名称】</label>
+          <input id="device_name" placeholder="例如：心电监护仪" value="心电监护仪" style="width:100%;">
+          <small style="color:#7f8c8d;">医疗器械通用名称</small>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【制造商】</label>
+          <input id="manufacturer" placeholder="例如：飞利浦医疗" value="ACME" style="width:100%;">
+          <small style="color:#7f8c8d;">设备生产厂家</small>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【型号】</label>
+          <input id="model" placeholder="例如：ECG-2000" value="ECG-200" style="width:100%;">
+          <small style="color:#7f8c8d;">设备具体型号</small>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【批次/序列号】</label>
+          <input id="lot_sn" placeholder="例如：L2024001" value="L123" style="width:100%;">
+          <small style="color:#7f8c8d;">生产批次或设备序列号</small>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <label style="font-weight:bold;color:#34495e;">【事件发生时间】</label>
+          <input id="event_datetime" placeholder="例如：2024-12-01 10:20" value="2024-12-01T10:20:30Z" style="width:100%;">
+          <small style="color:#7f8c8d;">格式：YYYY-MM-DD HH:mm</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 事件描述部分 -->
+    <div style="background:#fff3cd;padding:15px;border-radius:8px;margin-bottom:15px;border-left:4px solid #ffc107;">
+      <h3 style="margin:0 0 10px 0;color:#856404;">⚠️ 事件描述</h3>
+      <label style="font-weight:bold;color:#856404;">【情况说明】请详细描述设备使用过程中的异常情况：</label>
+      <textarea id="event_description" placeholder="例如：设备使用过程中突然黑屏，无法继续对患者监护，最后更换新设备。" style="width:100%;min-height:120px;">设备屏幕无显示，患者监护中断</textarea>
+      <small style="color:#856404;">💡 提示：请包含设备异常表现、对患者的影响、采取的措施等关键信息</small>
+    </div>
+
+    <!-- 伤害评估部分 -->
+    <div style="background:#f8d7da;padding:15px;border-radius:8px;margin-bottom:15px;border-left:4px solid #dc3545;">
+      <h3 style="margin:0 0 10px 0;color:#721c24;">🏥 伤害评估</h3>
+      <div class="row">
+        <div style="flex:1;">
+          <label style="font-weight:bold;color:#721c24;">【伤害严重程度】</label>
+          <select id="injury_severity" style="width:100%;">
+            <option value="none">无伤害</option>
+            <option value="mild">轻度伤害</option>
+            <option value="moderate" selected>中度伤害</option>
+            <option value="severe">重度伤害</option>
+            <option value="death">死亡</option>
+          </select>
+          <small style="color:#721c24;">评估事件对患者造成的伤害程度</small>
+        </div>
+        <div style="flex:2;">
+          <label style="font-weight:bold;color:#721c24;">【处理措施】</label>
+          <input id="action_taken" placeholder="例如：立即更换设备，将患者转入ICU监护" value="更换设备并加护观察" style="width:100%;">
+          <small style="color:#721c24;">描述为减轻伤害采取的医疗措施</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div style="text-align:center;margin:20px 0;">
+      <button id="btnSubmit" style="background:#6c757d;color:white;padding:10px 20px;border:none;border-radius:5px;margin-right:10px;font-size:16px;">📝 直接提交</button>
+      <button id="btnStandardize" style="background:#007bff;color:white;padding:10px 20px;border:none;border-radius:5px;margin-right:10px;font-size:16px;">🔍 提交并标准化</button>
+      <button id="btnStructuredAnalysis" style="background:#28a745;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:16px;">🏗️ 结构化分析</button>
+    </div>
+    
+    <!-- 结构化分析结果展示 -->
+    <div id="structuredResult" style="display:none;background:#d1ecf1;padding:15px;border-radius:8px;margin-top:15px;border-left:4px solid #17a2b8;">
+      <h3 style="margin:0 0 10px 0;color:#0c5460;">🔍 结构化分析结果</h3>
+      <div id="structuredContent"></div>
+      <div style="text-align:center;margin-top:15px;">
+        <button id="btnConfirmStructure" style="background:#28a745;color:white;padding:8px 16px;border:none;border-radius:5px;margin-right:10px;">✅ 确认并录入</button>
+        <button id="btnRestructure" style="background:#ffc107;color:black;padding:8px 16px;border:none;border-radius:5px;margin-right:10px;">🔄 LLM重构</button>
+        <button id="btnCancelStructure" style="background:#6c757d;color:white;padding:8px 16px;border:none;border-radius:5px;">❌ 取消</button>
+      </div>
+    </div>
+    
+    <pre id="outReport"></pre>
+</section>
+
+  <section>
+    <h2>LLM结构化剖析</h2>
+    <label>text</label>
+    <textarea id="struct_text">设备屏幕无显示，患者监护中断</textarea>
+    <div class="row">
+      <select id="struct_provider">
+        <option value="openai">openai</option>
+        <option value="gemini">gemini</option>
+      </select>
+      <button id="btnStruct">结构化剖析</button>
+      <input id="struct_report_id" placeholder="report_id (入库用)" style="flex:1">
+      <button id="btnStructStore">剖析并入库</button>
+    </div>
+    <pre id="outStruct"></pre>
+  </section>
+
+  <section>
+    <h2>结构化录入演示</h2>
+    <div class="row">
+      <input id="s_hospital_id" placeholder="医院编号" value="H001">
+      <input id="s_device_name" placeholder="器械名称" value="心电监护仪">
+      <input id="s_manufacturer" placeholder="制造商" value="ACME">
+      <input id="s_model" placeholder="型号" value="ECG-200">
+      <input id="s_lot_sn" placeholder="批次或序列号" value="L123">
+    </div>
+    <div class="row">
+      <input id="s_event_datetime" placeholder="事件时间" value="2025-01-01T10:20:30Z" style="flex:1">
+    </div>
+    <label>事件描述</label>
+    <textarea id="s_event_description">监护中断</textarea>
+    <label>故障描述（用于术语匹配A）</label>
+    <textarea id="s_failure_desc">设备无显示</textarea>
+    <label>损害描述（用于术语匹配E/F与严重度判定）</label>
+    <textarea id="s_injury_desc">患者昏迷，呼吸困难</textarea>
+    <label>处理方案描述（用于术语匹配C/D）</label>
+    <textarea id="s_action_desc">转入ICU监护</textarea>
+    <div class="row">
+      <button id="btnStructured">结构化录入并匹配</button>
+    </div>
+    <pre id="outStructuredReport"></pre>
+  </section>
+
+  <section>
+    <h2>审计证据</h2>
+    <pre id="outAudit"></pre>
+  </section>
+
+  <section>
+    <h2>Excel批量导入</h2>
+    <div class="row">
+      <a href="/templates/reports.xlsx?lang=zh" target="_blank">下载中文模板</a>
+      <a href="/templates/reports.xlsx?lang=en" target="_blank" style="margin-left:10px">Download English Template</a>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <input type="file" id="excel_file" accept=".xlsx">
+      <button id="btnExcel">上传Excel并导入</button>
+    </div>
+    <pre id="outExcel"></pre>
+  </section>
+
+  <section>
+    <h2>术语导入到Neo4j</h2>
+    <div class="row">
+      <label><input type="checkbox" class="cat" value="A" checked> A（设备问题）</label>
+      <label><input type="checkbox" class="cat" value="E" checked> E（临床症状/病症）</label>
+      <label><input type="checkbox" class="cat" value="F" checked> F（健康影响）</label>
+      <label><input type="checkbox" class="cat" value="G"> G（器械组件）</label>
+      <label><input type="checkbox" class="cat" value="C"> C（调查结果）</label>
+      <label><input type="checkbox" class="cat" value="D"> D（调查结论）</label>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label><input type="checkbox" id="include_syn" checked> 包含同义词</label>
+      <button id="btnImportTerms">导入术语到Neo4j</button>
+    </div>
+    <pre id="outImportTerms"></pre>
+  </section>
+
+  <section>
+    <h2>Dashboard</h2>
+    <div id="chart1" style="height:240px"></div>
+    <div id="chart2" style="height:240px"></div>
+    <pre id="outDash"></pre>
+  </section>
+
+  <section>
+    <h2>Case View</h2>
+    <div class="row">
+      <input id="case_id" placeholder="report_id" style="flex:1">
+      <button id="btnCase">加载关系图</button>
+    </div>
+    <div id="legend" style="margin:8px 0"></div>
+    <div id="caseGraph" style="height:360px"></div>
+  </section>
+
+  <section>
+    <h2>Overview Graph</h2>
+    <div class="row">
+      <select id="overview_limit">
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+      </select>
+      <button id="btnOverview">加载总体关系图</button>
+      <button id="btnRiskAnalysis">风险点分析</button>
+    </div>
+    <div id="overviewGraph" style="height:360px"></div>
+    <div id="riskAnalysis" style="margin-top:20px;display:none">
+      <h3>风险点分析结果</h3>
+      <pre id="riskResults" style="background:#f7f7f8;padding:10px;border-radius:6px;max-height:200px;overflow:auto"></pre>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script>
+    const NODE_COLORS = {
+      Report: '#1f77b4',
+      Hospital: '#2ca02c',
+      Device: '#ff7f0e',
+      Manufacturer: '#9467bd',
+      Model: '#8c564b',
+      EventDate: '#17becf',
+      FailureMode: '#d62728',
+      Injury: '#e377c2',
+      Action: '#7f7f7f',
+      StandardTerm: '#bcbd22'
+    };
+    Object.assign(NODE_COLORS, {
+      MedicalDevice: '#ff7f0e',
+      AdverseEventReport: '#1f77b4',
+      Harm: '#e377c2',
+      Fault: '#d62728',
+      Measure: '#7f7f7f',
+      DiscoveryDate: '#17becf'
+    });
+    const EDGE_LABEL_CN = {
+      RELATED_TO: '相关于',
+      HAS_FAULT: '存在故障',
+      RESULTS_IN: '导致',
+      ADDRESSED_BY: '由处置措施处理',
+      REPORTED_BY: '上报至',
+      MANUFACTURED_BY: '由制造商制造',
+      HAS_MODEL: '型号为',
+      AT_TIME: '发生于',
+      CAUSES: '导致',
+      HAS_FAILUREMODE: '具有故障',
+      HAS_INJURY: '具有伤害',
+      HAS_ACTION: '具有处置'
+    };
+    function renderLegend(){
+      const entries = Object.entries(NODE_COLORS).map(([k,v])=>`<span style="display:inline-flex;align-items:center;margin-right:10px"><span style="display:inline-block;width:12px;height:12px;background:${v};border-radius:50%;margin-right:6px"></span>${k}</span>`).join('');
+      const el = document.getElementById('legend');
+      if(el) el.innerHTML = entries;
+    }
+    renderLegend();
+  </script>
+
+  <section>
+    <h2>文本标准化</h2>
+    <label>text</label>
+    <textarea id="std_text">设备屏幕无显示，患者监护中断</textarea>
+    <div class="row">
+      <button id="btnStd">标准化（本地）</button>
+      <select id="provider">
+        <option value="openai">openai</option>
+        <option value="gemini">gemini</option>
+      </select>
+      <button id="btnLLM">标准化（LLM）</button>
+    </div>
+    <pre id="outStd"></pre>
+  </section>
+
+  <section>
+    <h2>LLM配置</h2>
+    <div class="row">
+      <select id="cfg_provider">
+        <option value="openai">openai</option>
+        <option value="gemini">gemini</option>
+      </select>
+      <input id="cfg_apikey" placeholder="API Key" style="flex:1">
+      <input id="cfg_model" placeholder="Model (可选)" style="flex:1">
+      <button id="btnSaveCfg">保存配置</button>
+    </div>
+    <pre id="outCfg"></pre>
+  </section>
+
+  <script>
+    async function postJSON(url, body){
+      const r = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      const t = await r.text();
+      try{return JSON.parse(t)}catch{return {raw:t}};
+    }
+
+    function payload(){
+      return {
+        hospital_id: document.getElementById('hospital_id').value,
+        device_name: document.getElementById('device_name').value,
+        manufacturer: document.getElementById('manufacturer').value,
+        model: document.getElementById('model').value,
+        lot_sn: document.getElementById('lot_sn').value,
+        event_datetime: document.getElementById('event_datetime').value,
+        event_description: document.getElementById('event_description').value,
+        injury_severity: document.getElementById('injury_severity').value,
+        action_taken: document.getElementById('action_taken').value,
+      }
+    }
+
+    document.getElementById('btnSubmit').onclick = async ()=>{
+      const data = await postJSON('/reports', payload());
+      document.getElementById('outReport').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnStandardize').onclick = async ()=>{
+      const params = new URLSearchParams({standardize:'true',categories:'A',categories:'E',categories:'F',categories:'G',top_k:'5'});
+      const r = await fetch('/reports?'+params.toString(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())});
+      document.getElementById('outReport').textContent = await r.text();
+    }
+
+    // 结构化分析功能
+    document.getElementById('btnStructuredAnalysis').onclick = async ()=>{
+      const btn = document.getElementById('btnStructuredAnalysis');
+      const originalText = btn.textContent;
+      btn.textContent = '🏗️ 分析中...';
+      btn.disabled = true;
+      
+      try {
+        // 获取表单数据
+        const formData = payload();
+        
+        // 调用结构化分析API
+        const response = await fetch('/reports/analyze-structure', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // 显示结构化结果
+          displayStructuredResult(result.data);
+        } else {
+          alert('结构化分析失败：' + (result.error || '未知错误'));
+        }
+      } catch (error) {
+        alert('分析请求失败：' + error.message);
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    // 显示结构化分析结果
+    function displayStructuredResult(data) {
+      const resultDiv = document.getElementById('structuredResult');
+      const contentDiv = document.getElementById('structuredContent');
+      
+      let html = `
+        <div style="background:white;padding:15px;border-radius:5px;margin-bottom:15px;">
+          <h4 style="color:#0c5460;margin:0 0 10px 0;">📊 结构化信息</h4>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr><td style="padding:5px;border:1px solid #ddd;background:#f8f9fa;font-weight:bold;">设备问题：</td><td style="padding:5px;border:1px solid #ddd;">${data.device_issue || '未识别'}</td></tr>
+            <tr><td style="padding:5px;border:1px solid #ddd;background:#f8f9fa;font-weight:bold;">故障模式：</td><td style="padding:5px;border:1px solid #ddd;">${data.failure_mode || '未识别'}</td></tr>
+            <tr><td style="padding:5px;border:1px solid #ddd;background:#f8f9fa;font-weight:bold;">临床表现：</td><td style="padding:5px;border:1px solid #ddd;">${data.clinical_manifestation || '未识别'}</td></tr>
+            <tr><td style="padding:5px;border:1px solid #ddd;background:#f8f9fa;font-weight:bold;">健康影响：</td><td style="padding:5px;border:1px solid #ddd;">${data.health_impact || '未识别'}</td></tr>
+            <tr><td style="padding:5px;border:1px solid #ddd;background:#f8f9fa;font-weight:bold;">处置措施：</td><td style="padding:5px;border:1px solid #ddd;">${data.treatment_action || '未识别'}</td></tr>
+          </table>
+        </div>
+      `;
+      
+      if (data.matched_terms && data.matched_terms.length > 0) {
+        html += `
+          <div style="background:white;padding:15px;border-radius:5px;margin-bottom:15px;">
+            <h4 style="color:#0c5460;margin:0 0 10px 0;">🔗 匹配的标准术语</h4>
+            <ul style="margin:0;padding-left:20px;">
+              ${data.matched_terms.map(term => `<li><strong>${term.category}类：</strong>${term.term} (${term.code}) - 相似度：${(term.similarity * 100).toFixed(1)}%</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+      
+      if (data.analysis_confidence) {
+        html += `
+          <div style="background:white;padding:15px;border-radius:5px;">
+            <h4 style="color:#0c5460;margin:0 0 10px 0;">📈 分析置信度</h4>
+            <div style="background:#e9ecef;padding:10px;border-radius:5px;">
+              整体置信度：<strong>${(data.analysis_confidence * 100).toFixed(1)}%</strong>
+              ${data.confidence_breakdown ? `<br>详细评分：${JSON.stringify(data.confidence_breakdown, null, 2)}` : ''}
+            </div>
+          </div>
+        `;
+      }
+      
+      contentDiv.innerHTML = html;
+      resultDiv.style.display = 'block';
+      
+      // 滚动到结果区域
+      resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // 确认结构化录入
+    document.getElementById('btnConfirmStructure').onclick = async ()=>{
+      const btn = document.getElementById('btnConfirmStructure');
+      const originalText = btn.textContent;
+      btn.textContent = '✅ 录入中...';
+      btn.disabled = true;
+      
+      try {
+        // 获取当前表单数据
+        const formData = payload();
+        
+        // 调用结构化录入API
+        const response = await fetch('/reports/structured-confirm', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          alert('✅ 结构化录入成功！');
+          document.getElementById('structuredResult').style.display = 'none';
+          document.getElementById('outReport').textContent = JSON.stringify(result.data, null, 2);
+          
+          // 如果有报告ID，自动加载案例视图
+          if (result.data && result.data.report_id) {
+            document.getElementById('case_id').value = result.data.report_id;
+            document.getElementById('btnCase').click();
+          }
+        } else {
+          alert('录入失败：' + (result.error || '未知错误'));
+        }
+      } catch (error) {
+        alert('录入请求失败：' + error.message);
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    // LLM重构功能
+    document.getElementById('btnRestructure').onclick = async ()=>{
+      const btn = document.getElementById('btnRestructure');
+      const originalText = btn.textContent;
+      btn.textContent = '🔄 重构中...';
+      btn.disabled = true;
+      
+      try {
+        // 获取表单数据
+        const formData = payload();
+        
+        // 调用LLM重构API
+        const response = await fetch('/llm/restructure', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            ...formData,
+            provider: 'openai' // 默认使用OpenAI，可以根据需要修改
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // 更新表单数据
+          if (result.data.device_name) document.getElementById('device_name').value = result.data.device_name;
+          if (result.data.event_description) document.getElementById('event_description').value = result.data.event_description;
+          if (result.data.action_taken) document.getElementById('action_taken').value = result.data.action_taken;
+          
+          // 重新进行结构化分析
+          document.getElementById('btnStructuredAnalysis').click();
+        } else {
+          alert('LLM重构失败：' + (result.error || '未知错误'));
+        }
+      } catch (error) {
+        alert('重构请求失败：' + error.message);
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    // 取消结构化分析
+    document.getElementById('btnCancelStructure').onclick = ()=>{
+      document.getElementById('structuredResult').style.display = 'none';
+    }
+
+    document.getElementById('btnStructured').onclick = async ()=>{
+      const body = {
+        hospital_id: document.getElementById('s_hospital_id').value,
+        device_name: document.getElementById('s_device_name').value,
+        manufacturer: document.getElementById('s_manufacturer').value,
+        model: document.getElementById('s_model').value,
+        lot_sn: document.getElementById('s_lot_sn').value,
+        event_datetime: document.getElementById('s_event_datetime').value,
+        event_description: document.getElementById('s_event_description').value,
+        failure_desc: document.getElementById('s_failure_desc').value,
+        injury_desc: document.getElementById('s_injury_desc').value,
+        action_desc: document.getElementById('s_action_desc').value,
+      };
+      const res = await postJSON('/reports/structured', body);
+      document.getElementById('outStructuredReport').textContent = JSON.stringify(res,null,2);
+      const rid = res && res.report && res.report.report_id;
+      if(rid){
+        document.getElementById('case_id').value = rid;
+        // 拉取审计证据
+        try{
+          const a = await fetch('/reports/'+rid+'/audit');
+          const logs = await a.json();
+          const sev = logs.filter(l=>l.event==='severity_evidence');
+          if(sev.length){
+            const latest = sev[sev.length-1];
+            let detail = {};
+            try{ detail = JSON.parse(latest.detail); }catch{}
+            const levelMap = {death:'死亡', severe:'重度', moderate:'中度', mild:'轻度', none:'无'};
+            const levelCN = levelMap[detail.level] || detail.level || '未知';
+            const kws = (detail.evidence||[]).map(x=>x.keyword).join('、');
+            const sentence = `严重度=${levelCN}（${detail.level}）。依据：命中关键词：${kws}`;
+            document.getElementById('outAudit').textContent = sentence;
+          }else{
+            document.getElementById('outAudit').textContent = JSON.stringify(logs,null,2);
+          }
+        }catch(e){
+          document.getElementById('outAudit').textContent = '审计加载失败';
+        }
+        // 加载Case View
+        document.getElementById('btnCase').click();
+      }
+    }
+
+    document.getElementById('btnExcel').onclick = async ()=>{
+      const f = document.getElementById('excel_file').files[0];
+      if(!f){ document.getElementById('outExcel').textContent = '请选择Excel文件'; return; }
+      const fd = new FormData();
+      fd.append('file', f);
+      const r = await fetch('/reports/upload-excel',{method:'POST', body:fd});
+      const t = await r.text();
+      try{ document.getElementById('outExcel').textContent = JSON.stringify(JSON.parse(t),null,2); }
+      catch{ document.getElementById('outExcel').textContent = t; }
+    }
+
+    document.getElementById('btnImportTerms').onclick = async ()=>{
+      const cats = Array.from(document.querySelectorAll('.cat')).filter(x=>x.checked).map(x=>x.value);
+      const include_synonyms = document.getElementById('include_syn').checked;
+      const data = await postJSON('/graph/import-terms', {categories: cats, include_synonyms});
+      document.getElementById('outImportTerms').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnStd').onclick = async ()=>{
+      const body = {text: document.getElementById('std_text').value, categories:['A','E','F','G'], top_k:5};
+      const data = await postJSON('/standardize', body);
+      document.getElementById('outStd').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnLLM').onclick = async ()=>{
+      const provider = document.getElementById('provider').value;
+      const body = {provider, text: document.getElementById('std_text').value, categories:['A','E','F','G'], top_k:5};
+      const data = await postJSON('/llm/standardize', body);
+      document.getElementById('outStd').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnSaveCfg').onclick = async ()=>{
+      const provider = document.getElementById('cfg_provider').value;
+      const api_key = document.getElementById('cfg_apikey').value;
+      const model = document.getElementById('cfg_model').value;
+      const data = await postJSON('/config/llm', {provider, api_key, model});
+      document.getElementById('outCfg').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnStruct').onclick = async ()=>{
+      const provider = document.getElementById('struct_provider').value;
+      const body = {provider, text: document.getElementById('struct_text').value, top_k:5};
+      const data = await postJSON('/llm/structure', body);
+      document.getElementById('outStruct').textContent = JSON.stringify(data,null,2);
+    }
+
+    document.getElementById('btnStructStore').onclick = async ()=>{
+      const provider = document.getElementById('struct_provider').value;
+      const report_id = document.getElementById('struct_report_id').value;
+      const body = {provider, report_id, text: document.getElementById('struct_text').value, top_k:5};
+      const data = await postJSON('/llm/structure/store', body);
+      document.getElementById('outStruct').textContent = JSON.stringify(data,null,2);
+    }
+
+    async function loadDashboard(){
+      try{
+        const r = await fetch('/dashboard/summary');
+        const data = await r.json();
+        document.getElementById('outDash').textContent = JSON.stringify(data,null,2);
+        const dev = Array.isArray(data.top_devices) ? data.top_devices : [];
+        const sev = Array.isArray(data.top_severity) ? data.top_severity : [];
+        const c1 = echarts.init(document.getElementById('chart1'));
+        c1.setOption({tooltip:{},xAxis:{type:'category',data:dev.map(x=>x[0])},yAxis:{type:'value'},series:[{type:'bar',data:dev.map(x=>x[1])}]});
+        const c2 = echarts.init(document.getElementById('chart2'));
+        c2.setOption({tooltip:{},xAxis:{type:'category',data:sev.map(x=>x[0])},yAxis:{type:'value'},series:[{type:'bar',data:sev.map(x=>x[1])}]});
+      }catch(e){
+        document.getElementById('outDash').textContent = '加载失败';
+      }
+    }
+    loadDashboard();
+
+    document.getElementById('btnCase').onclick = async ()=>{
+      const id = document.getElementById('case_id').value.trim();
+      if(!id) return;
+      const r = await fetch('/case/'+id+'/graph');
+      const data = await r.json();
+      const g = echarts.init(document.getElementById('caseGraph'));
+      g.setOption({
+        tooltip:{formatter:(p)=>{
+          if(p.dataType==='edge'){
+            const en = p.name || '';
+            return EDGE_LABEL_CN[en] || en;
+          }
+          return (p.data && p.data.name) ? p.data.name : '';
+        }},
+        series:[{
+          type:'graph',
+          layout:'force',
+          roam:true,
+          label:{show:false},
+          emphasis:{label:{show:true}},
+          data:data.nodes.map(n=>({id:n.id,name:n.name,category:n.label,itemStyle:{color: (NODE_COLORS[n.label]||'#888')},code:n.code,hierarchy:n.hierarchy,definition:n.definition,st_category:n.category})),
+          links:data.edges.map(e=>({source:e.source,target:e.target,name:e.label})),
+          force:{repulsion:160}
+        }]
+      });
+      g.on('click',(p)=>{
+        const d = p.data || {};
+        const info = {
+          id: d.id,
+          name: d.name,
+          type: d.category,
+          code: d.code,
+          hierarchy: d.hierarchy,
+          definition: d.definition,
+          category: d.st_category
+        };
+        const lines = Object.entries(info).filter(([k,v])=>v).map(([k,v])=>`${k}: ${v}`);
+        const el = document.getElementById('outCaseDetails');
+        if(el) el.textContent = lines.join('\n');
+      });
+    }
+
+    document.getElementById('btnOverview').onclick = async ()=>{
+      const limit = document.getElementById('overview_limit').value;
+      const r = await fetch('/case/recent-graph?limit='+limit);
+      const data = await r.json();
+      const g = echarts.init(document.getElementById('overviewGraph'));
+      g.setOption({
+        tooltip:{formatter:(p)=>{
+          if(p.dataType==='edge'){
+            const en = p.name || '';
+            return EDGE_LABEL_CN[en] || en;
+          }
+          return (p.data && p.data.name) ? p.data.name : '';
+        }},
+        series:[{
+          type:'graph',
+          layout:'force',
+          roam:true,
+          label:{show:false},
+          emphasis:{label:{show:true}},
+          data:data.nodes.map(n=>({id:n.id,name:n.name,category:n.label,itemStyle:{color:(NODE_COLORS[n.label]||'#888')}})),
+          links:data.edges.map(e=>({source:e.source,target:e.target,name:e.label})),
+          force:{repulsion:140}
+        }]
+      });
+    }
+
+    document.getElementById('btnRiskAnalysis').onclick = async ()=>{
+      const limit = document.getElementById('overview_limit').value;
+      const btn = document.getElementById('btnRiskAnalysis');
+      const originalText = btn.textContent;
+      btn.textContent = '分析中...';
+      btn.disabled = true;
+      
+      try {
+        const r = await fetch('/graph/risk-analysis', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({limit: parseInt(limit)})
+        });
+        const result = await r.json();
+        
+        if (result.success && result.data) {
+          const riskData = result.data;
+          let output = `风险分析结果（基于最近${limit}个案例）：\n`;
+          output += `总风险点：${riskData.total_risks} 个\n`;
+          output += `高风险：${riskData.high_risks} 个，中风险：${riskData.medium_risks} 个，低风险：${riskData.low_risks} 个\n\n`;
+          
+          if (riskData.risk_details && riskData.risk_details.length > 0) {
+            output += "主要风险点详情：\n";
+            output += "=".repeat(50) + "\n";
+            
+            riskData.risk_details.forEach((risk, index) => {
+              const riskLevelCN = risk.risk_level === 'high' ? '高风险' : 
+                                risk.risk_level === 'medium' ? '中风险' : '低风险';
+              output += `${index + 1}. 【${riskLevelCN}】${risk.description}\n`;
+              output += `   风险评分：${risk.risk_score?.toFixed(2) || 'N/A'}\n`;
+              
+              // 显示证据
+              if (risk.evidence) {
+                output += "   证据：";
+                if (risk.evidence.device_name) {
+                  output += `设备：${risk.evidence.device_name}，`;
+                }
+                if (risk.evidence.event_count) {
+                  output += `事件数：${risk.evidence.event_count}，`;
+                }
+                if (risk.evidence.occurrence_count) {
+                  output += `出现次数：${risk.evidence.occurrence_count}，`;
+                }
+                if (risk.evidence.correlation_frequency) {
+                  output += `关联频率：${risk.evidence.correlation_frequency}，`;
+                }
+                output = output.replace(/，$/, '') + "\n";
+              }
+              
+              // 显示建议
+              if (risk.recommendation) {
+                output += `   建议：${risk.recommendation}\n`;
+              }
+              output += "-".repeat(40) + "\n";
+            });
+          } else {
+            output += "未检测到明显风险点，系统运行正常。";
+          }
+          
+          document.getElementById('riskResults').textContent = output;
+          document.getElementById('riskAnalysis').style.display = 'block';
+        } else {
+          document.getElementById('riskResults').textContent = '风险分析失败：' + (result.error || '未知错误');
+          document.getElementById('riskAnalysis').style.display = 'block';
+        }
+      } catch (error) {
+        document.getElementById('riskResults').textContent = '分析请求失败：' + error.message;
+        document.getElementById('riskAnalysis').style.display = 'block';
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+  </script>
+  <section>
+    <h2>节点详情</h2>
+    <pre id="outCaseDetails"></pre>
+  </section>
+</body>
+</html>
