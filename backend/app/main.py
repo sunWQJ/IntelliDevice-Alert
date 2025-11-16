@@ -31,6 +31,10 @@ app.mount("/ui", StaticFiles(directory=_static, html=True), name="static")
 
 def _process_incoming(payload: ReportIn) -> ReportOut:
     clean = payload.dict()
+    # Handle None event_datetime by providing current time as default
+    if clean.get("event_datetime") is None:
+        from datetime import datetime
+        clean["event_datetime"] = datetime.now()
     fp = fingerprint(clean)
     dup_id = find_by_fingerprint(fp)
     report_id = str(uuid4()) if not dup_id else dup_id
@@ -225,16 +229,27 @@ def create_structured_report(payload: dict = Body(...)):
             t, s = m
             matches["Action"] = {"code": t.code, "term": t.term, "definition": t.definition, "category": t.category}
 
-    # store entities in DB
-    from .db import SessionLocal
-    from .models import ReportEntity
+    # store entities in DB (in-memory)
     try:
-        with SessionLocal() as db_sess:
+        from .db import get_db
+        db = get_db()
+        # Store entities in the report data
+        report_data = db.get_report(out.report_id)
+        if report_data:
+            if 'entities' not in report_data:
+                report_data['entities'] = []
             for et, m in matches.items():
-                db_sess.add(ReportEntity(report_id=out.report_id, entity_type=et, code=m.get("code"), term=m.get("term"), definition=m.get("definition"), category=m.get("category")))
-            db_sess.commit()
-    except Exception:
-        pass
+                report_data['entities'].append({
+                    'entity_type': et, 
+                    'code': m.get("code"), 
+                    'term': m.get("term"), 
+                    'definition': m.get("definition"), 
+                    'category': m.get("category")
+                })
+            db.add_report(out.report_id, report_data)
+    except Exception as e:
+        import logging
+        logging.error(f"Failed to store entities: {e}")
 
     # write to graph
     structure = {"entities": [], "relations": []}
@@ -352,140 +367,291 @@ def set_neo4j_config(payload: dict = Body(...)):
 
 @app.get("/dashboard/summary")
 def dashboard_summary():
-    from .db import SessionLocal
-    from .models import ReportModel
+    from .db import get_db
     import collections
-    with SessionLocal() as db:
-        q = db.query(ReportModel).order_by(ReportModel.processed_at.desc()).limit(100)
-        rows = q.all()
-    total = len(rows)
-    top_devices = collections.Counter([r.device_name for r in rows]).most_common(5)
-    top_severity = collections.Counter([r.injury_severity for r in rows]).most_common(5)
+    
+    db = get_db()
+    reports = db.get_all_reports()
+    
+    total = len(reports)
+    top_devices = collections.Counter([r.get('device_name') for r in reports]).most_common(5)
+    top_severity = collections.Counter([r.get('injury_severity') for r in reports]).most_common(5)
     recent = [
         {
-            "report_id": r.report_id,
-            "hospital_id": r.hospital_id,
-            "device_name": r.device_name,
-            "injury_severity": r.injury_severity,
-            "event_datetime": r.event_datetime,
+            "report_id": r.get('report_id'),
+            "hospital_id": r.get('hospital_id'),
+            "device_name": r.get('device_name'),
+            "injury_severity": r.get('injury_severity'),
+            "event_datetime": r.get('event_datetime'),
         }
-        for r in rows[:10]
+        for r in reports[:10]
     ]
     return {"total": total, "top_devices": top_devices, "top_severity": top_severity, "recent": recent}
 
 
 @app.get("/case/{report_id}/graph")
 def case_graph(report_id: str):
+    print(f"Looking for report_id: {report_id}")
     r = by_id(report_id)
     if not r:
+        print(f"Report not found: {report_id}")
         raise HTTPException(status_code=404, detail="Report not found")
+    print(f"Found report: {r.report_id}")
     # 尝试从 Neo4j 读取扩展关系
-    g = graph.case_graph(report_id)
-    if "error" in g:
-        # 回退到DB构建视图（包含故障/伤害/处置、制造商/型号/事件日期）
-        nodes = {
-            r.report_id: {"id": r.report_id, "label": "Report", "name": r.report_id},
-            r.hospital_id: {"id": r.hospital_id, "label": "Hospital", "name": r.hospital_id},
-            r.device_name: {"id": r.device_name, "label": "Device", "name": r.device_name},
-        }
-        edges = set()
-        edges.add((r.report_id, r.hospital_id, "REPORTED_BY"))
-        edges.add((r.report_id, r.device_name, "RESULTS_IN"))
-        if r.manufacturer:
-            nodes[r.manufacturer] = {"id": r.manufacturer, "label": "Manufacturer", "name": r.manufacturer}
-            edges.add((r.device_name, r.manufacturer, "MANUFACTURED_BY"))
-        if r.model:
-            nodes[r.model] = {"id": r.model, "label": "Model", "name": r.model}
-            edges.add((r.device_name, r.model, "HAS_MODEL"))
-        if r.event_datetime:
-            dt = r.event_datetime.isoformat()
-            nodes[dt] = {"id": dt, "label": "EventDate", "name": dt}
-            edges.add((r.report_id, dt, "AT_TIME"))
-        # 从 report_entities 读取术语映射
-        from .db import SessionLocal
-        from .models import ReportEntity
-        with SessionLocal() as db_sess:
-            ents = db_sess.query(ReportEntity).filter(ReportEntity.report_id == report_id).all()
-        for e in ents:
-            nid = e.term
-            nodes[nid] = {"id": nid, "label": e.entity_type, "name": e.term, "code": e.code, "definition": e.definition, "category": e.category}
-            edges.add((r.report_id, nid, f"HAS_{e.entity_type.upper()}"))
-        # 若存在故障与伤害，补充CAUSES关系
-        fm = [e for e in ents if e.entity_type == "FailureMode"]
-        inj = [e for e in ents if e.entity_type == "Injury"]
-        if fm and inj:
-            edges.add((fm[0].term, inj[0].term, "CAUSES"))
+    try:
+        g = graph.case_graph(report_id)
+    except Exception as e:
+        print(f"Neo4j graph query failed: {e}")
+        g = {"error": str(e)}
+        if "error" in g:
+            # 回退到DB构建视图（包含故障/伤害/处置、制造商/型号/事件日期）
+            nodes = {
+                r.report_id: {"id": r.report_id, "label": "Report", "name": r.report_id},
+                r.hospital_id: {"id": r.hospital_id, "label": "Hospital", "name": r.hospital_id},
+                r.device_name: {"id": r.device_name, "label": "Device", "name": r.device_name},
+            }
+            edges = set()
+            edges.add((r.report_id, r.hospital_id, "REPORTED_BY"))
+            edges.add((r.report_id, r.device_name, "RESULTS_IN"))
+            if r.manufacturer:
+                nodes[r.manufacturer] = {"id": r.manufacturer, "label": "Manufacturer", "name": r.manufacturer}
+                edges.add((r.device_name, r.manufacturer, "MANUFACTURED_BY"))
+            if r.model:
+                nodes[r.model] = {"id": r.model, "label": "Model", "name": r.model}
+                edges.add((r.device_name, r.model, "HAS_MODEL"))
+            if r.event_datetime:
+                dt = r.event_datetime.isoformat()
+                nodes[dt] = {"id": dt, "label": "EventDate", "name": dt}
+                edges.add((r.report_id, dt, "AT_TIME"))
+            # 处置措施节点
+            if getattr(r, 'action_taken', None):
+                act = r.action_taken
+                nodes[act] = {"id": act, "label": "Action", "name": act}
+                edges.add((r.report_id, act, "HAS_ACTION"))
+        # 从 report_entities 读取术语映射（in-memory）
+        try:
+            from .db import get_db
+            db = get_db()
+            report_data = db.get_report(report_id)
+            if report_data and 'entities' in report_data:
+                for entity in report_data['entities']:
+                    nid = entity.get('term')
+                    et = entity.get('entity_type')
+                    if not nid or not et:
+                        continue
+                    # 统一实体标签用于图谱展示
+                    et_map = {
+                        'FAILURE_MODE': 'FailureMode',
+                        'FailureMode': 'FailureMode',
+                        'HEALTH_IMPACT': 'Injury',
+                        'HARM': 'Injury',
+                        'Injury': 'Injury',
+                        'CLINICAL_MANIFESTATION': 'ClinicalManifestation',
+                        'SYMPTOM': 'ClinicalManifestation',
+                        'DeviceIssue': 'DeviceIssue'
+                    }
+                    label = et_map.get(et, et)
+                    nodes[nid] = {
+                        "id": nid,
+                        "label": label,
+                        "name": entity.get('term'),
+                        "code": entity.get('code'),
+                        "definition": entity.get('definition'),
+                        "category": entity.get('category')
+                    }
+                    edges.add((r.report_id, nid, f"HAS_{label.upper()}"))
+        except Exception as e:
+            import logging
+            logging.error(f"Failed to load entities from in-memory DB: {e}")
+                # 若存在故障与伤害，补充CAUSES关系
+        if report_data and 'entities' in report_data:
+            fm = [e for e in report_data['entities'] if e.get('entity_type') in ("FailureMode", "FAILURE_MODE")] 
+            inj = [e for e in report_data['entities'] if e.get('entity_type') in ("Injury", "HEALTH_IMPACT", "HARM")]
+            if fm and inj:
+                edges.add((fm[0]['term'], inj[0]['term'], "CAUSES"))
+        # 若有结构化摘要，补充节点与关系
+        if report_data and 'structured_data' in report_data:
+            sd = report_data['structured_data'] or {}
+            if sd.get('injury'):
+                inj_name = sd['injury']
+                nodes[inj_name] = {"id": inj_name, "label": "Injury", "name": inj_name}
+                edges.add((r.report_id, inj_name, "HAS_INJURY"))
+            if sd.get('failure'):
+                fm_name = sd['failure']
+                nodes[fm_name] = {"id": fm_name, "label": "FailureMode", "name": fm_name}
+                edges.add((r.device_name, fm_name, "HAS_FAILUREMODE"))
+                if sd.get('injury'):
+                    edges.add((fm_name, sd['injury'], "CAUSES"))
+            if sd.get('device_issue'):
+                di_name = sd['device_issue']
+                nodes[di_name] = {"id": di_name, "label": "DeviceIssue", "name": di_name}
+                edges.add((r.device_name, di_name, "HAS_FAULT"))
         return {"nodes": list(nodes.values()), "edges": [{"source": s, "target": t, "label": l} for (s, t, l) in edges]}
     return g
 
 
 @app.get("/case/recent-graph")
 def case_recent_graph(limit: int = 10):
-    from .db import SessionLocal
-    from .models import ReportModel
-    with SessionLocal() as db:
-        rows = db.query(ReportModel).order_by(ReportModel.processed_at.desc()).limit(limit).all()
-    nodes_map = {}
-    edges_set = set()
-    from .models import ReportEntity
-    for r in rows:
-        g = graph.case_graph(r.report_id)
-        if "error" in g:
-            nodes_map[r.report_id] = {"id": r.report_id, "label": "AdverseEventReport", "name": r.report_id, "severity": r.injury_severity}
-            nodes_map[r.hospital_id] = {"id": r.hospital_id, "label": "Hospital", "name": r.hospital_id}
-            nodes_map[r.device_name] = {"id": r.device_name, "label": "MedicalDevice", "name": r.device_name}
-            edges_set.add((r.device_name, r.report_id, "RELATED_TO"))
-            edges_set.add((r.report_id, r.hospital_id, "REPORTED_BY"))
-            if r.manufacturer:
-                nodes_map[r.manufacturer] = {"id": r.manufacturer, "label": "Manufacturer", "name": r.manufacturer}
-                edges_set.add((r.device_name, r.manufacturer, "MANUFACTURED_BY"))
-            if r.model:
-                nodes_map[r.model] = {"id": r.model, "label": "Model", "name": r.model}
-                edges_set.add((r.device_name, r.model, "HAS_MODEL"))
-            if r.event_datetime:
-                try:
-                    dt = r.event_datetime.isoformat()
-                    nodes_map[dt] = {"id": dt, "label": "DiscoveryDate", "name": dt}
-                    edges_set.add((r.report_id, dt, "AT_TIME"))
-                except Exception:
-                    # 如果时间格式有问题，使用字符串形式
-                    dt = str(r.event_datetime)
-                    nodes_map[dt] = {"id": dt, "label": "DiscoveryDate", "name": dt}
-                    edges_set.add((r.report_id, dt, "AT_TIME"))
-            with SessionLocal() as db_sess:
-                ents = db_sess.query(ReportEntity).filter(ReportEntity.report_id == r.report_id).all()
-            fault = None
-            harm = None
-            measure = None
-            for e in ents:
-                nid = f"{e.term}:{e.entity_type}:{r.report_id}"
-                if e.entity_type == "FailureMode":
-                    nodes_map[nid] = {"id": nid, "label": "Fault", "name": e.term, "code": e.code, "severity": "moderate"}
-                    edges_set.add((r.device_name, nid, "HAS_FAULT"))
-                    fault = nid
-                elif e.entity_type == "Injury":
-                    nodes_map[nid] = {"id": nid, "label": "Harm", "name": e.term, "code": e.code, "severity": "moderate"}
-                    edges_set.add((r.report_id, nid, "CAUSES"))
-                    harm = nid
-                elif e.entity_type == "Action":
-                    nodes_map[nid] = {"id": nid, "label": "Measure", "name": e.term, "code": e.code, "severity": "low"}
-                    measure = nid
-            if fault and harm:
-                edges_set.add((fault, harm, "RESULTS_IN"))
-            if fault and measure:
-                edges_set.add((fault, measure, "ADDRESSED_BY"))
-        else:
-            for n in g.get("nodes", []):
-                nodes_map[n.get("id")] = n
-            for e in g.get("edges", []):
-                edges_set.add((e.get("source"), e.get("target"), e.get("label")))
-    nodes = list(nodes_map.values())
-    edges = [{"source": s, "target": t, "label": l} for (s, t, l) in edges_set]
-    return {"nodes": nodes, "edges": edges}
+    """获取最近案例的知识图谱，包含重要的医疗信息如伤害、故障等"""
+    from .db import get_db
+    import logging
+    
+    try:
+        db = get_db()
+        reports = db.get_reports_by_limit(limit)
+        
+        nodes_map = {}
+        edges_set = set()
+        
+        for r in reports:
+            try:
+                report_id = r.get('report_id')
+                if not report_id:
+                    continue
+                    
+                # Add basic report information
+                nodes_map[report_id] = {
+                    "id": report_id, 
+                    "label": "AdverseEventReport", 
+                    "name": report_id, 
+                    "severity": r.get('injury_severity', 'Unknown')
+                }
+                
+                # Add hospital information
+                hospital_id = r.get('hospital_id', 'Unknown_Hospital')
+                nodes_map[hospital_id] = {
+                    "id": hospital_id, 
+                    "label": "Hospital", 
+                    "name": hospital_id
+                }
+                edges_set.add((report_id, hospital_id, "REPORTED_BY"))
+                
+                # Add device information
+                device_name = r.get('device_name', 'Unknown_Device')
+                nodes_map[device_name] = {
+                    "id": device_name, 
+                    "label": "MedicalDevice", 
+                    "name": device_name
+                }
+                edges_set.add((device_name, report_id, "RELATED_TO"))
+                
+                # Add manufacturer information
+                if r.get('manufacturer'):
+                    manufacturer = r.get('manufacturer')
+                    nodes_map[manufacturer] = {
+                        "id": manufacturer, 
+                        "label": "Manufacturer", 
+                        "name": manufacturer
+                    }
+                    edges_set.add((device_name, manufacturer, "MANUFACTURED_BY"))
+                    
+                # Add model information
+                if r.get('model'):
+                    model = r.get('model')
+                    nodes_map[model] = {
+                        "id": model, 
+                        "label": "Model", 
+                        "name": model
+                    }
+                    edges_set.add((device_name, model, "HAS_MODEL"))
+                
+                # Add date/time information
+                if r.get('event_datetime'):
+                    dt = str(r.get('event_datetime'))
+                    nodes_map[dt] = {
+                        "id": dt, 
+                        "label": "DiscoveryDate", 
+                        "name": dt
+                    }
+                    edges_set.add((report_id, dt, "AT_TIME"))
+                
+                # Add important medical information from entities (伤害、故障等)
+                entities = r.get('entities', [])
+                print(f"Report {report_id} has {len(entities)} entities")
+                for entity in entities:
+                    entity_type = entity.get('entity_type')
+                    term = entity.get('term')
+                    category = entity.get('category')
+                    
+                    if term and entity_type:
+                        # Create node for the medical concept
+                        node_id = f"{entity_type}_{term}"
+                        nodes_map[node_id] = {
+                            "id": node_id,
+                            "label": entity_type,
+                            "name": term,
+                            "category": category,
+                            "definition": entity.get('definition', '')
+                        }
+                        
+                        # Connect to the report based on entity type
+                        if entity_type in ['HEALTH_IMPACT', 'INJURY', 'HARM']:
+                            edges_set.add((report_id, node_id, "CAUSED"))
+                        elif entity_type in ['DEVICE_ISSUE', 'FAILURE_MODE', 'MALFUNCTION']:
+                            edges_set.add((device_name, node_id, "EXPERIENCED"))
+                        elif entity_type in ['CLINICAL_MANIFESTATION', 'SYMPTOM']:
+                            edges_set.add((report_id, node_id, "PRESENTED_WITH"))
+                        else:
+                            edges_set.add((report_id, node_id, "CONTAINS"))
+                
+                # Add structured data if available
+                if r.get('structured_data'):
+                    print(f"Report {report_id} has structured data: {r.get('structured_data')}")
+                    structured = r.get('structured_data')
+                    
+                    # Add injury information (伤害)
+                    if structured.get('injury'):
+                        injury = structured.get('injury')
+                        injury_id = f"INJURY_{injury}"
+                        nodes_map[injury_id] = {
+                            "id": injury_id,
+                            "label": "Injury",
+                            "name": injury
+                        }
+                        edges_set.add((report_id, injury_id, "RESULTED_IN"))
+                    
+                    # Add failure information (故障)
+                    if structured.get('failure'):
+                        failure = structured.get('failure')
+                        failure_id = f"FAILURE_{failure}"
+                        nodes_map[failure_id] = {
+                            "id": failure_id,
+                            "label": "Failure",
+                            "name": failure
+                        }
+                        edges_set.add((device_name, failure_id, "EXPERIENCED"))
+                    
+                    # Add device issue information
+                    if structured.get('device_issue'):
+                        issue = structured.get('device_issue')
+                        issue_id = f"ISSUE_{issue}"
+                        nodes_map[issue_id] = {
+                            "id": issue_id,
+                            "label": "DeviceIssue",
+                            "name": issue
+                        }
+                        edges_set.add((device_name, issue_id, "HAS_ISSUE"))
+                else:
+                    print(f"Report {report_id} has no structured data")
+                        
+            except Exception as e:
+                logging.error(f"Error processing report {r.get('report_id', 'unknown')}: {e}")
+                continue
+        
+        nodes = list(nodes_map.values())
+        edges = [{"source": s, "target": t, "label": l} for (s, t, l) in edges_set]
+        
+        logging.info(f"Generated overview graph with {len(nodes)} nodes and {len(edges)} edges")
+        
+        return {"nodes": nodes, "edges": edges}
+    except Exception as e:
+        import logging
+        logging.error(f"Error in case_recent_graph: {e}")
+        return {"nodes": [], "edges": []}
 
 
 @app.post("/reports/analyze-structure")
-def analyze_report_structure_endpoint(payload: dict = Body(...)):
+def analyze_report_structure_endpoint(payload: dict = Body(...), use_llm: bool = Query(False)):
     """分析报告结构并提取关键信息"""
     try:
         # 验证必要字段
@@ -497,13 +663,15 @@ def analyze_report_structure_endpoint(payload: dict = Body(...)):
                     "error": f"缺少必要字段：{field}"
                 }
         
-        # 调用结构化分析
         result = analyze_report_structure(payload)
-        
-        return {
-            "success": True,
-            "data": result
-        }
+        if use_llm:
+            provider = payload.get("provider", "openai")
+            text = payload.get("event_description", "")
+            llm_out = llm_structure(provider=provider, text=text, top_k=5)
+            result["llm_entities"] = llm_out.get("entities", []) if isinstance(llm_out, dict) else []
+            result["llm_relations"] = llm_out.get("relations", []) if isinstance(llm_out, dict) else []
+            result["llm_error"] = llm_out.get("error") if isinstance(llm_out, dict) else None
+        return {"success": True, "data": result}
     except Exception as e:
         return {
             "success": False,
@@ -534,70 +702,120 @@ def confirm_structured_report(payload: dict = Body(...)):
         # 处理报告
         report_out = _process_incoming(ReportIn(**base_report))
         
-        # 存储结构化实体
-        from .db import SessionLocal
-        from .models import ReportEntity
-        
+        # 存储结构化实体（in-memory）
         try:
-            with SessionLocal() as db_sess:
-                # 存储匹配的标准术语
+            from .db import get_db
+            db = get_db()
+            report_data = db.get_report(report_out.report_id)
+            if report_data:
+                if 'entities' not in report_data:
+                    report_data['entities'] = []
+                
+                # 存储匹配的标准术语（标准化实体类型）
+                def _map_entity_type(field: str) -> str:
+                    f = str(field).lower()
+                    if f == 'failure_mode':
+                        return 'FailureMode'
+                    if f == 'health_impact':
+                        return 'Injury'
+                    if f == 'clinical_manifestation':
+                        return 'ClinicalManifestation'
+                    if f == 'device_issue':
+                        return 'DeviceIssue'
+                    return field.upper()
                 for term_info in structure_result.get("matched_terms", []):
-                    db_sess.add(ReportEntity(
-                        report_id=report_out.report_id,
-                        entity_type=term_info["field"].upper(),
-                        code=term_info["code"],
-                        term=term_info["term"],
-                        definition="",  # 可以从术语库获取
-                        category=term_info["category"]
-                    ))
+                    report_data['entities'].append({
+                        'entity_type': _map_entity_type(term_info.get("field")),
+                        'code': term_info.get("code"),
+                        'term': term_info.get("term"),
+                        'definition': "",
+                        'category': term_info.get("category")
+                    })
+                # 若无标准术语匹配，按抽取结果补充基础实体
+                def _add_basic(et: str, name: str):
+                    if name and name not in ("未知故障模式", "临床表现未明确", "健康影响未明确", "处置措施未明确"):
+                        report_data['entities'].append({
+                            'entity_type': et,
+                            'code': None,
+                            'term': name,
+                            'definition': "",
+                            'category': None
+                        })
+                _add_basic('FailureMode', structure_result.get('failure_mode'))
+                _add_basic('Injury', structure_result.get('health_impact'))
+                _add_basic('ClinicalManifestation', structure_result.get('clinical_manifestation'))
+                _add_basic('DeviceIssue', structure_result.get('device_issue'))
                 
                 # 存储结构化分析结果
-                db_sess.add(ReportEntity(
-                    report_id=report_out.report_id,
-                    entity_type="STRUCTURE_ANALYSIS",
-                    code="ANALYSIS",
-                    term="结构化分析结果",
-                    definition=str(structure_result),
-                    category="ANALYSIS"
-                ))
+                report_data['entities'].append({
+                    'entity_type': "STRUCTURE_ANALYSIS",
+                    'code': "ANALYSIS",
+                    'term': "结构化分析结果",
+                    'definition': str(structure_result),
+                    'category': "ANALYSIS"
+                })
                 
-                db_sess.commit()
+                # 保存结构化摘要，供Overview Graph消费
+                report_data['structured_data'] = {
+                    'device_issue': structure_result.get('device_issue'),
+                    'failure': structure_result.get('failure_mode'),
+                    'injury': structure_result.get('health_impact'),
+                    'clinical_manifestation': structure_result.get('clinical_manifestation')
+                }
+                db.add_report(report_out.report_id, report_data)
         except Exception as e:
             print(f"存储结构化实体失败：{e}")
         
-        # 构建图结构
-        structure = {
-            "entities": [],
-            "relations": []
-        }
-        
-        # 添加实体
-        for term_info in structure_result.get("matched_terms", []):
-            structure["entities"].append({
-                "type": term_info["field"].upper(),
-                "code": term_info["code"],
-                "term": term_info["term"]
-            })
-        
-        # 添加关系
-        failure_modes = [t for t in structure_result.get("matched_terms", []) if t["field"] == "failure_mode"]
-        injuries = [t for t in structure_result.get("matched_terms", []) if t["field"] == "health_impact"]
-        actions = [t for t in structure_result.get("matched_terms", []) if t["field"] == "treatment_action"]
-        
-        if failure_modes and injuries:
-            structure["relations"].append({
-                "type": "CAUSES",
-                "from": failure_modes[0]["term"],
-                "to": injuries[0]["term"]
-            })
-        
-        if injuries and actions:
-            structure["relations"].append({
-                "type": "ADDRESSED_BY",
-                "from": injuries[0]["term"],
-                "to": actions[0]["term"]
-            })
-        
+        structure = {"entities": [], "relations": []}
+        llm_entities = payload.get("llm_entities")
+        llm_relations = payload.get("llm_relations")
+        if isinstance(llm_entities, list) or isinstance(llm_relations, list):
+            structure["entities"] = llm_entities or []
+            structure["relations"] = llm_relations or []
+        else:
+            for term_info in structure_result.get("matched_terms", []):
+                structure["entities"].append({
+                    "type": term_info["field"].upper(),
+                    "code": term_info["code"],
+                    "term": term_info["term"]
+                })
+            failure_modes = [t for t in structure_result.get("matched_terms", []) if t["field"] == "failure_mode"]
+            injuries = [t for t in structure_result.get("matched_terms", []) if t["field"] == "health_impact"]
+            if failure_modes and injuries:
+                structure["relations"].append({
+                    "type": "CAUSES",
+                    "from": failure_modes[0]["term"],
+                    "to": injuries[0]["term"]
+                })
+            # 基础抽取兜底：即使未命中术语库也写入故障/伤害/设备问题
+            base_failure = structure_result.get("failure_mode")
+            base_injury = structure_result.get("health_impact")
+            base_issue = structure_result.get("device_issue")
+            if base_failure:
+                structure["entities"].append({
+                    "type": "FAILURE_MODE",
+                    "code": None,
+                    "term": base_failure
+                })
+            if base_injury:
+                structure["entities"].append({
+                    "type": "INJURY",
+                    "code": None,
+                    "term": base_injury
+                })
+            if base_issue:
+                structure["entities"].append({
+                    "type": "DEVICE_ISSUE",
+                    "code": None,
+                    "term": base_issue
+                })
+            if base_failure and base_injury:
+                structure["relations"].append({
+                    "type": "CAUSES",
+                    "from": base_failure,
+                    "to": base_injury
+                })
+
         # 写入图数据库
         graph.write_structure(report_out.report_id, structure)
         
@@ -618,7 +836,7 @@ def confirm_structured_report(payload: dict = Body(...)):
             "data": {
                 "report": report_out,
                 "structure": structure_result,
-                "entities_stored": len(structure_result.get("matched_terms", [])),
+                "entities_stored": len(structure.get("entities", [])),
                 "confidence": structure_result.get("analysis_confidence", 0)
             }
         }
@@ -776,15 +994,38 @@ def evaluate_terms(file_path: str = "IMDRF测试集.json", category: str = "E", 
 
 @app.post("/graph/import-terms")
 def graph_import_terms(payload: dict = Body(...)):
+    import logging
     from .config import terminology_dir
+    
+    logging.info(f"术语导入请求 - payload: {payload}")
+    
     base = terminology_dir()
     if not base:
+        logging.error("术语库目录未找到")
         raise HTTPException(status_code=404, detail="terminology dir not found")
+    
+    logging.info(f"术语库目录: {base}")
+    
     cats = payload.get("categories")
     include_syn = bool(payload.get("include_synonyms", True))
+    
+    logging.info(f"导入参数 - categories: {cats}, include_synonyms: {include_syn}")
+    
+    # 检查Neo4j连接
+    from .graph import _get_driver
+    driver = _get_driver()
+    if driver is None:
+        logging.error("Neo4j驱动为None，无法连接数据库")
+        raise HTTPException(status_code=503, detail="neo4j_unavailable")
+    
+    logging.info("Neo4j驱动正常，开始导入术语")
+    
     out = graph.import_standard_terms(base, categories=cats, include_synonyms=include_syn)
     if "error" in out:
+        logging.error(f"术语导入失败: {out}")
         raise HTTPException(status_code=503, detail="neo4j_unavailable")
+    
+    logging.info(f"术语导入成功: {out}")
     return out
 
 
@@ -799,15 +1040,62 @@ def graph_term_neighbors(code: str):
 @app.get("/graph/status")
 def graph_status():
     return graph.status()
+
+@app.get("/reports/review-pending")
+def review_pending():
+    from .db import get_db
+    items = get_db().list_pending()
+    return {"items": items}
+
+@app.post("/reports/review-confirm")
+def review_confirm(payload: dict = Body(...)):
+    rid = str(payload.get("report_id", ""))
+    use_llm = bool(payload.get("use_llm", False))
+    provider = str(payload.get("provider", "openai"))
+    from .db import get_db
+    item = get_db().pop_pending(rid)
+    if not item:
+        return {"success": False, "error": "not_found"}
+    base = item.get("base") or {}
+    sr = item.get("structure") or {}
+    p = ReportIn(**base)
+    out = _process_incoming(p)
+    if use_llm:
+        txt = str(p.event_description or "")
+        llm_out = llm_structure(provider=provider, text=txt, top_k=5)
+        ents = llm_out.get("entities", []) if isinstance(llm_out, dict) else []
+        rels = llm_out.get("relations", []) if isinstance(llm_out, dict) else []
+        graph.write_structure(out.report_id, {"entities": ents, "relations": rels})
+    else:
+        structure = {"entities": [], "relations": []}
+        for term_info in sr.get("matched_terms", []):
+            structure["entities"].append({"type": term_info["field"].upper(), "code": term_info["code"], "term": term_info["term"]})
+        fms = [t for t in sr.get("matched_terms", []) if t["field"] == "failure_mode"]
+        inj = [t for t in sr.get("matched_terms", []) if t["field"] == "health_impact"]
+        if fms and inj:
+            structure["relations"] = [{"type": "CAUSES", "from": fms[0]["term"], "to": inj[0]["term"]}]
+        if sr.get("failure_mode"):
+            structure["entities"].append({"type": "FAILURE_MODE", "code": None, "term": sr.get("failure_mode")})
+        if sr.get("health_impact"):
+            structure["entities"].append({"type": "INJURY", "code": None, "term": sr.get("health_impact")})
+        if sr.get("device_issue"):
+            structure["entities"].append({"type": "DEVICE_ISSUE", "code": None, "term": sr.get("device_issue")})
+        graph.write_structure(out.report_id, structure)
+    return {"success": True, "report_id": out.report_id}
 @app.post("/reports/upload-excel")
-async def upload_excel(file: UploadFile = File(...)):
-    content = await file.read()
-    wb = load_workbook(filename=BytesIO(content), read_only=True)
-    ws = wb.active
+async def upload_excel(file: UploadFile = File(...), auto_threshold: float = Query(0.6), review_threshold: float = Query(0.3), review_queue: bool = Query(True)):
+    try:
+        content = await file.read()
+        wb = load_workbook(filename=BytesIO(content), read_only=True)
+        ws = wb.active
+    except Exception as e:
+        return {"summary": {"received": 0, "duplicate": 0, "failed": 1}, "error": f"excel_read_error: {str(e)}"}
     headers_raw = [str(c.value).strip() if c.value is not None else "" for c in next(ws.iter_rows(min_row=1, max_row=1))]
+    def norm(s: str) -> str:
+        return str(s).strip()
     zh_map = {
-        "医院编号": "hospital_id",
-        "器械名称": "device_name",
+        "医院名称": "hospital_id",
+        "设备名称": "device_name",
         "制造商": "manufacturer",
         "型号": "model",
         "批次或序列号": "lot_sn",
@@ -816,9 +1104,10 @@ async def upload_excel(file: UploadFile = File(...)):
         "伤害严重度": "injury_severity",
         "处置措施": "action_taken",
     }
-    headers = [zh_map.get(h, h) for h in headers_raw]
-    results = {"received": 0, "duplicate": 0, "failed": 0}
+    headers = [zh_map.get(norm(h), h) for h in headers_raw]
+    results = {"received": 0, "duplicate": 0, "failed": 0, "pending": 0, "auto_confirmed": 0}
     ids: List[str] = []
+    pending_ids: List[str] = []
     for row in ws.iter_rows(min_row=2):
         data = {}
         for i, cell in enumerate(row):
@@ -826,17 +1115,75 @@ async def upload_excel(file: UploadFile = File(...)):
             if not key:
                 continue
             val = cell.value
+            # Handle Excel datetime conversion
+            if key == "event_datetime" and val is not None:
+                if isinstance(val, (int, float)):
+                    # Excel serial date number
+                    from datetime import datetime, timedelta
+                    val = datetime(1899, 12, 30) + timedelta(days=val)
+                elif isinstance(val, str):
+                    # String date - try to parse
+                    try:
+                        from datetime import datetime
+                        val = datetime.strptime(val, "%Y-%m-%d %H:%M:%S")
+                    except ValueError:
+                        try:
+                            val = datetime.strptime(val, "%Y-%m-%d")
+                        except ValueError:
+                            try:
+                                val = datetime.strptime(val, "%Y/%m/%d %H:%M:%S")
+                            except ValueError:
+                                try:
+                                    val = datetime.strptime(val, "%Y/%m/%d")
+                                except ValueError:
+                                    val = None  # Will be handled by default in ReportIn
             if key == "injury_severity" and isinstance(val, str):
-                val = val.strip().lower()
+                s = val.strip().lower()
+                cn_map = {
+                    "轻微": "mild",
+                    "轻度": "mild",
+                    "中度": "moderate",
+                    "中等": "moderate",
+                    "重度": "severe",
+                    "严重": "severe",
+                    "死亡": "death",
+                    "无伤害": "none",
+                    "无": "none"
+                }
+                val = cn_map.get(s, s)
+            if key == "event_description" and (val is None or isinstance(val, (int, float))):
+                val = str(val) if val is not None else ""
             data[key] = val
         try:
+            # Validate required fields
+            if not data.get("hospital_id") or not data.get("device_name") or not data.get("event_description"):
+                print(f"Missing required fields in row: {data}")
+                results["failed"] += 1
+                continue
+            
             payload = ReportIn(**data)
             out = _process_incoming(payload)
             results[out.status] += 1
             ids.append(out.report_id)
-        except Exception:
+            sr = analyze_report_structure(payload.dict())
+            score = float(sr.get("analysis_confidence", 0) or 0)
+            if score >= auto_threshold:
+                confirm_structured_report({**payload.dict(), "llm_entities": None, "llm_relations": None})
+                results["auto_confirmed"] += 1
+            else:
+                if review_queue:
+                    from .db import get_db
+                    suggest_llm = score < review_threshold
+                    get_db().add_pending(out.report_id, {"base": payload.dict(), "structure": sr, "score": score, "suggest_llm": suggest_llm})
+                    results["pending"] += 1
+                    pending_ids.append(out.report_id)
+        except Exception as e:
             results["failed"] += 1
-    return {"summary": results, "report_ids": ids}
+            print(f"Excel row failed: {str(e)}")
+            print(f"Problematic data: {data}")
+            import traceback
+            traceback.print_exc()
+    return {"summary": results, "report_ids": ids, "pending_ids": pending_ids}
 
 
 @app.get("/templates/reports.xlsx")
@@ -897,3 +1244,105 @@ def reports_template(lang: str = "zh"):
     wb.save(tmp.name)
     fname = "MDAE模板.xlsx" if lang == "zh" else "MDAE_template.xlsx"
     return FileResponse(path=tmp.name, filename=fname, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+@app.post("/admin/db/clear")
+def admin_db_clear():
+    from .db import get_db
+    db = get_db()
+    before = db.clear()
+    return {"ok": True, "cleared": before}
+
+@app.post("/reports/import-json")
+def import_json(payload: dict = Body(None), path: Optional[str] = Query(None), auto_threshold: float = Query(0.6), review_queue: bool = Query(False)):
+    from pathlib import Path
+    import json as _json
+    base_path = Path(path or Path(__file__).resolve().parents[2] / "医院器械事件数据.json")
+    if not base_path.exists():
+        return {"success": False, "error": f"file_not_found: {str(base_path)}"}
+    try:
+        with base_path.open("r", encoding="utf-8") as fp:
+            data_list = _json.load(fp)
+    except Exception as e:
+        return {"success": False, "error": f"json_read_error: {str(e)}"}
+    def norm(s: str) -> str:
+        return str(s).strip().lower().replace(" ","")
+    zh_map = {
+        "医院编号": "hospital_id",
+        "医院id": "hospital_id",
+        "医院名称": "hospital_id",
+        "医疗机构": "hospital_id",
+        "器械名称": "device_name",
+        "设备名称": "device_name",
+        "医疗器械名称": "device_name",
+        "制造商": "manufacturer",
+        "生产厂家": "manufacturer",
+        "型号": "model",
+        "批次或序列号": "lot_sn",
+        "序列号": "lot_sn",
+        "批次": "lot_sn",
+        "事件时间": "event_datetime",
+        "发现日期": "event_datetime",
+        "发现时间": "event_datetime",
+        "事件描述": "event_description",
+        "事件情况描述": "event_description",
+        "不良事件描述": "event_description",
+        "伤害严重度": "injury_severity",
+        "严重程度": "injury_severity",
+        "伤害程度": "injury_severity",
+        "处置措施": "action_taken",
+        "处置描述": "action_taken",
+        "应急处理": "action_taken",
+    }
+    results = {"received": 0, "duplicate": 0, "failed": 0, "pending": 0, "auto_confirmed": 0}
+    ids: List[str] = []
+    from datetime import datetime
+    for item in (data_list or []):
+        try:
+            row = {}
+            for k, v in item.items():
+                key = zh_map.get(k) or zh_map.get(norm(k)) or k
+                row[key] = v
+            dt = row.get("event_datetime")
+            if isinstance(dt, str):
+                for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%Y/%m/%d %H:%M:%S", "%Y/%m/%d"):
+                    try:
+                        row["event_datetime"] = datetime.strptime(dt, fmt)
+                        break
+                    except ValueError:
+                        continue
+            sev = row.get("injury_severity")
+            if isinstance(sev, str):
+                s = sev.strip().lower()
+                cn_map = {"轻微":"mild","轻度":"mild","中度":"moderate","中等":"moderate","重度":"severe","严重":"severe","死亡":"death","无伤害":"none","无":"none"}
+                row["injury_severity"] = cn_map.get(s, s)
+            if row.get("event_description") is None:
+                row["event_description"] = ""
+            payload_in = ReportIn(**row)
+            out = _process_incoming(payload_in)
+            results[out.status] += 1
+            ids.append(out.report_id)
+            sr = analyze_report_structure(payload_in.dict())
+            score = float(sr.get("analysis_confidence", 0) or 0)
+            if score >= auto_threshold:
+                confirm_structured_report({**payload_in.dict(), "llm_entities": None, "llm_relations": None})
+                results["auto_confirmed"] += 1
+            elif review_queue:
+                from .db import get_db
+                get_db().add_pending(out.report_id, {"base": payload_in.dict(), "structure": sr, "score": score})
+                results["pending"] += 1
+        except Exception as e:
+            results["failed"] += 1
+            import traceback; traceback.print_exc()
+    return {"success": True, "summary": results, "report_ids": ids}
+@app.post("/config/neo4j-mapping")
+def set_neo4j_mapping(payload: dict = Body(...)):
+    import os
+    v = bool(payload.get("map_standard_terms", False))
+    os.environ["NEO4J_MAP_STANDARD_TERMS"] = "true" if v else "false"
+    return {"ok": True, "map_standard_terms": v}
+
+@app.post("/admin/neo4j/clear")
+def admin_neo4j_clear():
+    out = graph.clear_all()
+    if "error" in out:
+        raise HTTPException(status_code=503, detail="neo4j_unavailable")
+    return out

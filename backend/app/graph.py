@@ -4,7 +4,6 @@ from neo4j import GraphDatabase
 import os
 from pathlib import Path
 import json
-from .terminology import search as term_search
 
 _driver = None
 
@@ -13,14 +12,27 @@ def _get_driver():
     global _driver
     if _driver is not None:
         return _driver
+    
+    # 首先尝试环境变量
     uri = os.getenv("NEO4J_URI")
     user = os.getenv("NEO4J_USER")
     password = os.getenv("NEO4J_PASS")
+    
+    # 如果环境变量不存在，使用默认配置
     if not uri or not user or not password:
-        return None
+        import logging
+        logging.info("使用默认Neo4j配置")
+        uri = "bolt://localhost:7687"
+        user = "neo4j"
+        password = "intellidevice123"
+    
     try:
         _driver = GraphDatabase.driver(uri, auth=(user, password))
-    except Exception:
+        import logging
+        logging.info(f"Neo4j驱动创建成功 - URI: {uri}")
+    except Exception as e:
+        import logging
+        logging.error(f"Neo4j驱动创建失败: {e}")
         _driver = None
     return _driver
 
@@ -43,20 +55,10 @@ def _tx_write_report(tx, out) -> None:
         r.status=$status,
         r.processed_at=$processed_at,
         r.lot_sn=$lot_sn
+    SET d.manufacturer=$manufacturer,
+        d.model=$model
     MERGE (r)-[:REPORTED_BY]->(h)
     MERGE (r)-[:RESULTS_IN]->(d)
-    FOREACH (_ IN CASE WHEN $manufacturer IS NULL THEN [] ELSE [1] END |
-        MERGE (m:Manufacturer {name:$manufacturer})
-        MERGE (d)-[:MANUFACTURED_BY]->(m)
-    )
-    FOREACH (_ IN CASE WHEN $model IS NULL THEN [] ELSE [1] END |
-        MERGE (md:Model {name:$model})
-        MERGE (d)-[:HAS_MODEL]->(md)
-    )
-    FOREACH (_ IN CASE WHEN $event_datetime IS NULL THEN [] ELSE [1] END |
-        MERGE (dt:EventDate {value:$event_datetime})
-        MERGE (r)-[:AT_TIME]->(dt)
-    )
     """
     tx.run(
         q,
@@ -77,10 +79,26 @@ def write_structure(report_id: str, structure: Dict) -> Dict[str, int]:
     drv = _get_driver()
     if drv is None:
         return {"error": 1}
+    # 允许两种输入：聚合字段或 entities/relations 列表
+    failure = structure.get("failure_mode")
+    injury = structure.get("injury") or structure.get("health_impact")
+    device_issue = structure.get("device_issue")
     ents = structure.get("entities") or []
     rels = structure.get("relations") or []
-    mapped = {}
     with drv.session() as session:
+        # 先处理聚合字段
+        if failure:
+            session.execute_write(_tx_upsert_entity, "FailureMode", failure, None)
+            session.execute_write(_tx_link_report_entity, report_id, "FailureMode", failure, None)
+        if injury:
+            session.execute_write(_tx_upsert_entity, "Injury", injury, None)
+            session.execute_write(_tx_link_report_entity, report_id, "Injury", injury, None)
+        if device_issue:
+            session.execute_write(_tx_upsert_entity, "DeviceIssue", device_issue, None)
+            session.execute_write(_tx_link_report_entity, report_id, "DeviceIssue", device_issue, None)
+        if failure and injury:
+            session.execute_write(_tx_merge_rel, "FailureMode", failure, "Injury", injury, "CAUSES")
+        # 再处理 entities 列表（兼容原接口）
         for e in ents:
             et = str(e.get("type", "")).lower()
             term = str(e.get("term", ""))
@@ -89,33 +107,15 @@ def write_structure(report_id: str, structure: Dict) -> Dict[str, int]:
             if not label or not term:
                 continue
             session.execute_write(_tx_upsert_entity, label, term, code)
-            session.execute_write(_tx_link_report_entity, report_id, label, term)
-            # 映射到标准术语
-            cats = _map_categories(label)
-            if cats:
-                res = term_search(term, cats, top_k=1, threshold=0.4)
-                cand = None
-                for c in cats:
-                    if res.get(c):
-                        cand = res[c][0]
-                        break
-                if cand:
-                    t, s = cand
-                    session.execute_write(_tx_upsert_standard_term, t.code, t.term, t.definition, t.hierarchy, t.category)
-                    session.execute_write(_tx_link_entity_standard, label, term, t.code)
-            mapped.setdefault(label, set()).add(term)
+            session.execute_write(_tx_link_report_entity, report_id, label, term, None)
         for r in rels:
             rt = str(r.get("type", "")).upper()
             fr = str(r.get("from", ""))
             to = str(r.get("to", ""))
             if rt == "CAUSES":
                 session.execute_write(_tx_merge_rel, "FailureMode", fr, "Injury", to, "CAUSES")
-            elif rt == "MITIGATES":
-                session.execute_write(_tx_merge_rel, "Action", fr, "FailureMode", to, "MITIGATES")
-            elif rt == "ASSOCIATED_WITH":
-                # 默认设备-故障关联
-                session.execute_write(_tx_merge_rel, "Device", fr, "FailureMode", to, "ASSOCIATED_WITH")
-    return {"entities": sum(len(v) for v in mapped.values()), "relations": len(rels)}
+            # 仅保留 CAUSES 关系
+    return {"entities": 1, "relations": 1}
 
 
 def _entity_label(et: str) -> Optional[str]:
@@ -127,6 +127,8 @@ def _entity_label(et: str) -> Optional[str]:
         return "Action"
     if et in ("器械名称", "device"):
         return "Device"
+    if et in ("device_issue", "deviceissue"):
+        return "DeviceIssue"
     return None
 
 
@@ -147,13 +149,32 @@ def _tx_upsert_entity(tx, label: str, term: str, code: Optional[str]):
     tx.run(q, term=term, code=code)
 
 
-def _tx_link_report_entity(tx, report_id: str, label: str, term: str):
-    q = f"""
-    MERGE (r:Report {{id:$rid}})
-    MATCH (n:{label} {{name:$term}})
-    MERGE (r)-[:HAS_{label.upper()}]->(n)
-    """
-    tx.run(q, rid=report_id, term=term)
+def _tx_link_report_entity(tx, report_id: str, label: str, term: str, severity: Optional[str] = None):
+    if label == "Injury":
+        q = """
+        MATCH (r:Report {id:$rid})
+        WITH r
+        MATCH (n:Injury {name:$term})
+        MERGE (r)-[:HAS_INJURY]->(n)
+        SET n.severity = r.injury_severity
+        """
+        tx.run(q, rid=report_id, term=term)
+    elif label == "DeviceIssue":
+        q = """
+        MATCH (r:Report {id:$rid})-[:RESULTS_IN]->(d:Device)
+        MATCH (n:DeviceIssue {name:$term})
+        MERGE (d)-[:HAS_FAULT]->(n)
+        MERGE (r)-[:HAS_DEVICEISSUE]->(n)
+        """
+        tx.run(q, rid=report_id, term=term)
+    else:
+        q = f"""
+        MERGE (r:Report {{id:$rid}})
+        WITH r
+        MATCH (n:{label} {{name:$term}})
+        MERGE (r)-[:HAS_{label.upper()}]->(n)
+        """
+        tx.run(q, rid=report_id, term=term)
 
 
 def _tx_merge_rel(tx, l1: str, n1: str, l2: str, n2: str, rel: str):
@@ -298,13 +319,11 @@ def _tx_case_graph(tx, rid: str):
     OPTIONAL MATCH (r)-[:HAS_FAILUREMODE]->(fm:FailureMode)
     OPTIONAL MATCH (r)-[:HAS_INJURY]->(inj:Injury)
     OPTIONAL MATCH (r)-[:HAS_ACTION]->(act:Action)
+    OPTIONAL MATCH (d)-[:HAS_FAULT]->(di:DeviceIssue)
     OPTIONAL MATCH (fm)-[:CAUSES]->(inj)
     OPTIONAL MATCH (fm)-[:MAPS_TO]->(stFM:StandardTerm)
     OPTIONAL MATCH (inj)-[:MAPS_TO]->(stINJ:StandardTerm)
-    OPTIONAL MATCH (d)-[:MANUFACTURED_BY]->(man:Manufacturer)
-    OPTIONAL MATCH (d)-[:HAS_MODEL]->(md:Model)
-    OPTIONAL MATCH (r)-[:AT_TIME]->(dt:EventDate)
-    RETURN r,h,d,man,md,dt,fm,inj,act,stFM,stINJ
+    RETURN r,h,d,fm,inj,act,di,stFM,stINJ
     """
     res = tx.run(q, rid=rid).single()
     nodes = []
@@ -318,17 +337,15 @@ def _tx_case_graph(tx, rid: str):
         edges.append({"source": r["id"], "target": res["h"]["id"], "label": "REPORTED_BY"})
     if res["d"]:
         name = res["d"]["name"]
-        nodes.append({"id": name, "label": "Device", "name": name})
+        dev_node = {"id": name, "label": "Device", "name": name}
+        dev_node["manufacturer"] = res["d"].get("manufacturer")
+        dev_node["model"] = res["d"].get("model")
+        nodes.append(dev_node)
         edges.append({"source": r["id"], "target": name, "label": "RESULTS_IN"})
-    if res["man"]:
-        nodes.append({"id": res["man"]["name"], "label": "Manufacturer", "name": res["man"]["name"]})
-        edges.append({"source": res["d"]["name"], "target": res["man"]["name"], "label": "MANUFACTURED_BY"})
-    if res["md"]:
-        nodes.append({"id": res["md"]["name"], "label": "Model", "name": res["md"]["name"]})
-        edges.append({"source": res["d"]["name"], "target": res["md"]["name"], "label": "HAS_MODEL"})
-    if res["dt"]:
-        nodes.append({"id": res["dt"]["value"], "label": "EventDate", "name": res["dt"]["value"]})
-        edges.append({"source": r["id"], "target": res["dt"]["value"], "label": "AT_TIME"})
+    # manufacturer/model 已作为 Device 节点属性保存，不再创建独立节点
+    # 附加报告属性
+    nodes[0]["event_datetime"] = r.get("event_datetime")
+    nodes[0]["injury_severity"] = r.get("injury_severity")
     if res["fm"]:
         nodes.append({"id": res["fm"]["name"], "label": "FailureMode", "name": res["fm"]["name"]})
         edges.append({"source": r["id"], "target": res["fm"]["name"], "label": "HAS_FAILUREMODE"})
@@ -340,6 +357,9 @@ def _tx_case_graph(tx, rid: str):
         edges.append({"source": r["id"], "target": res["act"]["name"], "label": "HAS_ACTION"})
     if res["fm"] and res["inj"]:
         edges.append({"source": res["fm"]["name"], "target": res["inj"]["name"], "label": "CAUSES"})
+    if res.get("di"):
+        nodes.append({"id": res["di"]["name"], "label": "DeviceIssue", "name": res["di"]["name"]})
+        edges.append({"source": res["d"]["name"], "target": res["di"]["name"], "label": "HAS_FAULT"})
     if res["stFM"]:
         code = res["stFM"]["code"]
         termName = res["stFM"].get("termName", "")
@@ -381,3 +401,17 @@ def status() -> Dict[str, str]:
         return {"ok": "true"}
     except Exception as e:
         return {"ok": "false", "reason": str(e)}
+
+
+def clear_all() -> Dict[str, int]:
+    drv = _get_driver()
+    if drv is None:
+        return {"error": 1}
+    with drv.session() as session:
+        return session.execute_write(_tx_clear_all)
+
+
+def _tx_clear_all(tx):
+    c = tx.run("MATCH (n) RETURN count(n) AS c").single()["c"]
+    tx.run("MATCH (n) DETACH DELETE n")
+    return {"deleted": c}

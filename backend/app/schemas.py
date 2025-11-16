@@ -13,7 +13,7 @@ class ReportIn(BaseModel):
     manufacturer: Optional[str] = None
     model: Optional[str] = None
     lot_sn: Optional[str] = None
-    event_datetime: datetime
+    event_datetime: Optional[datetime] = None
     event_description: str = Field(..., min_length=1)
     injury_severity: InjurySeverity = "none"
     action_taken: Optional[str] = None

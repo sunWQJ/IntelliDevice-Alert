@@ -3,8 +3,11 @@
 """
 import re
 from typing import Dict, List, Any, Optional
+import json
+from pathlib import Path
 from ..terminology import search as term_search
 from ..services.severity import classify_with_evidence
+from ..config import terminology_dir
 
 
 class StructureAnalyzer:
@@ -36,6 +39,9 @@ class StructureAnalyzer:
             'medical_intervention': ['治疗', '用药', '手术', '抢救', '急救'],
             'transfer': ['转科', '转院', 'ICU', '重症监护', '急诊']
         }
+        # 设备问题→故障模式映射缓存
+        self._issue_fm_map: Optional[Dict[str, List[Dict[str, Any]]]] = None
+        self._mapping_enabled = True
     
     def analyze_report(self, report_data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -54,7 +60,7 @@ class StructureAnalyzer:
         # 提取设备问题
         device_issue = self._extract_device_issue(event_desc, device_name)
         
-        # 提取故障模式
+        # 提取故障模式（初判）
         failure_mode = self._extract_failure_mode(event_desc)
         
         # 提取临床表现
@@ -66,6 +72,9 @@ class StructureAnalyzer:
         # 提取处置措施
         treatment_action = self._extract_treatment_action(action_taken)
         
+        # 若设备问题高置信且故障为未知，尝试基于映射推导故障模式
+        failure_mode = self._derive_failure_mode_if_needed(device_issue, failure_mode, event_desc)
+
         # 匹配标准术语
         matched_terms = self._match_standard_terms({
             'device_issue': device_issue,
@@ -140,6 +149,53 @@ class StructureAnalyzer:
             return "测量精度故障"
         else:
             return "未知故障模式"
+
+    def _load_issue_fm_mapping(self) -> Dict[str, List[Dict[str, Any]]]:
+        if self._issue_fm_map is not None:
+            return self._issue_fm_map
+        self._issue_fm_map = {}
+        try:
+            base = terminology_dir()
+            if base:
+                p = Path(base) / "mappings" / "device_issue_to_failure_mode.json"
+                if p.exists():
+                    with p.open("r", encoding="utf-8") as fp:
+                        self._issue_fm_map = json.load(fp) or {}
+        except Exception:
+            self._issue_fm_map = {}
+        return self._issue_fm_map
+
+    def _derive_failure_mode_if_needed(self, device_issue: str, failure_mode: str, text: str) -> str:
+        """当故障模式为未知时，基于设备问题映射推导故障模式"""
+        if not self._mapping_enabled:
+            return failure_mode
+        if not device_issue or device_issue.endswith("功能异常"):
+            return failure_mode
+        if failure_mode and failure_mode != "未知故障模式":
+            return failure_mode
+        mapping = self._load_issue_fm_mapping()
+        if not mapping:
+            return failure_mode
+        # 设备问题可能是“关键词1、关键词2”形式，逐个尝试映射
+        candidates = []
+        for token in re.split(r"[、，,\s]+", device_issue.strip()):
+            if not token:
+                continue
+            items = mapping.get(token) or []
+            for it in items:
+                term = it.get("term")
+                if term:
+                    candidates.append(term)
+        # 若有候选，结合术语库A类做二次匹配以确认
+        for cand in candidates:
+            res = term_search(cand, ["A"], top_k=1, threshold=0.2).get("A", [])
+            if res:
+                t, sc = res[0]
+                return t.term or cand
+        # 无法命中术语库时，直接返回第一个候选作为推导
+        if candidates:
+            return candidates[0]
+        return failure_mode
     
     def _extract_clinical_manifestation(self, text: str) -> str:
         """提取临床表现"""
@@ -200,39 +256,24 @@ class StructureAnalyzer:
         return severity_map.get(lvl, '健康影响未明确')
     
     def _extract_treatment_action(self, text: str) -> str:
-        """提取处置措施"""
-        # 使用术语匹配来识别处置措施
-        res = term_search(text, ["C", "D"], top_k=3, threshold=0.2)
+        """提取处置措施 - 仅提取文本，不匹配标准术语库"""
+        if not text or text.strip() == "":
+            return "处置措施未明确"
         
-        actions = []
-        for category, matches in res.items():
-            for term, score in matches:
-                actions.append({
-                    'term': term.term,
-                    'code': term.code,
-                    'score': score,
-                    'category': category
-                })
-        
-        # 返回最佳匹配的处置措施
-        if actions:
-            best_match = max(actions, key=lambda x: x['score'])
-            return best_match['term']
-        
-        # 基于关键词推断
-        for action_type, keywords in self.action_patterns.items():
-            for keyword in keywords:
-                if keyword in text:
-                    return keyword
-        
-        return "处置措施未明确"
+        # 直接返回原始文本，不进行术语匹配
+        # 这样可以保留完整的处置措施描述
+        return text.strip()
     
     def _match_standard_terms(self, extracted_data: Dict[str, str]) -> List[Dict[str, Any]]:
-        """匹配标准术语"""
+        """匹配标准术语 - 处置措施不进行术语匹配"""
         matched_terms = []
         
-        # 为每个提取的字段匹配标准术语
+        # 为每个提取的字段匹配标准术语（处置措施除外）
         for field, text in extracted_data.items():
+            if field == 'treatment_action':
+                # 处置措施不进行标准术语匹配，直接跳过
+                continue
+                
             if text and text not in ["未知故障模式", "临床表现未明确", "健康影响未明确", "处置措施未明确", "功能异常"]:
                 # 根据字段类型选择适当的术语类别
                 if field == 'failure_mode':
@@ -241,10 +282,8 @@ class StructureAnalyzer:
                     categories = ["E"]
                 elif field == 'health_impact':
                     categories = ["F"]
-                elif field == 'treatment_action':
-                    categories = ["C", "D"]
                 else:
-                    categories = ["A", "E", "F", "C", "D"]
+                    categories = ["A", "E", "F"]
                 
                 res = term_search(text, categories, top_k=1, threshold=0.2)
                 
@@ -262,13 +301,18 @@ class StructureAnalyzer:
         return matched_terms
     
     def _calculate_confidence(self, extracted_data: Dict[str, str], matched_terms: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """计算分析置信度"""
+        """计算分析置信度 - 处置措施不参与术语匹配置信度计算"""
         confidence_breakdown = {}
-        total_fields = len(extracted_data)
+        total_fields = len(extracted_data) - 1  # 排除处置措施字段
         confident_fields = 0
         
-        # 评估每个字段的置信度
+        # 评估每个字段的置信度（处置措施除外）
         for field, value in extracted_data.items():
+            if field == 'treatment_action':
+                # 处置措施只提取文本，不参与置信度计算
+                confidence_breakdown[field] = 1.0  # 处置措施置信度为100%，因为直接提取原文
+                continue
+                
             if value in ["未知故障模式", "临床表现未明确", "健康影响未明确", "处置措施未明确", "功能异常"]:
                 confidence_breakdown[field] = 0.2  # 低置信度
             elif any(term['field'] == field for term in matched_terms):
@@ -281,7 +325,7 @@ class StructureAnalyzer:
                 confidence_breakdown[field] = 0.5  # 中等置信度
                 confident_fields += 0.5
         
-        # 计算整体置信度
+        # 计算整体置信度（不含处置措施）
         overall_confidence = confident_fields / total_fields if total_fields > 0 else 0
         
         return {

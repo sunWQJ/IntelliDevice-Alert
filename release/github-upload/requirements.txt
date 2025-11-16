@@ -1,0 +1,7 @@
+fastapi==0.115.0
+uvicorn==0.30.1
+neo4j==5.24.0
+openpyxl==3.1.5
+jieba==0.42.1
+python-dotenv==1.0.1
+requests==2.32.3
