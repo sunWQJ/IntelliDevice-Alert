@@ -10,7 +10,7 @@ SEVERE = {
 }
 
 MODERATE = {
-    "中度", "住院", "手术", "严重不适", "加护", "监护", "输血", "明显疼痛"
+    "中度", "住院", "手术", "严重不适", "加护", "监护", "输血", "明显疼痛", "ICU", "重症监护", "重症监护室"
 }
 
 MILD = {
@@ -42,7 +42,7 @@ def classify(text: str) -> str:
     risk_severe = {"危", "衰竭", "休克", "窒息"}
     if any(k in t for k in risk_severe):
         return "severe"
-    risk_moderate = {"监护", "手术", "住院", "加护"}
+    risk_moderate = {"监护", "手术", "住院", "加护", "ICU", "重症监护", "重症监护室"}
     if any(k in t for k in risk_moderate):
         return "moderate"
     return "none"
@@ -71,7 +71,7 @@ def classify_with_evidence(text: str):
         for kw in risk_severe:
             if kw in t:
                 evidence.append({"keyword": kw, "level": "severe"})
-        risk_moderate = {"监护", "手术", "住院", "加护"}
+        risk_moderate = {"监护", "手术", "住院", "加护", "ICU", "重症监护", "重症监护室"}
         for kw in risk_moderate:
             if kw in t:
                 evidence.append({"keyword": kw, "level": "moderate"})

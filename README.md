@@ -40,7 +40,7 @@ cp .env.example .env
 docker-compose up -d
 ```
 
-访问: http://localhost:8000/ui
+访问: http://localhost:8000/ui/index.html
 
 ## 📋 功能演示
 
