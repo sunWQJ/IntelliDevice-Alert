@@ -3,12 +3,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi import Body, Query, UploadFile, File
 from uuid import uuid4
 from .schemas import ReportIn, ReportOut, ReportStored
+from .config import load_env, persist_llm_config
 from .services.deidentify import remove_pii
 from .services.cleaning import fingerprint
 from .services.severity import classify as classify_severity, classify_with_evidence
 from .storage import upsert_report, by_id, find_by_fingerprint, now
 from . import audit
-from .terminology import load as load_terms, search as term_search, available_categories
+from .terminology import load as load_terms, search as term_search, available_categories, update_tag_hints, update_term_tags
 from typing import List, Optional
 from openpyxl import load_workbook
 from openpyxl import Workbook
@@ -21,6 +22,7 @@ from .services.risk_analysis import analyze_risks_in_graph
 from .services.structure_analyzer import analyze_report_structure
 
 
+load_env()
 app = FastAPI(title="IntelliDevice-Alert API", version="0.1.0")
 init_db()
 load_terms()
@@ -286,7 +288,7 @@ def standardized_for_report(report_id: str, categories: Optional[List[str]] = No
 
 @app.post("/llm/standardize")
 def llm_standardize_endpoint(payload: dict = Body(...)):
-    provider = str(payload.get("provider", "openai"))
+    provider = str(payload.get("provider", "siliconflow"))
     text = str(payload.get("text", ""))
     categories = payload.get("categories")
     top_k = int(payload.get("top_k", 5))
@@ -300,12 +302,14 @@ def llm_standardize_endpoint(payload: dict = Body(...)):
 
 @app.post("/llm/structure")
 def llm_structure_endpoint(payload: dict = Body(...)):
-    provider = str(payload.get("provider", "openai"))
+    provider = str(payload.get("provider", "siliconflow"))
     text = str(payload.get("text", ""))
     top_k = int(payload.get("top_k", 5))
+    echo_prompt = bool(payload.get("echo_prompt", False))
+    categories = payload.get("categories")
     if not text:
         raise HTTPException(status_code=400, detail="text required")
-    data = llm_structure(provider, text, top_k)
+    data = llm_structure(provider, text, top_k, echo_prompt=echo_prompt, categories=categories)
     if "error" in data:
         raise HTTPException(status_code=503, detail=data["error"])
     return data
@@ -313,7 +317,7 @@ def llm_structure_endpoint(payload: dict = Body(...)):
 
 @app.post("/llm/structure/store")
 def llm_structure_store(payload: dict = Body(...)):
-    provider = str(payload.get("provider", "openai"))
+    provider = str(payload.get("provider", "siliconflow"))
     text = str(payload.get("text", ""))
     report_id = str(payload.get("report_id", ""))
     top_k = int(payload.get("top_k", 5))
@@ -339,13 +343,22 @@ def set_llm_config(payload: dict = Body(...)):
             os.environ["OPENAI_API_KEY"] = api_key
         if model:
             os.environ["OPENAI_MODEL"] = model
+        persist_llm_config(provider, api_key, model)
         return {"ok": True, "provider": "openai"}
     elif provider == "gemini":
         if api_key:
             os.environ["GEMINI_API_KEY"] = api_key
         if model:
             os.environ["GEMINI_MODEL"] = model
+        persist_llm_config(provider, api_key, model)
         return {"ok": True, "provider": "gemini"}
+    elif provider == "siliconflow":
+        if api_key:
+            os.environ["SILICONFLOW_API_KEY"] = api_key
+        if model:
+            os.environ["SILICONFLOW_MODEL"] = model
+        persist_llm_config(provider, api_key, model)
+        return {"ok": True, "provider": "siliconflow"}
     else:
         raise HTTPException(status_code=400, detail="unsupported provider")
 
@@ -852,7 +865,7 @@ def confirm_structured_report(payload: dict = Body(...)):
 def restructure_with_llm(payload: dict = Body(...)):
     """使用LLM重新构建和优化报告内容"""
     try:
-        provider = payload.get("provider", "openai")
+        provider = payload.get("provider", "siliconflow")
         
         # 构建提示词
         prompt = f"""
@@ -939,6 +952,54 @@ def graph_risk_analysis(payload: dict = Body(...)):
                 "risk_details": []
             }
         }
+
+
+@app.post("/tags/update-hints")
+def tags_update_hints(payload: dict = Body(...)):
+    trigger = str(payload.get("trigger", "")).strip()
+    tags = payload.get("tags") or []
+    if not trigger or not isinstance(tags, list) or not tags:
+        raise HTTPException(status_code=400, detail="trigger and tags required")
+    update_tag_hints(trigger, [str(t).strip() for t in tags])
+    return {"ok": True, "trigger": trigger, "tags": tags}
+
+
+@app.post("/tags/update-term")
+def tags_update_term(payload: dict = Body(...)):
+    category = str(payload.get("category", "")).strip()
+    term = str(payload.get("term", "")).strip()
+    tags = payload.get("tags") or []
+    if not category or not term or not isinstance(tags, list) or not tags:
+        raise HTTPException(status_code=400, detail="category, term and tags required")
+    update_term_tags(category, term, [str(t).strip() for t in tags])
+    return {"ok": True, "category": category, "term": term, "tags": tags}
+
+
+@app.post("/feedback/llm-improve")
+def feedback_llm_improve(payload: dict = Body(...)):
+    text = str(payload.get("text", "")).strip()
+    entities = payload.get("entities") or []
+    if not text or not isinstance(entities, list):
+        raise HTTPException(status_code=400, detail="text and entities required")
+    # 提取触发词：根据实体的类别/术语，为输入文本生成方向标签
+    hints_added = []
+    for e in entities:
+        cat = str(e.get("category", "")).strip() or str(e.get("field", "")).strip()
+        tm = str(e.get("term", "")).strip()
+        if not tm:
+            continue
+        # 简单策略：把术语词根作为触发词，绑定术语方向标签
+        trig = tm
+        tags = ["压力"] if ("压" in tm and cat == "A") else []
+        tags += ["通气"] if ("通气" in tm and cat == "A") else []
+        tags += ["氧合"] if ("氧" in tm and cat == "A") else []
+        tags += ["呼吸"] if ("肺" in tm or "呼吸" in tm) else []
+        tags = list(dict.fromkeys(tags))
+        if tags:
+            update_tag_hints(trig, tags)
+            update_term_tags(cat or "", tm, tags)
+            hints_added.append({"trigger": trig, "tags": tags})
+    return {"ok": True, "hints": hints_added}
 
 
 @app.get("/evaluate/terms")
@@ -1252,7 +1313,7 @@ def admin_db_clear():
     return {"ok": True, "cleared": before}
 
 @app.post("/reports/import-json")
-def import_json(payload: dict = Body(None), path: Optional[str] = Query(None), auto_threshold: float = Query(0.6), review_queue: bool = Query(False)):
+def import_json(payload: dict = Body(None), path: Optional[str] = Query(None), auto_threshold: float = Query(0.6), review_queue: bool = Query(False), ignore_severity: bool = Query(False)):
     from pathlib import Path
     import json as _json
     base_path = Path(path or Path(__file__).resolve().parents[2] / "医院器械事件数据.json")
@@ -1310,7 +1371,9 @@ def import_json(payload: dict = Body(None), path: Optional[str] = Query(None), a
                     except ValueError:
                         continue
             sev = row.get("injury_severity")
-            if isinstance(sev, str):
+            if ignore_severity:
+                row["injury_severity"] = "none"
+            elif isinstance(sev, str):
                 s = sev.strip().lower()
                 cn_map = {"轻微":"mild","轻度":"mild","中度":"moderate","中等":"moderate","重度":"severe","严重":"severe","死亡":"death","无伤害":"none","无":"none"}
                 row["injury_severity"] = cn_map.get(s, s)
@@ -1329,7 +1392,7 @@ def import_json(payload: dict = Body(None), path: Optional[str] = Query(None), a
                 from .db import get_db
                 get_db().add_pending(out.report_id, {"base": payload_in.dict(), "structure": sr, "score": score})
                 results["pending"] += 1
-        except Exception as e:
+        except Exception:
             results["failed"] += 1
             import traceback; traceback.print_exc()
     return {"success": True, "summary": results, "report_ids": ids}
